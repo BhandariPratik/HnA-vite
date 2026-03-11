@@ -6,7 +6,8 @@ const Hero = () => {
             className="h-screen flex items-center justify-center text-center bg-cover bg-center"
             style={{
                 backgroundImage:
-                    "url(https://images.unsplash.com/photo-1502672260266-1c1ef2d93688)",
+                    "url(https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80)",
+                    
             }}
         >
 

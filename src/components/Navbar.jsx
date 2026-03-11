@@ -18,12 +18,12 @@ const Navbar = () => {
                 {/* Desktop Menu */}
                 <nav className="hidden md:flex items-center gap-8 text-lg font-bold text-white">
 
-                    <a href="#projects" className="hover:text-gray-300 transition">
-                        Projects
-                    </a>
-
                     <a href="#process" className="hover:text-gray-300 transition">
                         Process
+                    </a>
+
+                    <a href="#projects" className="hover:text-gray-300 transition">
+                        Projects
                     </a>
 
                     <a href="#team" className="hover:text-gray-300 transition">
@@ -53,12 +53,11 @@ const Navbar = () => {
             {open && (
 
                 <div className="md:hidden bg-black/95 backdrop-blur-md flex flex-col gap-6 px-6 py-6 text-white text-sm">
-                    <a href="#projects">Projects</a>
                     <a href="#process">Process</a>
+                     <a href="#projects">Projects</a>
                     <a href="#team">Team</a>
                     <a href="#about">Practice</a>
                     <a href="#contact">Contact</a>
-
                 </div>
 
             )}
