@@ -1,41 +1,58 @@
-const projects = [
-    { img: "https://images.unsplash.com/photo-1494526585095-c41746248156" },
-    { img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688" },
-    { img: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353" },
-    { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750" },
-];
+import { projects } from "../projectdata";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
 
-    return (
+  return (
 
-        <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="projects" className="py-28 px-6 bg-black text-white">
 
-            <h2 className="text-4xl text-center mb-16">
-                Our Projects
-            </h2>
+      <div className="max-w-7xl mx-auto">
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="text-4xl md:text-5xl text-center mb-16 font-semibold">
+          Our Projects
+        </h2>
 
-                {projects.map((p, i) => (
-                    <div
-                        key={i}
-                        className="overflow-hidden rounded-lg group"
-                    >
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-                        <img
-                            src={p.img}
-                            className="h-72 w-full object-cover group-hover:scale-110 transition duration-500"
-                        />
+          {projects.map((p) => (
 
-                    </div>
-                ))}
+            <Link
+              to={`/project/${p.id}`}
+              key={p.id}
+              className="group relative overflow-hidden rounded-xl"
+            >
 
-            </div>
+              <img
+                src={p.img}
+                className="h-72 w-full object-cover group-hover:scale-110 transition duration-700"
+              />
 
-        </section>
+              {/* Overlay */}
 
-    );
+              <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition">
+
+                <h3 className="text-lg font-semibold">
+                  {p.name}
+                </h3>
+
+                <p className="text-sm text-gray-300">
+                  {p.location}
+                </p>
+
+              </div>
+
+            </Link>
+
+          ))}
+
+        </div>
+
+      </div>
+
+    </section>
+
+  );
 };
 
 export default Projects;

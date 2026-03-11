@@ -6,31 +6,28 @@ const Hero = () => {
             className="h-screen flex items-center justify-center text-center bg-cover bg-center"
             style={{
                 backgroundImage:
-                    "url(https://images.unsplash.com/photo-1487958449943-2429e8be8625)",
+                    "url(https://images.unsplash.com/photo-1502672260266-1c1ef2d93688)",
             }}
         >
 
             <div className="bg-black/60 p-10 rounded-xl">
 
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-
-                    Designing Spaces
-                    That Define The Future
-
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white">
+                    Crafting Timeless Spaces with Vision & Precision
                 </h1>
 
-                <p className="text-gray-300 max-w-xl mx-auto mb-6">
+                {/* <p className="text-gray-300 max-w-xl mx-auto mb-6">
 
                     Modern architecture studio creating innovative spaces,
                     luxury homes, and iconic buildings.
 
-                </p>
+                </p> */}
 
-                <button className="bg-white text-black px-6 py-3 rounded hover:scale-105 transition">
+                {/* <button className="bg-white text-black px-6 py-3 rounded hover:scale-105 transition">
 
                     View Projects
 
-                </button>
+                </button> */}
 
             </div>
 

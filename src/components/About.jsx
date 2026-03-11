@@ -17,20 +17,10 @@ const About = () => {
                         About H&A Studio
                     </h2>
 
-                    <p className="text-gray-400 leading-relaxed mb-6">
-
-                        H&A Studio is a forward-thinking architecture firm
-                        focused on modern design, sustainability,
-                        and functional spaces that inspire people.
-
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        HASMiT & ARCHiTECTS is a forward thinking multidisciplinary architectural firm based in Umbergaon, Gujarat, operating remotely with a globally connected team across borders. Specializing in architecture, interior design, and landscape design, we deliver innovative, sustainable solutions that seamlessly blend form and function, tailored to our clients' unique visions.
                     </p>
 
-                    <p className="text-gray-400">
-
-                        Our team combines creativity with technical expertise
-                        to create timeless architecture.
-
-                    </p>
 
                 </div>
 
