@@ -10,12 +10,12 @@ const Navbar = () => {
         <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
 
             <div className="w-full flex justify-between items-center px-3 md:px-10 py-4">
-                
+
 
                 {/* Logo */}<Link to={"/"}>
-                <h1 className="text-lg md:text-2xl font-semibold tracking-[3px] text-white">
-                    H&A STUDIO
-                </h1>
+                    <h1 className="text-lg md:text-2xl font-semibold tracking-[3px] text-white">
+                        H&A STUDIO
+                    </h1>
                 </Link>
 
                 {/* Desktop Menu */}
@@ -63,7 +63,9 @@ const Navbar = () => {
                     <a href="#projects">Projects</a>
                     <a href="#team">Team</a>
                     <a href="#about">Practice</a>
-                    <a href="#contact">Contact</a>
+                    <Link to="/contact" className="hover:text-gray-300 transition">
+                        Let's Build
+                    </Link>
                 </div>
 
             )}

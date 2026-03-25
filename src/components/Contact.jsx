@@ -1,4 +1,5 @@
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
 
@@ -42,55 +43,20 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
+          <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left gap-4 p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm w-full">
 
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8">
+            <p className="text-gray-300 text-sm sm:text-base max-w-sm">
+              Have a project in mind? Let’s discuss your requirements and bring your vision to life.
+            </p>
 
-            {/* Contact Details */}
-
-            <div className="mb-6 space-y-3">
-
-              <p className="flex items-center gap-3 text-gray-300">
-                <FaPhoneAlt className="text-white" />
-                7567363999
-              </p>
-
-              <p className="flex items-center gap-3 text-gray-300">
-                <FaEnvelope className="text-white" />
-                hasmitandarchitects@gmail.com
-              </p>
-
-            </div>
-
-            {/* Form */}
-
-            <form className="flex flex-col gap-5">
-
-              <input
-                placeholder="Your Name"
-                className="p-3 bg-black border border-gray-700 rounded-md focus:outline-none focus:border-white"
-              />
-
-              <input
-                placeholder="Email Address"
-                className="p-3 bg-black border border-gray-700 rounded-md focus:outline-none focus:border-white"
-              />
-
-              <textarea
-                placeholder="Tell us about your project"
-                rows="4"
-                className="p-3 bg-black border border-gray-700 rounded-md focus:outline-none focus:border-white"
-              />
-
-              <button
-                className="bg-white text-black py-3 rounded-md hover:scale-105 transition font-medium"
-              >
-                Send Message
-              </button>
-
-            </form>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto text-center px-6 py-3 rounded-full bg-amber-500 text-white font-medium text-sm sm:text-base shadow-md transition-all duration-200 hover:bg-amber-600 active:scale-95"
+            >
+              Fill Inquiry Form
+            </Link>
 
           </div>
-
         </div>
 
       </div>

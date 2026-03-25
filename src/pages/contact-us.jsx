@@ -1,258 +1,3 @@
-// import { useState } from "react";
-// const apiUrl = import.meta.env.VITE_API_URL;
-
-// export default function ContactPage() {
-//     const [form, setForm] = useState({
-//         clientName: "",
-//         companyName: "",
-//         contactNumber: "",
-//         email: "",
-//         scope: [],
-//         scopeOther: "",
-//         projectType: [],
-//         projectTypeOther: "",
-//         service: "",
-//         description: "",
-//         budget: "",
-//         timeline: "",
-//         location: "",
-//         billingAddress: "",
-//     });
-
-//     const [errors, setErrors] = useState({});
-
-//     console.log("end point", apiUrl)
-
-//     const handleChange = (e) => {
-//         setForm({ ...form, [e.target.name]: e.target.value });
-//     };
-
-//     const handleCheckbox = (e, field) => {
-//         const value = e.target.value;
-//         setForm((prev) => {
-//             const updated = prev[field].includes(value)
-//                 ? prev[field].filter((v) => v !== value)
-//                 : [...prev[field], value];
-//             return { ...prev, [field]: updated };
-//         });
-//     };
-
-//     const validate = () => {
-//         let err = {};
-
-//         if (!form.clientName) err.clientName = "Client name is required";
-//         if (!form.contactNumber) err.contactNumber = "Contact number is required";
-//         if (!form.email) err.email = "Email is required";
-//         if (form.scope.length === 0) err.scope = "Select at least one scope";
-//         if (form.projectType.length === 0) err.projectType = "Select project type";
-//         if (!form.service) err.service = "Select service";
-//         if (!form.location) err.location = "Location is required";
-
-//         setErrors(err);
-//         return Object.keys(err).length === 0;
-//     };
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         if (validate()) {
-//             await fetch( apiUrl+"/submit", 
-//                 {
-//                 method: "POST",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                 },
-//                 body: JSON.stringify(form),
-//             });
-//         }
-//     };
-
-//     return (
-//         <div className="bg-black text-white">
-
-//             {/* HERO SECTION */}
-//             <div className="h-[60vh] bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')] bg-cover bg-center relative flex items-center justify-center">
-//                 <div className="absolute inset-0 bg-black/60"></div>
-//                 <div className="relative text-center">
-//                     <h1 className="text-4xl md:text-5xl font-semibold">Start Your Project</h1>
-//                     <p className="mt-3 text-gray-300">Let’s build something meaningful together</p>
-//                 </div>
-//             </div>
-
-//             {/* FORM */}
-//             <div className="max-w-5xl mx-auto p-6 -mt-20 relative z-10">
-//                 <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8">
-
-//                     <form onSubmit={handleSubmit} className="space-y-6">
-
-//                         {/* BASIC */}
-//                         <div className="grid md:grid-cols-2 gap-4">
-
-//                             {/* Client Name */}
-//                             <div>
-//                                 <input
-//                                     name="clientName"
-//                                     placeholder="Client Name *"
-//                                     className="input"
-//                                     onChange={handleChange}
-//                                 />
-//                                 {errors.clientName && (
-//                                     <p className="text-red-400 text-sm mt-1">{errors.clientName}</p>
-//                                 )}
-//                             </div>
-
-//                             {/* Company Name */}
-//                             <div>
-//                                 <input
-//                                     name="companyName"
-//                                     placeholder="Company Name"
-//                                     className="input"
-//                                     onChange={handleChange}
-//                                 />
-//                             </div>
-
-//                             {/* Contact Number */}
-//                             <div>
-//                                 <input
-//                                     name="contactNumber"
-//                                     placeholder="Contact Number *"
-//                                     className="input"
-//                                     onChange={handleChange}
-//                                 />
-//                                 {errors.contactNumber && (
-//                                     <p className="text-red-400 text-sm mt-1">{errors.contactNumber}</p>
-//                                 )}
-//                             </div>
-
-//                             {/* Email */}
-//                             <div>
-//                                 <input
-//                                     name="email"
-//                                     placeholder="Email *"
-//                                     className="input"
-//                                     onChange={handleChange}
-//                                 />
-//                                 {errors.email && (
-//                                     <p className="text-red-400 text-sm mt-1">{errors.email}</p>
-//                                 )}
-//                             </div>
-
-//                         </div>
-
-//                         {/* ERRORS */}
-
-
-//                         {/* SCOPE */}
-//                         <div>
-//                             <label className="label">Scope of Work *</label>
-//                             {[
-//                                 "Architectural Design",
-//                                 "Renovation/Remodeling",
-//                                 "Interior Design",
-//                                 "Landscape Design",
-//                                 "3D Visualization",
-//                             ].map((item) => (
-//                                 <label key={item} className="block">
-//                                     <input
-//                                         type="checkbox"
-//                                         value={item}
-//                                         onChange={(e) => handleCheckbox(e, "scope")}
-//                                     />{" "}
-//                                     {item}
-//                                 </label>
-//                             ))}
-
-//                             <input
-//                                 name="scopeOther"
-//                                 placeholder="Other..."
-//                                 className="input mt-2"
-//                                 onChange={handleChange}
-//                             />
-//                             <p className="text-red-400 text-sm">{errors.scope}</p>
-//                         </div>
-
-//                         {/* PROJECT TYPE */}
-//                         <div>
-//                             <label className="label">Project Type *</label>
-//                             {[
-//                                 "Residential",
-//                                 "Commercial",
-//                                 "Hospitality",
-//                                 "Housing",
-//                                 "Institutional",
-//                                 "Industrial",
-//                             ].map((item) => (
-//                                 <label key={item} className="block">
-//                                     <input
-//                                         type="checkbox"
-//                                         value={item}
-//                                         onChange={(e) => handleCheckbox(e, "projectType")}
-//                                     />{" "}
-//                                     {item}
-//                                 </label>
-//                             ))}
-
-//                             <input
-//                                 name="projectTypeOther"
-//                                 placeholder="Other..."
-//                                 className="input mt-2"
-//                                 onChange={handleChange}
-//                             />
-//                             <p className="text-red-400 text-sm">{errors.projectType}</p>
-//                         </div>
-
-//                         {/* SERVICE */}
-//                         <div>
-//                             <label className="label">Service Requirements *</label>
-//                             {[
-//                                 "Design Consultancy Service",
-//                                 "Design Consultancy + Turnkey Execution Service",
-//                                 "Online Consultancy Service",
-//                             ].map((item) => (
-//                                 <label key={item} className="block">
-//                                     <input
-//                                         type="radio"
-//                                         name="service"
-//                                         value={item}
-//                                         onChange={handleChange}
-//                                     />{" "}
-//                                     {item}
-//                                 </label>
-//                             ))}
-//                             <p className="text-red-400 text-sm">{errors.service}</p>
-//                         </div>
-
-//                         {/* DESCRIPTION */}
-//                         <textarea
-//                             name="description"
-//                             placeholder="Project Description"
-//                             className="input h-28"
-//                             onChange={handleChange}
-//                         />
-
-//                         {/* BUDGET + TIMELINE */}
-//                         <div className="grid md:grid-cols-2 gap-4">
-//                             <input name="budget" placeholder="Budget Range" className="input" onChange={handleChange} />
-//                             <input name="timeline" placeholder="Timeline" className="input" onChange={handleChange} />
-//                         </div>
-
-//                         {/* LOCATION */}
-//                         <input name="location" placeholder="Project Location *" className="input" onChange={handleChange} />
-//                         <p className="text-red-400 text-sm">{errors.location}</p>
-
-//                         <input name="billingAddress" placeholder="Billing Address" className="input" onChange={handleChange} />
-
-//                         {/* SUBMIT */}
-//                         <button className="w-full py-3 bg-white/20 hover:bg-white/30 border border-white/30 rounded-lg transition">
-//                             Submit Inquiry
-//                         </button>
-
-//                     </form>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
 import { useState } from "react";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -268,14 +13,14 @@ const schema = {
         return null;
     },
     email: (v) => {
-        if (!v?.trim()) return "Email is required";
+        if (!v || !v.trim()) return null; // skip validation if empty
         if (!emailRegex.test(v.trim())) return "Enter a valid email address";
         return null;
     },
     scope: (v) => (!v?.length ? "Select at least one scope of work" : null),
     projectType: (v) => (!v?.length ? "Select at least one project type" : null),
     service: (v) => (!v?.trim() ? "Select a service requirement" : null),
-    location: (v) => (!v?.trim() ? "Project location is required" : null),
+    location: (v) => (!v?.trim() ? "Site address is required" : null),
 };
 
 const runValidation = (form) => {
@@ -288,7 +33,7 @@ const runValidation = (form) => {
 };
 
 // ── Data ─────────────────────────────────────────────────────────────────────
-const SCOPE_OPTIONS = ["Architectural Design", "Renovation / Remodeling", "Interior Design", "Landscape Design", "3D Visualization"];
+const SCOPE_OPTIONS = ["Architectural Design", "Interior Design", "Landscape Design", "Renovation / Remodeling", "3D Visualization"];
 const PROJECT_TYPES = ["Residential", "Commercial", "Hospitality", "Housing", "Institutional", "Industrial"];
 const SERVICES = ["Design Consultancy Service", "Design Consultancy + Turnkey Execution Service", "Online Consultancy Service"];
 
@@ -330,9 +75,9 @@ const PillToggle = ({ label, active, onChange }) => (
         }`}
     >
         <input type="checkbox" checked={active} onChange={onChange} className="sr-only" />
-        <span className={`text-xs font-bold w-3 text-center transition-transform ${active ? "scale-110" : ""}`}>
-            {active ? "✓" : "+"}
-        </span>
+        {/* <span className={`text-xs font-bold w-3 text-center transition-transform ${active ? "scale-110" : ""}`}>
+             {active ? "✓" : "+"} 
+        </span> */}
         {label}
     </label>
 );
@@ -392,12 +137,12 @@ export default function ContactPage() {
         return (
             <div className="min-h-screen bg-stone-50 flex items-center justify-center px-4">
                 <div className="bg-white border border-stone-200 rounded-3xl p-12 max-w-lg w-full text-center shadow-2xl shadow-stone-200">
-                    <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl shadow-xl shadow-amber-600/30">
+                    {/* <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl shadow-xl shadow-amber-600/30">
                         ✓
-                    </div>
+                    </div> */}
                     <h2 className="text-4xl font-bold text-stone-900 mb-3 tracking-tight">Inquiry Sent!</h2>
                     <p className="text-stone-500 leading-relaxed mb-8 text-sm">
-                        Thank you for reaching out to H&A Architects. Our team will review your project details and respond within 24 hours.
+                       Thank you for approaching H&A. We will review your project vision and reach out to you at the earliest.
                     </p>
                     <button
                         onClick={() => { setSubmitted(false); setForm({ clientName: "", companyName: "", contactNumber: "", email: "", scope: [], scopeOther: "", projectType: [], projectTypeOther: "", service: "", description: "", budget: "", timeline: "", location: "", billingAddress: "" }); }}
@@ -414,19 +159,19 @@ export default function ContactPage() {
     return (
         <div className="bg-white min-h-screen text-stone-900">
 
-            {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
+{/*             
             <section className="relative h-screen min-h-[600px] max-h-[860px] flex flex-col items-center justify-center overflow-hidden">
-                {/* BG image */}
+                
                 <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-[14000ms] hover:scale-105"
                     style={{ backgroundImage: "url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=90')" }}
                 />
-                {/* Overlay */}
+             
                 <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/70 to-stone-50/90" />
-                {/* Grid */}
+              
                 <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "linear-gradient(rgba(155,120,80,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(155,120,80,0.3) 1px,transparent 1px)", backgroundSize: "72px 72px" }} />
 
-                {/* Content */}
+               
                 <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
                     <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-amber-700 bg-amber-50 border border-amber-200 px-5 py-2 rounded-full mb-6">
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
@@ -453,7 +198,6 @@ export default function ContactPage() {
                     </a>
                 </div>
 
-                {/* Stats bar */}
                 <div className="absolute bottom-0 left-0 right-0 border-t border-stone-100 bg-white/80 backdrop-blur-sm">
                     <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-center gap-0 divide-x divide-stone-200 flex-wrap">
                         {[["200+", "Projects Delivered"], ["15+", "Years of Excellence"], ["50+", "Cities Served"], ["98%", "Client Satisfaction"]].map(([val, label]) => (
@@ -464,14 +208,14 @@ export default function ContactPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* ══ FORM ══════════════════════════════════════════════════════════════ */}
             <section id="inquiry-form" className="bg-stone-50 py-16 px-4 sm:px-6 lg:px-8">
 
                 {/* Section intro */}
                 <div className="max-w-5xl mx-auto mb-10 text-center">
-                    <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-2">Get in touch</p>
+                    <p className="text-3xl font-bold tracking-[0.2em] uppercase text-amber-600 mb-2">Get in touch</p>
                     <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight">Tell Us About Your Project</h2>
                     <p className="text-stone-400 text-sm mt-2">Fill in the details below and our team will get back to you within 24 hours.</p>
                 </div>
@@ -515,14 +259,36 @@ export default function ContactPage() {
                                             <input name="contactNumber" placeholder="10-digit number" maxLength={10} className={inputCls} onChange={handleChange} value={form.contactNumber} />
                                         </FieldWrap>
 
-                                        <FieldWrap error={errors.email} className={errors.email ? "err-anchor" : ""}>
-                                            <FieldLabel required>Email Address</FieldLabel>
-                                            <input name="email" type="email" placeholder="you@example.com" className={inputCls} onChange={handleChange} value={form.email} />
+                                        <FieldWrap error={errors.email}
+                                        //  className={errors.email ? "err-anchor" : ""}
+                                        >
+                                            <FieldLabel>Email Address</FieldLabel>
+                                            <input name="email" type="email" placeholder="you@example.com (Optional)" className={inputCls} onChange={handleChange} value={form.email} />
+                                        </FieldWrap>
+
+                                        <FieldWrap>
+                                            <FieldLabel>Client Address</FieldLabel>
+                                            <input name="billingAddress" placeholder="Full address (optional)" className={inputCls} onChange={handleChange} value={form.billingAddress} />
                                         </FieldWrap>
                                     </div>
 
+
+                                    {/* ── 02 Location ── */}
+                                    <SectionLabel num="02">Project &amp; Location</SectionLabel>
+                                    <div className="grid sm:grid-cols-2 gap-4">
+                                        <FieldWrap error={errors.location} className={errors.location ? "err-anchor" : ""}>
+                                            <FieldLabel required>Site Address</FieldLabel>
+                                            <input name="location" placeholder="City, State" className={inputCls} onChange={handleChange} value={form.location} />
+                                        </FieldWrap>
+                                        {/* <FieldWrap>
+                                            <FieldLabel>Client Address</FieldLabel>
+                                            <input name="billingAddress" placeholder="Full address (optional)" className={inputCls} onChange={handleChange} value={form.billingAddress} />
+                                        </FieldWrap> */}
+                                    </div>
+
+
                                     {/* ── 02 Scope ── */}
-                                    <SectionLabel num="02">Scope of Work <span className="text-amber-600 normal-case font-normal">*</span></SectionLabel>
+                                    <SectionLabel num="03">Scope of Work <span className="text-amber-600 normal-case font-normal">*</span></SectionLabel>
                                     <div className="flex flex-wrap gap-2.5">
                                         {SCOPE_OPTIONS.map((item) => (
                                             <PillToggle key={item} label={item} active={form.scope.includes(item)} onChange={() => toggleArray("scope", item)} />
@@ -532,7 +298,7 @@ export default function ContactPage() {
                                     {errors.scope && <p className="err-anchor text-xs text-red-500 flex items-center gap-1.5 mt-2 font-medium"><span>⚠</span>{errors.scope}</p>}
 
                                     {/* ── 03 Project Type ── */}
-                                    <SectionLabel num="03">Project Type <span className="text-amber-600 normal-case font-normal">*</span></SectionLabel>
+                                    <SectionLabel num="04">Project Type <span className="text-amber-600 normal-case font-normal">*</span></SectionLabel>
                                     <div className="flex flex-wrap gap-2.5">
                                         {PROJECT_TYPES.map((item) => (
                                             <PillToggle key={item} label={item} active={form.projectType.includes(item)} onChange={() => toggleArray("projectType", item)} />
@@ -542,17 +308,20 @@ export default function ContactPage() {
                                     {errors.projectType && <p className="err-anchor text-xs text-red-500 flex items-center gap-1.5 mt-2 font-medium"><span>⚠</span>{errors.projectType}</p>}
 
                                     {/* ── 04 Service ── */}
-                                    <SectionLabel num="04">Service Requirements <span className="text-amber-600 normal-case font-normal">*</span></SectionLabel>
+                                    <SectionLabel num="05">Service Requirements <span className="text-amber-600 normal-case font-normal">*</span></SectionLabel>
                                     <div className="flex flex-col gap-3">
                                         {SERVICES.map((item) => {
                                             const active = form.service === item;
                                             return (
                                                 <label key={item} className={`flex items-center gap-4 px-5 py-4 rounded-2xl border-2 text-sm font-medium cursor-pointer select-none transition-all duration-150
-                          ${active ? "border-amber-500 bg-amber-50 text-amber-800" : "border-stone-200 bg-stone-50 text-stone-600 hover:border-amber-300 hover:bg-amber-50/40"}`}>
+                                                  ${active ? "border-amber-500 bg-amber-50 text-amber-800" : "border-stone-200 bg-stone-50 text-stone-600 hover:border-amber-300 hover:bg-amber-50/40"}`}>
+
                                                     <input type="radio" name="service" value={item} checked={active} onChange={handleChange} className="sr-only" />
+
                                                     <span className={`w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-all ${active ? "border-amber-500 bg-amber-500" : "border-stone-300"}`}>
                                                         {active && <span className="w-2 h-2 rounded-full bg-white block" />}
                                                     </span>
+
                                                     {item}
                                                 </label>
                                             );
@@ -561,7 +330,7 @@ export default function ContactPage() {
                                     {errors.service && <p className="err-anchor text-xs text-red-500 flex items-center gap-1.5 mt-2 font-medium"><span>⚠</span>{errors.service}</p>}
 
                                     {/* ── 05 Description ── */}
-                                    <SectionLabel num="05">Project Details</SectionLabel>
+                                    <SectionLabel num="06">Project Details</SectionLabel>
                                     <FieldWrap>
                                         <FieldLabel>Project Description</FieldLabel>
                                         <textarea
@@ -584,18 +353,7 @@ export default function ContactPage() {
                                         </FieldWrap>
                                     </div>
 
-                                    {/* ── 06 Location ── */}
-                                    <SectionLabel num="06">Location &amp; Billing</SectionLabel>
-                                    <div className="grid sm:grid-cols-2 gap-4">
-                                        <FieldWrap error={errors.location} className={errors.location ? "err-anchor" : ""}>
-                                            <FieldLabel required>Project Location</FieldLabel>
-                                            <input name="location" placeholder="City, State" className={inputCls} onChange={handleChange} value={form.location} />
-                                        </FieldWrap>
-                                        <FieldWrap>
-                                            <FieldLabel>Billing Address</FieldLabel>
-                                            <input name="billingAddress" placeholder="Full address (optional)" className={inputCls} onChange={handleChange} value={form.billingAddress} />
-                                        </FieldWrap>
-                                    </div>
+
 
                                     {/* ── Submit ── */}
                                     <button
@@ -629,7 +387,7 @@ export default function ContactPage() {
                         <div className="lg:sticky lg:top-8 flex flex-col gap-5">
 
                             {/* Why Us */}
-                            <div className="bg-white rounded-3xl border border-stone-200 shadow-lg shadow-stone-100 p-7">
+                            {/* <div className="bg-white rounded-3xl border border-stone-200 shadow-lg shadow-stone-100 p-7">
                                 <h4 className="font-bold text-stone-900 text-base mb-5 tracking-tight">Why Choose H&A?</h4>
                                 <div className="flex flex-col gap-4">
                                     {[
@@ -647,7 +405,7 @@ export default function ContactPage() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* Contact info */}
                             <div className="bg-gradient-to-br from-stone-900 to-stone-800 rounded-3xl p-7 text-white">

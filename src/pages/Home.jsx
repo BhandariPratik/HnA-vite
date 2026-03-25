@@ -18,7 +18,6 @@ const Home = () => {
             <Team />
             <About />
             <Contact />
-            <Footer />
         </>
     );
 };
