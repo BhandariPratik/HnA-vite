@@ -4,20 +4,22 @@ import Home from "./pages/Home";
 import ProcessDetails from "./components/ProcessDetails";
 import ContactPage from "./pages/contact-us";
 import Layout from "./pages/layout";
+import Project from "./pages/project";
+import ProjectDetail from "./pages/projectDetails";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         {/* Layout Wrapper */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/process/:id" element={<ProcessDetails />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/projectDetails/:id" element={<ProjectDetail />} />
         </Route>
-
       </Routes>
     </BrowserRouter>
   );

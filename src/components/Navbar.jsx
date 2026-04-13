@@ -7,7 +7,7 @@ const Navbar = () => {
 
     return (
 
-        <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
+        <header className="fixed h-fit top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
 
             <div className="w-full flex justify-between items-center px-3 md:px-10 py-4">
 
@@ -25,9 +25,13 @@ const Navbar = () => {
                         Process
                     </a>
 
-                    <a href="#projects" className="hover:text-gray-300 transition">
+                    {/* <a href="#projects" >
                         Projects
-                    </a>
+                    </a> */}
+
+                    <Link to={'/project'} className="hover:text-gray-300 transition">
+                        Projects
+                    </Link>
 
                     <a href="#team" className="hover:text-gray-300 transition">
                         Team
@@ -60,7 +64,9 @@ const Navbar = () => {
 
                 <div className="md:hidden bg-black/95 backdrop-blur-md flex flex-col gap-6 px-6 py-6 text-white text-sm">
                     <a href="#process">Process</a>
-                    <a href="#projects">Projects</a>
+                    <Link to={'/project'}>
+                        Projects
+                    </Link>
                     <a href="#team">Team</a>
                     <a href="#about">Practice</a>
                     <Link to="/contact" className="hover:text-gray-300 transition">

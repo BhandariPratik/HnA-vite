@@ -18,11 +18,14 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 24/03/26
--- removed Banner image 
--- update field 
--- remove sidebar 
--- made change in Validation 
--- made change in Button visualization 
+-- fixed routing issue  
+-- removed Banner image from the contact page
+-- re arrange the fields
+-- remove tag lines 
+-- made change in Validation for email and phonenumber
+-- made change in Button visualization for select Service and Project type
 -- remove icons from the button 
--- fixed route issue in mobile for particular route 
--- Made change in success message
+-- Update success message when inquiry sent successfully
+
+For the response delayed issue we need to upgrade our server hosting as of now i hosted it on free plan 
+Starter plan 10$/month + GST 18 % 
