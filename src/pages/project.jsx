@@ -1,153 +1,8 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
 
-// // ✅ Single image per project — CSS handles B&W vs color
-// // Replace image paths with your actual filenames stored in /public folder
-// const projects = [
-//   {
-//     id: 1,
-//     name: "Ciana 2601",
-//     category: "Architectural Design",
-//     image: "/project1_colour.jpeg",
-//   },
-//   {
-//     id: 2,
-//     name: "Ekta Residence",
-//     category: "Architectural Design",
-//     image: "/project1_colour.jpeg",
-//   },
-//   {
-//     id: 3,
-//     name: "Aarvi",
-//     category: "Architectural Design",
-//     image: "/project1_colour.jpeg",
-//   },
-//   {
-//     id: 4,
-//     name: "Classic Villa",
-//     category: "Architectural Design",
-//     image: "/project1_colour.jpeg",
-//   },
-//   {
-//     id: 5,
-//     name: "Meridian",
-//     category: "Architectural Design",
-//     image: "/project1_colour.jpeg",
-//   },
-//   {
-//     id: 6,
-//     name: "Elysian Beauty",
-//     category: "Architectural Design",
-//     image: "/project1_colour.jpeg",
-//   },
-// ];
-
-// const ProjectCard = ({ project }) => {
-//   const navigate = useNavigate();
-
-//   return (
-//     <div
-//       className="group relative cursor-pointer overflow-hidden"
-//       onClick={() => navigate(`/project/${project.id}`)}
-//       style={{ borderRadius: "2px" }}
-//     >
-//       {/* Image Container */}
-//       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
-//         {/*
-//           Single image with CSS grayscale filter.
-//           - Default: grayscale(100%) = black & white
-//           - Hover: grayscale(0%) = full color
-//           Tailwind doesn't animate filters smoothly, so we use inline style + onMouse events.
-//         */}
-//         <img
-//           src={project.image}
-//           alt={project.name}
-//           className="w-full h-full object-cover"
-//           style={{
-//             filter: "grayscale(100%)",
-//             transition: "filter 0.7s ease-in-out",
-//           }}
-//           onMouseEnter={(e) => (e.currentTarget.style.filter = "grayscale(0%)")}
-//           onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%)")}
-//           loading="lazy"
-//         />
-
-//         {/* Subtle dark overlay on hover */}
-//         <div
-//           className="absolute inset-0 pointer-events-none transition-all duration-500 ease-in-out"
-//           style={{ background: "rgba(0,0,0,0)" }}
-//           onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.08)")}
-//           onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0)")}
-//         />
-
-//         {/* Arrow indicator — appears on card hover via group-hover */}
-//         <div
-//           className="absolute bottom-4 right-4 w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 pointer-events-none"
-//           style={{ backgroundColor: "#d1682c", borderRadius: "50%" }}
-//         >
-//           <svg
-//             width="16"
-//             height="16"
-//             viewBox="0 0 24 24"
-//             fill="none"
-//             stroke="white"
-//             strokeWidth="2.5"
-//             strokeLinecap="round"
-//             strokeLinejoin="round"
-//           >
-//             <line x1="7" y1="17" x2="17" y2="7" />
-//             <polyline points="7 7 17 7 17 17" />
-//           </svg>
-//         </div>
-//       </div>
-
-//       {/* Project Name Label */}
-//       <div className="pt-3 pb-1">
-//         <p
-//           className="font-semibold tracking-wide uppercase text-center"
-//           style={{
-//             color: "#d1682c",
-//             fontFamily: "'Cormorant Garamond', Georgia, serif",
-//             fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
-//             letterSpacing: "0.08em",
-//           }}
-//         >
-//           {project.name}
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const Project = () => {
-//   return (
-//     <section className="w-full min-h-screen mt-10 bg-white px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-10 sm:py-14">
-//       {/* Section Header */}
-//       {/* <div className="my-8 sm:mb-10">
-//         <p
-//           className="text-xs sm:text-sm font-semibold tracking-widest uppercase mb-1"
-//           style={{ color: "#d1682c", fontFamily: "Georgia, serif" }}
-//         >
-//           Architectural Design
-//         </p>
-//         <div className="w-10 h-px mt-2" style={{ backgroundColor: "#d1682c" }} />
-//       </div> */}
-
-//       {/* Responsive 3-column grid */}
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 sm:gap-x-8 sm:gap-y-12">
-//         {projects.map((project) => (
-//           <ProjectCard key={project.id} project={project} />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Project;
 
 import { project_JSON } from "../projectdata";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // Two images per project:
 // bwImage  → your actual artistic B&W sketch (shown by default)
@@ -198,13 +53,12 @@ const ProjectCard = ({ project }) => {
       </div>
 
       {/* Project Name */}
-      <div className="pt-3 pb-1">
+      <div className="pt-2">
         <p
           className="font-semibold tracking-wide uppercase text-center"
           style={{
             color: "#d1682c",
-            // fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
+            fontSize: "clamp(0.80rem, 1vw, 1rem)",
             letterSpacing: "0.08em",
           }}
         >
@@ -216,18 +70,56 @@ const ProjectCard = ({ project }) => {
 };
 
 const Project = () => {
+  const { projectType } = useParams();
+  const filteredProjects = projectType
+    ? project_JSON.filter((project) => project.projectTypeSlug === projectType)
+    : project_JSON;
+  const activeTypeLabel = filteredProjects[0]?.projectType || projectType?.replace(/-/g, " ");
+
   return (
-    <section className="w-full min-h-screen my-5 bg-white px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-10 sm:py-14">
+    <section className="w-full my-4 bg-white px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pt-8 sm:pt-10 pb-4 sm:pb-6">
+      {projectType && (
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d1682c]/60">
+              Project Type
+            </p>
+            <h1 className="mt-1 text-2xl font-semibold capitalize tracking-wide text-[#d1682c]">
+              {activeTypeLabel}
+            </h1>
+          </div>
+          <Link
+            to="/allproject"
+            className="inline-flex items-center justify-center border border-[#d1682c]/30 px-5 py-2 text-xs font-bold uppercase tracking-wide text-[#d1682c] transition hover:border-[#d1682c] hover:bg-[#d1682c] hover:text-white"
+          >
+            All Projects
+          </Link>
+        </div>
+      )}
 
       {/* Responsive Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 sm:gap-x-8 sm:gap-y-12">
-        {project_JSON.map((project) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-15 gap-y-4 sm:gap-x-15 sm:gap-y-4">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5 sm:gap-x-10 sm:gap-y-10"> */}
+        {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+
+      {filteredProjects.length === 0 && (
+        <div className="py-20 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#d1682c]/70">
+            No projects found.
+          </p>
+          <Link
+            to="/allproject"
+            className="mt-5 inline-flex items-center justify-center border border-[#d1682c]/30 px-5 py-2 text-xs font-bold uppercase tracking-wide text-[#d1682c] transition hover:border-[#d1682c] hover:bg-[#d1682c] hover:text-white"
+          >
+            All Projects
+          </Link>
+        </div>
+      )}
     </section>
   );
 };
 
 export default Project;
-

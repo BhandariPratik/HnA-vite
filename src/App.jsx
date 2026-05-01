@@ -6,6 +6,7 @@ import ContactPage from "./pages/contact-us";
 import Layout from "./pages/layout";
 import Project from "./pages/project";
 import ProjectDetail from "./pages/projectDetails";
+import ProjectType from "./pages/projectType";
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/process/:id" element={<ProcessDetails />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/allproject" element={<ProjectType />} />
           <Route path="/project" element={<Project />} />
+          <Route path="/projects/:projectType" element={<Project />} />
           <Route path="/projectDetails/:id" element={<ProjectDetail />} />
+          {/* <Route path="/allproject" element={<ProjectType />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

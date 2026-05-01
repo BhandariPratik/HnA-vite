@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { project_JSON } from "../projectdata";
 
-const NAVBAR_HEIGHT = "65px";
+const NAVBAR_HEIGHT = "40px";
 
 /* ─── Lightbox ───────────────────────────────────────────────────────────── */
 const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }) => {
@@ -138,7 +138,7 @@ const ProjectDetail = () => {
 
                             {/* TYPE */}
                             <div
-                                className="flex-1 px-3 py-3 sm:px-8 sm:py-5"
+                                className="flex-1 px-3 py-3 sm:px-8 sm:py-5 items-center text-center"
                                 style={{ borderRight: "1px solid rgba(255,255,255,0.12)" }}
                             >
                                 <p
@@ -148,7 +148,7 @@ const ProjectDetail = () => {
                                         fontSize: "clamp(0.55rem, 1.2vw, 0.7rem)",
                                     }}
                                 >
-                                    Type
+                                    Typology
                                 </p>
                                 <p
                                     className="font-semibold tracking-wide uppercase leading-tight"
@@ -164,7 +164,7 @@ const ProjectDetail = () => {
 
                             {/* PROJECT AREA */}
                             <div
-                                className="flex-1 px-3 py-3 sm:px-8 sm:py-5"
+                                className="flex-1 px-3 py-3 sm:px-8 sm:py-5 items-center text-center"
                                 style={{ borderRight: "1px solid rgba(255,255,255,0.12)" }}
                             >
                                 <p
@@ -190,7 +190,7 @@ const ProjectDetail = () => {
 
                             {/* YEAR */}
                             <div
-                                className="px-3 py-3 sm:px-8 sm:py-5"
+                                className="px-3 py-3 sm:px-8 sm:py-5 items-center text-center"
                                 style={{ minWidth: "60px" }}
                             >
                                 <p
@@ -234,7 +234,7 @@ const ProjectDetail = () => {
                         {project.name}
                     </h1>
                     <p
-                        className="mb-8 sm:mb-10"
+                        className="mb-4 sm:mb-4"
                         style={{
                             //   fontFamily: "Georgia, serif",
                             fontSize: "clamp(0.8rem, 1.5vw, 0.95rem)",
@@ -244,20 +244,20 @@ const ProjectDetail = () => {
                     >
                         {project.location}
                     </p>
-                    <div className="w-12 h-px mb-8 sm:mb-10" style={{ backgroundColor: "#d1682c" }} />
-                    <div className="space-y-4 mb-10 sm:mb-14">
+                    <div className="w-12 h-px mb-4 sm:mb-4" style={{ backgroundColor: "#d1682c" }} />
+                    <div className="space-y-4 mb-0">
                         {project.description.map((para, i) => (
                             <p key={i} style={{
                                 // fontFamily: "Georgia, serif",
                                 fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
                                 color: "#444",
-                                lineHeight: 1.85,
+                                lineHeight: 1.2,
                             }}>
                                 {para}
                             </p>
                         ))}
                     </div>
-                    <div
+                    {/* <div
                         className="grid grid-cols-1 sm:grid-cols-3 gap-0"
                         style={{ borderTop: "1px solid #e5e5e5", borderLeft: "1px solid #e5e5e5" }}
                     >
@@ -284,14 +284,14 @@ const ProjectDetail = () => {
                                 </p>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
             {/* ── GALLERY ────────────────────────────────────────────────────── */}
             <section className="px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-16 sm:pb-20"
                 style={{ backgroundColor: "#f9f7f5" }}>
-                <div className="pt-12 sm:pt-14 mb-8 sm:mb-10">
+                <div className="py-2">
                     <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase"
                         style={{
                             color: "#d1682c",
@@ -301,7 +301,8 @@ const ProjectDetail = () => {
                     </p>
                     <div className="w-10 h-px mt-2" style={{ backgroundColor: "#d1682c" }} />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-2 sm:gap-y-3">
+                    {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 sm:gap-x-12 lg:gap-x-16 gap-y-2 sm:gap-y-3" > */}
                     {project.galleryImages.map((img, index) => (
                         <div
                             key={index}

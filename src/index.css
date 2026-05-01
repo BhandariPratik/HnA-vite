@@ -11,3 +11,16 @@
 .label {
   @apply block mb-2 font-medium text-gray-200;
 }
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-x {
+  animation: marquee-x 18s linear infinite;
+}

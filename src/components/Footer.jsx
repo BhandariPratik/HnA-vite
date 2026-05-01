@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Left Side */}
         <div className="text-center md:text-left">
           <h3 className="text-xl font-semibold tracking-[3px] mb-2">
-            HASMiT & ARCHiTECTS
+            HASMIT & ARCHITECTS
           </h3>
 
           <p className="text-gray-400 text-sm">
