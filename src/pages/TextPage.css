@@ -1,0 +1,45 @@
+.text-page {
+    width: min(100%, 52rem);
+    margin: 0 auto;
+    padding: clamp(6.5rem, 9vw, 8rem) clamp(1.4rem, 5vw, 3rem) clamp(3rem, 7vw, 5rem)
+}
+
+.text-page h1 {
+    margin-bottom: 2.2rem;
+    color: var(--title-tone);
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase
+}
+
+.text-page .intro,
+.text-page .text-step {
+    margin-bottom: 1.7rem
+}
+
+.text-page .text-step h2 {
+    margin-bottom: .15rem;
+    color: var(--title-tone);
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 1.35
+}
+
+.text-page p {
+    color: var(--ink);
+    font-size: clamp(.72rem, 1vw, .86rem);
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: justify
+}
+
+.text-page .disclaimer {
+    margin-top: 4.2rem;
+    font-style: italic
+}
+
+.text-page .disclaimer strong {
+    color: var(--ink);
+    font-weight: 700
+}

@@ -1,0 +1,74 @@
+.category-page {
+    width: min(100%, 86rem);
+    margin: 0 auto;
+    padding: clamp(5rem, 6.8vw, 6.5rem) clamp(1.25rem, 4vw, 2.4rem) clamp(4rem, 6vw, 5rem)
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 50px
+}
+
+.project-card {
+    display: grid;
+    gap: .3rem;
+    text-align: center
+}
+
+.project-image {
+    position: relative;
+    aspect-ratio: 1.42/1;
+    overflow: hidden;
+    background: #ece9e2
+}
+
+.project-image img {
+    transition: opacity .55s ease, filter .45s ease
+}
+
+.project-image-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.project-image-sketch {
+    filter: grayscale(1) contrast(1.2) brightness(1.05)
+}
+
+.project-image-color {
+    opacity: 0;
+    filter: none
+}
+
+.project-card:hover .project-image-color {
+    opacity: 1
+}
+
+.project-title {
+    color: var(--title-tone);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2
+}
+
+@media(max-width:900px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1.5rem, 4vw, 2.5rem)
+    }
+}
+
+@media(max-width:560px) {
+    .category-page {
+        padding-top: 5.8rem
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        row-gap: 2.8rem
+    }
+}

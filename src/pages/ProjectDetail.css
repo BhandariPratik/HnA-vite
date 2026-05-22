@@ -1,0 +1,248 @@
+.project-detail {
+  width: min(100%, 86rem);
+  margin: 0 auto;
+  padding: clamp(5rem, 6.8vw, 6.5rem) clamp(1.25rem, 4vw, 2.4rem) clamp(4rem, 6vw, 5rem)
+}
+
+.detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .7fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem)
+}
+
+.detail-hero h1 {
+  margin-top: .8rem;
+  color: var(--title-tone);
+  font-size: clamp(3.2rem, 8vw, 8rem);
+  font-weight: 700;
+  line-height: .98;
+  margin-left: -7px
+}
+
+.detail-hero .eyebrow {
+  color: var(--description-tone);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase
+}
+
+.detail-lead {
+  color: var(--description-tone);
+  line-height: 1.75;
+  text-align: justify;
+  font-size: 14px;
+  margin-right: 20%
+}
+
+.project-gallery {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 0;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+  cursor: ew-resize
+}
+
+.project-gallery::-webkit-scrollbar {
+  display: none
+}
+
+.project-gallery::before {
+  content: "<";
+  position: sticky;
+  left: 1.5rem;
+  margin-right: -2.5rem;
+  z-index: 2;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  color: var(--title-tone);
+  font-size: 2rem;
+  font-weight: 200;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8)
+}
+
+.project-gallery::after {
+  content: ">";
+  position: sticky;
+  right: 1.5rem;
+  justify-self: end;
+  margin-left: -2.5rem;
+  z-index: 2;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  color: var(--title-tone);
+  font-size: 2rem;
+  font-weight: 200;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8)
+}
+
+.gallery-image {
+  aspect-ratio: 16/9;
+  min-height: 20rem;
+  overflow: hidden;
+  background: #ece9e2;
+  scroll-snap-align: start
+}
+
+.gallery-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+  transition: none
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  border-top: 1px solid rgba(16, 16, 15, .16);
+  padding-top: clamp(2rem, 4vw, 3.2rem)
+}
+
+.facts {
+  display: grid;
+  gap: 1.1rem;
+  align-content: start
+}
+
+.facts span {
+  color: var(--title-tone);
+  font-weight: 600;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  display: block
+}
+
+.facts p {
+  display: grid;
+  gap: .25rem;
+  color: var(--description-tone);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: .5rem
+}
+
+.narrative {
+  max-width: 48rem
+}
+
+.narrative p {
+  margin-bottom: 1rem;
+  color: var(--description-tone);
+  line-height: 1.8;
+  text-align: justify;
+  font-size: 14px
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: grid;
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 16, 15, .85);
+  z-index: 20000;
+  place-items: center;
+  cursor: pointer;
+  transition: opacity .25s
+}
+
+.lb-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  color: var(--title-tone);
+  font-size: 2rem;
+  font-weight: 200;
+  cursor: pointer;
+  z-index: 10
+}
+
+.lb-prev,
+.lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--title-tone);
+  font-size: 2rem;
+  font-weight: 100;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+  display: grid;
+  place-items: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8)
+}
+
+.lb-prev {
+  left: 2rem
+}
+
+.lb-next {
+  right: 2rem
+}
+
+.lb-img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .4);
+  transition: transform .3s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+  user-select: none
+}
+
+@media(max-width:900px) {
+
+  .detail-hero,
+  .detail-grid {
+    grid-template-columns: 1fr
+  }
+
+  .gallery-image {
+    aspect-ratio: 7/5;
+    min-height: auto
+  }
+
+  .detail-lead {
+    margin-right: 0
+  }
+}
+
+@media(max-width:768px) {
+  .lb-prev {
+    left: 1rem
+  }
+
+  .lb-next {
+    right: 1rem
+  }
+
+  .lb-close {
+    top: 1.5rem;
+    right: 1.5rem
+  }
+}
