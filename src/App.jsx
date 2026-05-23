@@ -24,21 +24,19 @@ export default function App() {
       {/* <Crosshair /> */}
       {/* <Crosshair color="var(--title-tone)" targeted={true} /> */}
       <Crosshair containerRef={containerRef} color='#d1682c'
-        color="#d1682c"
         targeted={false}
       />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/form" element={<InquiryForm />} />
-        {/* <Route path="/practice" element={<Practice />} /> */}
-        <Route path="/practice" element={<InquiryForm />} />
+        <Route path="/inquiry" element={<InquiryForm />} />
+        <Route path="/practice" element={<Practice />} />
         <Route path="/process" element={<Process />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:category" element={<CategoryPage />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/people" element={<People />} />
-        {/* <Route path="*" element={<Home />} /> */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );
