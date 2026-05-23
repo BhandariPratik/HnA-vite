@@ -38,7 +38,7 @@ export default function App() {
         <Route path="/projects/:category" element={<CategoryPage />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/people" element={<People />} />
-        <Route path="*" element={<Home />} />
+        {/* <Route path="*" element={<Home />} /> */}
       </Routes>
     </>
   );
