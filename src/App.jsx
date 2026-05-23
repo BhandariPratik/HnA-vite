@@ -30,8 +30,9 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/inquiry" element={<InquiryForm />} />
-        <Route path="/practice" element={<Practice />} />
+        <Route path="/form" element={<InquiryForm />} />
+        {/* <Route path="/practice" element={<Practice />} /> */}
+        <Route path="/practice" element={<InquiryForm />} />
         <Route path="/process" element={<Process />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:category" element={<CategoryPage />} />
