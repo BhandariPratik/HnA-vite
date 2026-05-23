@@ -9,20 +9,20 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const schema = {
-  client_name: (v) => (!v?.trim() ? "Client name is required" : null),
-  contact_number: (v) => {
+  clientName: (v) => (!v?.trim() ? "Client name is required" : null),
+  contactNumber: (v) => {
     if (!v?.trim()) return "Contact number is required";
     if (!/^\d{10}$/.test(v.trim())) return "Enter a valid 10-digit number";
     return null;
   },
-  email_address: (v) => {
-    if (!v?.trim()) return null; // optional
+  email: (v) => {
+    if (!v?.trim()) return null;
     if (!emailRegex.test(v.trim())) return "Enter a valid email address";
     return null;
   },
-  site_address: (v) => (!v?.trim() ? "Site address is required" : null),
-  scopes: (v) => (!v?.length ? "Select at least one scope of work" : null),
-  types: (v) => (!v?.length ? "Select at least one project type" : null),
+  location: (v) => (!v?.trim() ? "Site address is required" : null),
+  scope: (v) => (!v?.length ? "Select at least one scope of work" : null),
+  projectType: (v) => (!v?.length ? "Select at least one project type" : null),
   service: (v) => (!v?.trim() ? "Select a service requirement" : null),
 };
 
@@ -45,20 +45,21 @@ const SERVICES = [
 ];
 
 const EMPTY_FORM = {
-  client_name: "", company_name: "", contact_number: "", email_address: "",
-  client_address: "", site_address: "", scope_other: "", type_other: "",
-  project_description: "", budget_range: "", preferred_timeline: "",
+  clientName: "", companyName: "", contactNumber: "", email: "",
+  billingAddress: "", location: "", scopeOther: "", projectTypeOther: "",
+  description: "", budget: "", timeline: "",
 };
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function InquiryForm() {
-  const [scopes, setScopes] = useState([]);
-  const [types, setTypes] = useState([]);
+  const [scope, setScope] = useState([]);
+  const [projectType, setProjectType] = useState([]);
   const [service, setService] = useState("");
   const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  console.log("error-------->",errors)
 
   const set = (k) => (e) => {
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -73,7 +74,7 @@ export default function InquiryForm() {
 
   const reset = () => {
     setForm(EMPTY_FORM);
-    setScopes([]); setTypes([]); setService("");
+    setScope([]); setProjectType([]); setService("");
     setErrors({}); setSubmitted(false);
   };
 
@@ -81,7 +82,7 @@ export default function InquiryForm() {
     e.preventDefault();
 
     // Build payload with arrays for validation
-    const payload = { ...form, scopes, types, service };
+    const payload = { ...form, scope, projectType, service };
     const errs = runValidation(payload);
 
     if (Object.keys(errs).length > 0) {
@@ -100,8 +101,8 @@ export default function InquiryForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
-          scopes: [...scopes, form.scope_other].filter(Boolean),
-          types: [...types, form.type_other].filter(Boolean),
+          scope: [...scope, form.scopeOther].filter(Boolean),
+          projectType: [...projectType, form.projectTypeOther].filter(Boolean),
           service,
         }),
       });
@@ -166,30 +167,30 @@ export default function InquiryForm() {
           <div className="fields-grid">
             <div className="field-group">
               <label htmlFor="client_name">Client Name <span>*</span></label>
-              <input type="text" id="client_name" className={`input-control${errors.client_name ? " input-error" : ""}`} placeholder="John Doe" value={form.client_name} onChange={set("client_name")} />
-              {errors.client_name && <p className="field-error">{errors.client_name}</p>}
+              <input type="text" id="client_name" className={`input-control${errors.client_name ? " input-error" : ""}`} placeholder="John Doe" value={form.clientName} onChange={set("clientName")} />
+              {errors.clientName && <p className="field-error">{errors.clientName}</p>}
             </div>
 
             <div className="field-group">
               <label htmlFor="company_name">Company Name</label>
-              <input type="text" id="company_name" className="input-control" placeholder="Optional" value={form.company_name} onChange={set("company_name")} />
+              <input type="text" id="company_name" className="input-control" placeholder="Optional" value={form.companyName} onChange={set("companyName")} />
             </div>
 
             <div className="field-group">
               <label htmlFor="contact_number">Contact Number <span>*</span></label>
-              <input type="tel" id="contact_number" className={`input-control${errors.contact_number ? " input-error" : ""}`} placeholder="10-digit number" maxLength={10} value={form.contact_number} onChange={set("contact_number")} />
-              {errors.contact_number && <p className="field-error">{errors.contact_number}</p>}
+              <input type="tel" id="contact_number" className={`input-control${errors.contactNumber ? " input-error" : ""}`} placeholder="10-digit number" maxLength={10} value={form.contactNumber} onChange={set("contactNumber")} />
+              {errors.contactNumber && <p className="field-error">{errors.contactNumber}</p>}
             </div>
 
             <div className="field-group">
               <label htmlFor="email_address">Email Address</label>
-              <input type="email" id="email_address" className={`input-control${errors.email_address ? " input-error" : ""}`} placeholder="you@example.com (Optional)" value={form.email_address} onChange={set("email_address")} />
-              {errors.email_address && <p className="field-error">{errors.email_address}</p>}
+              <input type="email" id="email_address" className={`input-control${errors.email ? " input-error" : ""}`} placeholder="you@example.com (Optional)" value={form.email} onChange={set("email")} />
+              {errors.email && <p className="field-error">{errors.email}</p>}
             </div>
 
             <div className="field-group full-width">
               <label htmlFor="client_address">Client Address</label>
-              <input type="text" id="client_address" className="input-control" placeholder="Full address (optional)" value={form.client_address} onChange={set("client_address")} />
+              <input type="text" id="client_address" className="input-control" placeholder="Full address (optional)" value={form.billingAddress} onChange={set("billingAddress")} />
             </div>
           </div>
         </section>
@@ -203,8 +204,8 @@ export default function InquiryForm() {
           <div className="fields-grid">
             <div className="field-group full-width">
               <label htmlFor="site_address">Site Address <span>*</span></label>
-              <input type="text" id="site_address" className={`input-control${errors.site_address ? " input-error" : ""}`} placeholder="City, State" value={form.site_address} onChange={set("site_address")} />
-              {errors.site_address && <p className="field-error">{errors.site_address}</p>}
+              <input type="text" id="site_address" className={`input-control${errors.site_address ? " input-error" : ""}`} placeholder="City, State" value={form.location} onChange={set("location")} />
+              {errors.location && <p className="field-error">{errors.location}</p>}
             </div>
           </div>
         </section>
@@ -218,15 +219,15 @@ export default function InquiryForm() {
           <div className="chips-matrix">
             {SCOPES.map((s) => (
               <label key={s} className="chip-item">
-                <input type="checkbox" checked={scopes.includes(s)} onChange={() => toggle(scopes, setScopes, s, "scopes")} />
+                <input type="checkbox" checked={scope.includes(s)} onChange={() => toggle(scope, setScope, s, "scope")} />
                 <span className="chip-surface">{s}</span>
               </label>
             ))}
           </div>
           <div className="field-group" style={{ marginTop: ".65rem" }}>
-            <input type="text" className="input-control" placeholder="Other scope (optional)" value={form.scope_other} onChange={set("scope_other")} />
+            <input type="text" className="input-control" placeholder="Other scope (optional)" value={form.scopeOther} onChange={set("scopeOther")} />
           </div>
-          {errors.scopes && <p className="field-error">{errors.scopes}</p>}
+          {errors.scope && <p className="field-error">{errors.scope}</p>}
         </section>
 
         {/* 04 Project Type */}
@@ -238,15 +239,15 @@ export default function InquiryForm() {
           <div className="chips-matrix">
             {TYPES.map((t) => (
               <label key={t} className="chip-item">
-                <input type="checkbox" checked={types.includes(t)} onChange={() => toggle(types, setTypes, t, "types")} />
+                <input type="checkbox" checked={projectType.includes(t)} onChange={() => toggle(projectType, setProjectType, t, "projectType")} />
                 <span className="chip-surface">{t}</span>
               </label>
             ))}
           </div>
           <div className="field-group" style={{ marginTop: ".65rem" }}>
-            <input type="text" className="input-control" placeholder="Other type (optional)" value={form.type_other} onChange={set("type_other")} />
+            <input type="text" className="input-control" placeholder="Other type (optional)" value={form.projectTypeOther} onChange={set("projectTypeOther")} />
           </div>
-          {errors.types && <p className="field-error">{errors.types}</p>}
+          {errors.projectType && <p className="field-error">{errors.projectType}</p>}
         </section>
 
         {/* 05 Service */}
@@ -278,15 +279,15 @@ export default function InquiryForm() {
           <div className="fields-grid">
             <div className="field-group full-width">
               <label htmlFor="project_description">Project Description</label>
-              <textarea id="project_description" className="input-control" placeholder="Describe your vision, space requirements, style preferences..." value={form.project_description} onChange={set("project_description")} />
+              <textarea id="project_description" className="input-control" placeholder="Describe your vision, space requirements, style preferences..." value={form.description} onChange={set("description")} />
             </div>
             <div className="field-group">
               <label htmlFor="budget_range">Budget Range</label>
-              <input type="text" id="budget_range" className="input-control" placeholder="e.g. ₹50L – ₹1Cr" value={form.budget_range} onChange={set("budget_range")} />
+              <input type="text" id="budget_range" className="input-control" placeholder="e.g. ₹50L – ₹1Cr" value={form.budget} onChange={set("budget")} />
             </div>
             <div className="field-group">
               <label htmlFor="preferred_timeline">Preferred Timeline</label>
-              <input type="text" id="preferred_timeline" className="input-control" placeholder="e.g. 6 months" value={form.preferred_timeline} onChange={set("preferred_timeline")} />
+              <input type="text" id="preferred_timeline" className="input-control" placeholder="e.g. 6 months" value={form.timeline} onChange={set("timeline")} />
             </div>
           </div>
         </section>

@@ -205,15 +205,24 @@ video {
 }
 
 /* ── HAMBURGER ── */
+/* ── HAMBURGER ── */
 .menu-toggle {
   display: none;
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 100;
+  z-index: 200;
   padding: 0;
   width: 32px;
-  height: 32px
+  height: 32px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.menu-toggle:focus,
+.menu-toggle:focus-visible {
+  outline: none;
 }
 
 .hamburger-box {
@@ -222,10 +231,11 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative
+  position: relative;
 }
 
-.hamburger-inner {
+/* ── DOT ── */
+.hamburger-dot {
   width: 14px;
   height: 14px;
   background-color: var(--title-tone);
@@ -233,13 +243,13 @@ video {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color .25s
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: opacity 0.15s ease, transform 0.2s ease;
 }
 
-.hamburger-inner::before,
-.hamburger-inner::after {
-  content: "";
+/* ── X LINES — independent elements, not pseudo ── */
+.hamburger-line {
   position: absolute;
   width: 24px;
   height: 1.5px;
@@ -248,25 +258,42 @@ video {
   top: 50%;
   opacity: 0;
   transform: translate(-50%, -50%) rotate(0deg);
-  transition: transform .25s, opacity .25s
+  transition: opacity 0.15s ease, transform 0.25s ease;
 }
 
-.menu-is-open .hamburger-inner {
-  background-color: transparent !important
-}
-
-.menu-is-open .hamburger-inner::before {
+/* ── CLOSED STATE (default) — dot visible, lines hidden ── */
+.hamburger-dot {
   opacity: 1;
-  transform: translate(-50%, -50%) rotate(45deg)
+  transform: translate(-50%, -50%) scale(1);
 }
 
-.menu-is-open .hamburger-inner::after {
+.hamburger-line {
+  opacity: 0;
+}
+
+/* ── OPEN STATE — dot hidden, lines visible ── */
+.menu-is-open .hamburger-dot {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.menu-is-open .hamburger-line {
   opacity: 1;
-  transform: translate(-50%, -50%) rotate(-45deg)
+  /* delayed so X appears only after dot is gone */
+  transition: opacity 0.15s ease 0.15s, transform 0.25s ease 0.15s;
+}
+
+.menu-is-open .hamburger-line--1 {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-is-open .hamburger-line--2 {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* ── CROSSHAIR ── */
-.crosshair {
+/* .crosshair {
   position: fixed;
   inset: 0;
   z-index: 10000;
@@ -300,13 +327,14 @@ video {
   width: 1px;
   height: 100%;
   transform: translateX(-100px)
-}
+} */
 
-@media(pointer:coarse) {
+
+/* @media(pointer:coarse) {
   .crosshair {
     display: none
   }
-}
+} */
 
 /* ── TICKER ── */
 .ticker {
@@ -467,7 +495,8 @@ video {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    width: 100%
+    width: 100%;
+    margin-bottom: 30px;
   }
 
   .mobile-cta {
@@ -522,4 +551,21 @@ video {
   .menu-is-open .menu-toggle {
     top: 5rem
   }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.35s ease;
+  z-index: 1000;
+}
+
+.nav-show {
+  transform: translateY(0);
+}
+
+.nav-hide {
+  transform: translateY(-100%);
 }

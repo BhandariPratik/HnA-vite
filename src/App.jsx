@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Crosshair from "./components/Crosshair";
 import Home from "./pages/Home";
@@ -18,20 +18,25 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const containerRef = useRef(null);
   return (
     <>
-      <Crosshair />
+      {/* <Crosshair /> */}
+{/* <Crosshair color="var(--title-tone)" targeted={true} /> */}
+ <Crosshair containerRef={containerRef} color='#d1682c'
+  color="#d1682c"
+  targeted={false}
+/> 
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/practice" element={<Practice />} />
         <Route path="/process" element={<Process />} />
-        {/* <Route path="/process" element={<Process />} /> */}
-        {/* <Route path="/projects" element={<Projects />} /> */}
-        {/* <Route path="/projects/:category" element={<CategoryPage />} /> */}
-        {/* <Route path="/project/:slug" element={<ProjectDetail />} /> */}
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:category" element={<CategoryPage />} />
+        <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/people" element={<People />} />
-        {/* <Route path="/inquiry" element={<InquiryForm />} /> */}
+        <Route path="/inquiry" element={<InquiryForm />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </>
