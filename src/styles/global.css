@@ -336,6 +336,12 @@ video {
   }
 } */
 
+@media (pointer: coarse), (max-width: 1024px) {
+  .crosshair {
+    display: none !important;
+  }
+}
+
 /* ── TICKER ── */
 .ticker {
   display: flex;

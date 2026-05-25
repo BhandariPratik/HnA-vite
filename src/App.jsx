@@ -19,13 +19,16 @@ function ScrollToTop() {
 
 export default function App() {
   const containerRef = useRef(null);
+  const location = useLocation();
+  const hideCrosshair = location.pathname === "/inquiry";
+
   return (
     <>
-      {/* <Crosshair /> */}
-      {/* <Crosshair color="var(--title-tone)" targeted={true} /> */}
-      <Crosshair containerRef={containerRef} color='#d1682c'
-        targeted={false}
-      />
+      {!hideCrosshair && (
+        <Crosshair containerRef={containerRef} color='#d1682c'
+          targeted={false}
+        />
+      )}
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
