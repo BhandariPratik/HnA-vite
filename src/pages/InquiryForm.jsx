@@ -167,7 +167,7 @@ export default function InquiryForm() {
           <div className="fields-grid">
             <div className="field-group">
               <label htmlFor="client_name">Client Name <span>*</span></label>
-              <input type="text" id="client_name" className={`input-control${errors.client_name ? " input-error" : ""}`} placeholder="John Doe" value={form.clientName} onChange={set("clientName")} />
+              <input type="text" id="client_name" className={`input-control${errors.clientName ? " input-error" : ""}`} placeholder="John Doe" value={form.clientName} onChange={set("clientName")} />
               {errors.clientName && <p className="field-error">{errors.clientName}</p>}
             </div>
 
