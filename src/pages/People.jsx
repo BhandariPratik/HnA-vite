@@ -14,7 +14,7 @@ export default function People() {
 
         <section className="founder-profile">
           <div className="founder-image">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=85&auto=format&fit=crop" alt="Ar. Hasmit Bhandari" />
+            <img src="../../people/people-hasmit.jpg?w=900&q=85&auto=format&fit=crop" alt="Ar. Hasmit Bhandari" />
           </div>
           <div className="founder-copy">
             <h2>Ar. Hasmit Bhandari</h2>

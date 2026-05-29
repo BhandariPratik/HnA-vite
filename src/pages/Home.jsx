@@ -11,7 +11,7 @@ export default function Home() {
   const ref = useReveal();
 
   useEffect(() => {
-    const id = setInterval(() => setActive(a => (a+1) % HERO_SLIDES.length), 2000);
+    const id = setInterval(() => setActive(a => (a+1) % HERO_SLIDES.length), 3000);
     return () => clearInterval(id);
   }, []);
 

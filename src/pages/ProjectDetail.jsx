@@ -83,7 +83,7 @@ export default function ProjectDetail() {
         <p className="breadcrumb">
           <Link to="/projects" className="back-link">Projects</Link>
           <span className="separator">&gt;</span>
-          <Link to={`/projects/${project.category || "architecture"}`} className="back-link">
+          <Link to={`/projects/${project.category}`} className="back-link">
             {project.category === "interior" ? "Interior Design" : "Architectural Design"}
           </Link>
         </p>

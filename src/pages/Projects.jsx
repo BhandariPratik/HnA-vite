@@ -16,7 +16,8 @@ export default function Projects() {
       <Navbar />
       <main className="project-landing">
         <section className="visual-panel" aria-label="Architectural study">
-          <img src="/random.jpg" alt="" />
+          {/* <img src="/random.jpg" alt="" /> */}
+          <img src="/project-page.jpg" alt="project-page" />
         </section>
         <section className="proj-content">
           <p className="eyebrow" style={{color:"#636b75",fontSize:"smaller",fontWeight:400}}>Explore our work.</p>
