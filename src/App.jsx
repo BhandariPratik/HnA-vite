@@ -21,6 +21,18 @@ export default function App() {
   const containerRef = useRef(null);
   const location = useLocation();
   const hideCrosshair = location.pathname === "/inquiry";
+  useEffect(() => {
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", disableRightClick);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
+
 
   return (
     <>

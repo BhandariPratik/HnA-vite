@@ -575,3 +575,26 @@ video {
 .nav-hide {
   transform: translateY(-100%);
 }
+
+
+
+
+/* Disable image dragging */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+
+  /* Disable text/image selection */
+  -webkit-user-select: none;
+  user-select: none;
+
+  /* Disable long press menu on mobile */
+  -webkit-touch-callout: none;
+}
+
+/* Optional: disable selection globally */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+

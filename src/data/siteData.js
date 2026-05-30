@@ -585,7 +585,7 @@ const BASE_PROJECTS = [
     location: "Mumbai, Studio.",
     typology: "Media & Broadcast Interior ",
     area: "160 Sq. Ft. (Carpet Area)",
-    year: "N/A",
+    year: "NA",
     lead: "This podcast studio in Mumbai is conceived as a warm, immersive environment where content creation meets comfort-driven design.",
     gallery: [
       {
@@ -657,15 +657,440 @@ const BASE_PROJECTS = [
     narrative: [""]
   },
 
+  //landscape
+  {
+    category: "landscape",
+    slug: "coptec",
+    title: "Coptec",
+    sketchSrc: "/coming_soon.png",
+    colorSrc: "/coming_soon.png",
+    location: "GIDC Umbergaon, Gujarat.",
+    typology: "Industrial Landscape",
+    area: "NA",
+    year: "2026",
+    lead: "",
+    gallery: [
+      {
+        src: "/coming_soon.png",
+        alt: "Coptec exterior"
+      }
+    ],
+    narrative: [""]
+  },
+  {
+    category: "landscape",
+    slug: "parikh-house",
+    title: "Parikh House",
+    sketchSrc: "/coming_soon.png",
+    colorSrc: "/coming_soon.png",
+    location: "Fortune Garden, Moti Daman.",
+    typology: "Bungalow Landscape",
+    area: "NA",
+    year: "2025",
+    lead: "",
+    gallery: [
+      {
+        src: "/coming_soon.png",
+        alt: "Parikh House"
+      }
+    ],
+    narrative: [""]
+  },
+  {
+    category: "landscape",
+    slug: "jhaveri-gateway",
+    title: "Jhaveri Gateway",
+    sketchSrc: "/projects/landscape/Jhaveri-1.jpg",
+    colorSrc: "/projects/landscape/Jhaveri-1.jpg",
+    location: "GIDC, UBR.",
+    typology: "Industrial Landscape",
+    area: "NA",
+    year: "NA",
+    lead: "In establishing the entrance sequence for this design proposal tailored for Jhaveri Spices, our architecture seeks to synthesize industrial monumentality with tactile, organic warmth.",
+    gallery: [
+      {
+        src: "/projects/landscape/Jhaveri-1.jpg",
+        alt: "Jhaveri Gateway exterior"
+      },
+      {
+        src: "/projects/landscape/Jhaveri-2.jpg",
+        alt: "Jhaveri Gateway interior"
+      },
+      {
+        src: "/projects/landscape/Jhaveri-3.jpg",
+        alt: "Jhaveri Gateway dining area"
+      }
+    ],
+    narrative: [
+      "Conceived as a visionary design proposal in association with SS Laxmi Enterprise, UBR, the concept introduces a colossal portal frame defined by precise geometry that spans the main threshold, featuring a deep cantilevering canopy where a deliberate veil of hanging greenery cascades from the lip to soften the structural elements. Robust stone cladding, rich with deep texture, anchors the heavy structural pillars and the main signage wall, where the corporate identity is rendered in crisp, three-dimensional brushed metal typography above a low-slung xeriscape of yuccas and agaves. This architectural language extends along the boundary wall proposal as an articulated rhythm of plaster panels and stone modules, layered with multi-tiered plantings of palms and structural shrubs to transform a secure perimeter into a vibrant, sensory green buffer that establishes a definitive and sophisticated contemporary identity."]
+  },
+  {
+    category: "landscape",
+    slug: "coastal-edge",
+    title: "Coastal Edge",
+    sketchSrc: "/projects/landscape/D-1.jpg",
+    colorSrc: "/projects/landscape/D-1.jpg",
+    location: "Dehari-Govada, Gujarat.",
+    typology: "Coastal Landscape",
+    area: "NA",
+    year: "NA",
+    lead: "The coastal defence infrastructure at Dehari-Gowada Beach redefines the boundary between land and sea, establishing a robust yet articulated presence.",
+    gallery: [
+      {
+        src: "/projects/landscape/D-1.jpg",
+        alt: "Coastal Edge exterior"
+      },
+      {
+        src: "/projects/landscape/D-2.jpg",
+        alt: "Coastal Edge interior"
+      },
+      {
+        src: "/projects/landscape/D-3.jpg",
+        alt: "Coastal Edge dining area"
+      }
+    ],
+    narrative: [
+      "The primary element, a massive concrete bulkhead, functions as a defensive barrier against tidal forces while anchoring an expansive, elevated walkway designed for civic engagement and pedestrian movement. This linear promenade extends continuously along the coastline, its smooth, sweeping surface providing a clear architectural threshold that separates the shifting sands from the inland landscape.",
+      "The intervention features a series of stepped, pyramidal forms that transition gracefully from the upper walkway down to the water, offering a rhythmic, geometric progression that functions both as public seating and an architectural erosion control mechanism. The massive concrete blocks exhibit a powerful, tactile materiality that beautifully resonates with the raw coastal environment. These hard, geometric structures contrast beautifully with the loose geology of the riprap and the soft, organic backdrop of the native pine windbreak, creating a master plan that thoughtfully balances heavy engineering with a sophisticated pedestrian experience."
+    ]
+  },
 
+  //master-planing
+  {
+    category: "master-planning",
+    slug: "apex-rubber-products",
+    title: "Apex Rubber Products",
+    sketchSrc: "/projects/master-planning/Apex1.jpg",
+    colorSrc: "/projects/master-planning/Apex1.jpg",
+    location: "Super Tech Industrial Park, Sanjan, Gujarat.",
+    typology: "Industrial Architecture",
+    area: " 10760 Sq. Ft. (Built-Up Area)",
+    year: "2025",
+    lead: "H&A is redefining industrial design with its vision for Apex Rubber Products' new 1000 sqm facility. This project prioritizes functionality while incorporating modern architectural elements.",
+    gallery: [
+      {
+        src: "/projects/master-planning/Apex1.jpg",
+        alt: "Apex Rubber Products exterior"
+      },
+      {
+        src: "/projects/master-planning/Apex2.jpg",
+        alt: "Apex Rubber Products interior"
+      },
+      {
+        src: "/projects/master-planning/Apex3.jpg",
+        alt: "Apex Rubber Products dining area"
+      },
+      {
+        src: "/projects/master-planning/Apex4.jpg",
+        alt: "Apex Rubber Products dining area"
+      }
+    ],
+    narrative: [
+      "The structure leverages a PEB (Pre-Engineered Building) system for its roof and exterior walls. This prefabricated solution offers cost-effectiveness and expedites construction. Precast concrete panels are strategically integrated for enhanced durability and fire resistance.",
+      "The design emphasizes open floor plans, maximizing space for efficient production flow and optimal machinery placement. The PEB system facilitates high ceilings, creating a voluminous and well-lit workspace. Strategically placed skylights will bathe the interior in natural light, minimizing reliance on artificial illumination and promoting a sustainable environment.",
+      "Exposed elements, inherent to the PEB system and precast concrete, will create a characteristic industrial aesthetic that complements the building's purpose. This H&A project ensures Apex Rubber Products receives a facility that is not only operationally efficient but also fosters a modern and inspiring work environment."
+    ]
+  },
+  {
+    category: "master-planning",
+    slug: "meridian",
+    title: "Meridian",
+    sketchSrc: "/projects/master-planning/Meridian-1.jpg",
+    colorSrc: "/projects/master-planning/Meridian-1.jpg",
+    location: "New Zealand.",
+    typology: "Housing Architecture",
+    area: " NA",
+    year: "NA",
+    lead: "The strong vertical core anchors the structure, while clean lines and cantilevered balconies with glass railings give the facade a light, modern rhythm.",
+    gallery: [
+      {
+        src: "/projects/master-planning/Meridian-1.jpg",
+        alt: "Meridian exterior"
+      },
+      {
+        src: "/projects/master-planning/Meridian-2.jpg",
+        alt: "Meridian interior"
+      },
+      {
+        src: "/projects/master-planning/Meridian-3.jpg",
+        alt: "Meridian dining area"
+      },
+      {
+        src: "/projects/master-planning/Meridian-4.jpg",
+        alt: "Meridian dining area"
+      }
+    ],
+    narrative: [
+      "The material palette uses textured cladding with clean concrete framing to add depth, durability and a warm architectural character.",
+      "Each home is planned to maximize natural light, ventilation and everyday comfort, with balconies that extend the living experience outward. At the ground level, a calm landscape of palms and soft lighting creates a gentle transition from the street to the building. Overall, we aimed to enhance the surroundings with a crisp modern silhouette while shaping a serene and thoughtfully detailed residential environment.",
+    ]
+  },
+
+  {
+    category: "master-planning",
+    slug: "vadawali-retreat",
+    title: "Vadawali Retreat",
+    sketchSrc: "/projects/master-planning/Vadawali.jpg",
+    colorSrc: "/projects/master-planning/Vadawali.jpg",
+    location: "Alibagh, Maharashtra.",
+    typology: "Hospitality Architecture",
+    area: " NA",
+    year: "NA",
+    lead: "Anchored within the raw agrarian fabric of Vadawali, Alibag, our vision for the Vadawali Retreat is an architectural synthesis of context and composition.",
+    gallery: [
+      {
+        src: "/projects/master-planning/Vadawali.jpg",
+        alt: "Vadawali Retreat exterior"
+      }
+    ],
+    narrative: [
+      "Defined by a cohesive vernacular geometry, we designed the master plan to deftly navigate a slender site where the orthogonal linearity of cultivated fields is met by the meandering grace of a central aquatic body. The retreat is our study in texture and form, where we shaped low-slung structures featuring articulated pitched roofs clad in shingle tiles, intentionally mimicking the furrows of the surrounding landscape. Our spatial configuration organizes diverse typologies from independent guest units to a larger private bungalow around a sequence of naturalised canals and a precise, geometric leisure pool. We chose a material palette that resonates deeply with the earth, utilizing timber-toned finishes and textured stone pavers that blur the distinction between interior sanctuary and exterior expression. This refined planning, marked by porous circulation and integrated softscaping, offers an immersive, tactile experience where contemporary spatial fluency meets traditional craftsmanship, defining our take on a new luxury of architectural retreat.",
+    ]
+  },
+
+  //furniture
+  {
+    category: "furniture",
+    slug: "cantra",
+    title: "Cantra",
+    sketchSrc: "/projects/furniture/Cantra-1.jpg",
+    colorSrc: "/projects/furniture/Cantra-1.jpg",
+    location: "",
+    typology: "Office Desk Table",
+    area: " NA",
+    year: "NA",
+    lead: "The Cantra office desk challenges conventional structural typology through an audacious play of gravity and geometric equilibrium.",
+    gallery: [
+      {
+        src: "/projects/furniture/Cantra-1.jpg",
+        alt: "Cantra office desk"
+      },
+      {
+        src: "/projects/furniture/Cantra-2.jpg",
+        alt: "Vadawali Retreat exterior"
+      },
+      {
+        src: "/projects/furniture/Cantra-3.jpg",
+        alt: "Vadawali Retreat exterior"
+      },
+      {
+        src: "/projects/furniture/Cantra-4.jpg",
+        alt: "Vadawali Retreat exterior"
+      },
+      {
+        src: "/projects/furniture/Cantra-5.jpg",
+        alt: "Vadawali Retreat exterior"
+      }
+
+    ],
+    narrative: [
+      "Defined by its dramatic, asymmetric silhouette, the design features an expansive horizontal volume that projects outward in an uncompromising cantilever, creating a powerful sense of levitation and directional energy. This gravity-defying plane is anchored by a single, monolithic wooden plinth, precisely inclined to counteract the dramatic overhead span while anchoring the piece with structural authority. ",
+      "The material palette is an elegant study in subtle, refined textures, pairing a tactile, aggregate-rich terrazzo desktop with a finely grained timber underbelly and base. Chamfered edges along the underside of the desk surface taper gracefully, minimizing the visual profile and enhancing its aerodynamic lightness. More than a functional workspace, Cantra is a bold architectural installation that commands its spatial volume, offering an inspiring, sculptural focal point for the modern executive interior."
+    ]
+  },
+  {
+    category: "furniture",
+    slug: "torus",
+    title: "Torus",
+    sketchSrc: "/projects/furniture/Torus-1.jpg",
+    colorSrc: "/projects/furniture/Torus-1.jpg",
+    location: "",
+    typology: "Center Table",
+    area: " NA",
+    year: "NA",
+    lead: "The Torus center table articulates a sophisticated dialogue of geometric purity and grounded monumentality, anchoring contemporary living spaces with its exceptional sculptural presence.",
+    gallery: [
+      {
+        src: "/projects/furniture/Torus-1.jpg",
+        alt: "Torus center table"
+      },
+      {
+        src: "/projects/furniture/Torus-2.jpg",
+        alt: "Torus center table"
+      },
+      {
+        src: "/projects/furniture/Torus-3.jpg",
+        alt: "Torus center table"
+      }
+
+    ],
+    narrative: [
+      "Defined by an inverted pyramidal base, the design tapers elegantly toward the floor, subverting the traditional mass of a central plinth while ensuring an architectural interplay of light and shadow across its finely grained wooden facets. Hovering effortlessly above this dynamic substructure is an expansive, square tabletop crafted from a meticulously detailed, aggregate-rich terrazzo that introduces an organic, tactile complexity.",
+      "A subtle, recessed reveal separates the stone matrix from the timber underbelly, giving the heavy slab a deceptive sense of weightlessness. Chamfered detailing along the lower edges of the tabletop mirrors the precise joinery of the base, demonstrating a masterful commitment to material truth and craftsmanship. The result is a balanced, monolithic statement piece that bridges minimalist discipline with rich textural warmth."
+    ]
+  },
+
+  {
+    category: "furniture",
+    slug: "volant",
+    title: "Volant",
+    sketchSrc: "/projects/furniture/Volant-1.jpg",
+    colorSrc: "/projects/furniture/Volant-1.jpg",
+    location: "",
+    typology: "Dining Table",
+    area: " NA",
+    year: "NA",
+    lead: "The Volant dining table embodies a masterclass in monumental elegance and material harmony, establishing a commanding sculptural presence within the contemporary dining space.",
+    gallery: [
+      {
+        src: "/projects/furniture/Volant-1.jpg",
+        alt: "Volant dining table"
+      },
+      {
+        src: "/projects/furniture/Volant-2.jpg",
+        alt: "Volant dining table"
+      },
+      {
+        src: "/projects/furniture/Volant-3.jpg",
+        alt: "Volant dining table"
+      },
+      {
+        src: "/projects/furniture/Volant-4.jpg",
+        alt: "Volant dining table"
+      }
+
+    ],
+    narrative: [
+      "The design centers around an expansive, boat-shaped top of polished Red Levanto marble, its deep, dramatic crimson hues interlaced with striking white veins that create a dynamic, painterly canvas. This expressive stone surface features gently rounded corners and subtly tapered edges, which soften its immense physical mass. Supporting this luxurious plane is an elongated, capsule-shaped plinth wrapped in a continuous shroud of warm brushed bronze, whose subtly reflective, textured surface catches the ambient light with sophisticated restraint. In a thoughtful display of tectonic layering, an intermediate neck of dark smoked oak separates the marble top from the metallic base, while matching timber accents trim the very bottom, creating a refined sense of visual separation and structural grounding. The resulting piece is a timeless, editorial-worthy architectural statement that beautifully balances the warmth of artisanal metalwork with the raw grandeur of natural stone.",
+    ]
+  },
+  {
+    category: "furniture",
+    slug: "kono",
+    title: "Kono",
+    sketchSrc: "/projects/furniture/Kono-1.jpg",
+    colorSrc: "/projects/furniture/Kono-1.jpg",
+    location: "",
+    typology: "Dining Table",
+    area: " NA",
+    year: "NA",
+    lead: "The Kono dining table orchestrates a sublime study in tectonic poise, beautifully balancing organic fluidity with strict geometric precision.",
+    gallery: [
+      {
+        src: "/projects/furniture/Kono-1.jpg",
+        alt: "Kono dining table"
+      },
+      {
+        src: "/projects/furniture/Kono-2.jpg",
+        alt: "Kono dining table"
+      },
+      {
+        src: "/projects/furniture/Kono-3.jpg",
+        alt: "Kono dining table"
+      },
+      {
+        src: "/projects/furniture/Kono-4.jpg",
+        alt: "Kono dining table"
+      }
+
+    ],
+    narrative: [
+      "The design is crowned by an expansive, circular top of exquisite Verde Alpi marble, its deep, verdant surface intricately traced with a complex web of crystalline white veins that evoke the timeless grandeur of alpine landscapes. This polished stone plane features subtly chamfered edges that catch the light, minimizing its visual profile to introduce an unexpected element of grace. In an elegant display of structural transparency, a slender column of brushed bronze elevates the marble, rising seamlessly from a conical plinth of dark smoked oak. The subtle, metallic luster of the bronze neck provides a refined transition between the rich, dark grain of the wooden pedestal and the dramatic intensity of the stone above. This intentional layering transforms Kono from a functional gathering archetype into a commanding, sculptural centerpiece for the curated interior."
+    ]
+  },
+
+  {
+    category: "furniture",
+    slug: "colonna",
+    title: "Colonna",
+    sketchSrc: "/projects/furniture/Colonna-1.jpg",
+    colorSrc: "/projects/furniture/Colonna-1.jpg",
+    location: "",
+    typology: "Console Table",
+    area: " NA",
+    year: "NA",
+    lead: "The Colonna console table is a magnificent orchestration of classical architecture reinterpreted through a contemporary lens of minimalist luxury.",
+    gallery: [
+      {
+        src: "/projects/furniture/Colonna-1.jpg",
+        alt: "Colonna console table"
+      },
+      {
+        src: "/projects/furniture/Colonna-2.jpg",
+        alt: "Colonna console table"
+      },
+      {
+        src: "/projects/furniture/Colonna-3.jpg",
+        alt: "Colonna console table"
+      },
+      {
+        src: "/projects/furniture/Colonna-4.jpg",
+        alt: "Colonna console table"
+      }
+    ],
+    narrative: [
+      "Sculpted entirely from premium, heavily veined white marble, the piece commands space with a rhythmic, colonnade-inspired base composed of multiple parallel cylinders. The outermost pillars are fully grounded, detailed with precise, stepped fluting at their base to anchor the structure with absolute stability, while the inner columns dynamically step upward to create a dramatic, inverted-arch silhouette that feels delightfully suspended in mid-air. Resting atop this powerful rhythmic cadence is a slender, racetrack-shaped marble top with softly rounded profiles that beautifully temper the piece's monumental mass. The continuous flow of natural, dark gray veining across the polished stone surfaces celebrates an absolute truth to materials, transforming a functional hallway archetype into a breathtaking, gallery-worthy installation that bridges historical gravity with avant-garde spatial poetry."
+    ]
+  },
+  {
+    category: "furniture",
+    slug: "suture",
+    title: "Suture",
+    sketchSrc: "/projects/furniture/Suture-1.jpg",
+    colorSrc: "/projects/furniture/Suture-1.jpg",
+    location: "",
+    typology: "Console Table",
+    area: " NA",
+    year: "NA",
+    lead: "The Suture console table stands as a profound exploration of tectonic tension and material contrast, seamlessly merging the raw spontaneity of nature with the precise geometry of contemporary design.",
+    gallery: [
+      {
+        src: "/projects/furniture/Suture-1.jpg",
+        alt: "Suture console table"
+      },
+      {
+        src: "/projects/furniture/Suture-2.jpg",
+        alt: "Suture console table"
+      },
+      {
+        src: "/projects/furniture/Suture-3.jpg",
+        alt: "Suture console table"
+      },
+      {
+        src: "/projects/furniture/Suture-4.jpg",
+        alt: "Suture console table"
+      }
+    ],
+    narrative: [
+      " At its core, a monumental, vertical live-edge timber slab serves as a powerful sculptural anchor, its rich grain and rugged, bark-clad silhouette juxtaposed against a pristine, cantilevered marble plane. This white marble surface slices into the timber body with architectural precision, extending outward to rest upon a monolithic, patinated bronze cylinder that provides a weighted, industrial counterpoint. The composition challenges traditional notions of balance and proportion, transforming a functional furniture piece into an arresting spatial installation. Every material behaves with absolute truth to its inherent characteristics, offering a tactile dialogue between the organic, weathered textures of wood and the smooth, cold sophistication of stone and metal, resulting in an exquisite editorial statement for the modern interior."
+    ]
+  },
+  {
+    category: "furniture",
+    slug: "verve",
+    title: "Verve",
+    sketchSrc: "/projects/furniture/Verve-1.jpg",
+    colorSrc: "/projects/furniture/Verve-1.jpg",
+    location: "",
+    typology: "Basin Console",
+    area: " NA",
+    year: "NA",
+    lead: "The Verve wash basin table redefines the boundaries of bathroom typology, presenting an avant-garde composition of bold geometric totems and structural asymmetry. ",
+    gallery: [
+      {
+        src: "/projects/furniture/Verve-1.jpg",
+        alt: "Verve wash basin table"
+      },
+      {
+        src: "/projects/furniture/Verve-2.jpg",
+        alt: "Verve wash basin table"
+      },
+      {
+        src: "/projects/furniture/Verve-3.jpg",
+        alt: "Verve wash basin table"
+      }
+    ],
+    narrative: [
+      "The design is dominated by a monolithic, pill-shaped basin meticulously sculpted from polished Alaska Red Granite, its fiery, rich terracotta tones running with dramatic, swirling veins. This horizontal volume is supported by a striking dual-nature substructure that treats gravity as a playful art form. On one side, a slender, architectural cage of brushed gold metalwork lends a lightweight, skeletal grace to the piece. In direct opposition, the heavier end rests upon a stacked sculptural pedestal, where a perfect sphere of contrasting Alaska White Granite balances precariously atop a vertical, dome-capped pillar of matching red stone. The result is a brilliant tectonic narrative where raw, geological beauty meets precise artisanal craftsmanship, transforming a functional daily ritual into a captivating artistic expression."
+    ]
+  },
 ];
 
 export const ALL_PROJECTS = BASE_PROJECTS;
 export const PROJECTS_BY_CATEGORY = {
   architecture: BASE_PROJECTS.slice(0, 9),
   interior: BASE_PROJECTS.slice(9, 18),
-  // landscape: BASE_PROJECTS.slice(0, 4),
-  landscape: [],
-  "master-planning": [],
-  furniture: [],
+  landscape: BASE_PROJECTS.slice(18, 22),
+  "master-planning": BASE_PROJECTS.slice(22, 25),
+  furniture: BASE_PROJECTS.slice(25, 35)
 };

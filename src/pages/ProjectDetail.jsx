@@ -35,15 +35,15 @@ export default function ProjectDetail() {
     setTimeout(() => setLightbox({ open: false, idx: 0, visible: false }), 250);
   };
 
-  const lbNext = e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx+1) % gallery.length })); };
-  const lbPrev = e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx-1+gallery.length) % gallery.length })); };
+  const lbNext = e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx + 1) % gallery.length })); };
+  const lbPrev = e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx - 1 + gallery.length) % gallery.length })); };
 
   useEffect(() => {
     const onKey = e => {
       if (!lightbox.open) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") setLightbox(l => ({ ...l, idx: (l.idx+1) % gallery.length }));
-      if (e.key === "ArrowLeft") setLightbox(l => ({ ...l, idx: (l.idx-1+gallery.length) % gallery.length }));
+      if (e.key === "ArrowRight") setLightbox(l => ({ ...l, idx: (l.idx + 1) % gallery.length }));
+      if (e.key === "ArrowLeft") setLightbox(l => ({ ...l, idx: (l.idx - 1 + gallery.length) % gallery.length }));
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -84,7 +84,11 @@ export default function ProjectDetail() {
           <Link to="/projects" className="back-link">Projects</Link>
           <span className="separator">&gt;</span>
           <Link to={`/projects/${project.category}`} className="back-link">
-            {project.category === "interior" ? "Interior Design" : "Architectural Design"}
+
+            {project.category === "master-planning" ? "Master Planning" :
+              project.category === "furniture" ? "Furniture Design" :
+                project.category === "landscape" ? "Landscape Design" :
+                  project.category === "interior" ? "Interior Design" : "Architectural Design"}
           </Link>
         </p>
 

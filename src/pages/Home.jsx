@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           <DotField dotRadius={2} dotSpacing={14} bulgeStrength={67} />
           <div className="hero-content">
-            <img src="/L1.png" className="hero-brand-graphic" alt="Studio logo" />
+            <img src="/primary-logo-orange.svg" className="hero-brand-graphic" alt="Studio logo" />
             <p className="eyebrow" style={{color:"#fff"}}>Design studio - est. 2023</p>
           </div>
         </section>
