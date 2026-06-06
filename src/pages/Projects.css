@@ -80,7 +80,12 @@
 .disciplines li a {
   display: inline-block;
   transition: transform .4s cubic-bezier(.175, .885, .32, 1.275);
-  color: var(--title-tone)
+  color: var(--title-tone);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 5px;
+  text-decoration-color: #d7baa0;
 }
 
 .disciplines li a:hover {

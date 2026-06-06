@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import DotField from "../components/DotField";
 import { useReveal } from "../hooks/useReveal";
@@ -9,9 +9,10 @@ import "./Home.css";
 export default function Home() {
   const [active, setActive] = useState(0);
   const ref = useReveal();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const id = setInterval(() => setActive(a => (a+1) % HERO_SLIDES.length), 3000);
+    const id = setInterval(() => setActive(a => (a + 1) % HERO_SLIDES.length), 3000);
     return () => clearInterval(id);
   }, []);
 
@@ -25,22 +26,22 @@ export default function Home() {
         <section className="hero">
           <div className="hero-media" aria-hidden="true">
             {HERO_SLIDES.map((src, i) => (
-              <img key={src} className={`hero-slide${i===active?" is-active":""}`} src={src} alt="" />
+              <img key={src} className={`hero-slide${i === active ? " is-active" : ""}`} src={src} alt="" />
             ))}
           </div>
           <DotField dotRadius={2} dotSpacing={14} bulgeStrength={67} />
           <div className="hero-content">
-            <img src="/primary-logo-orange.svg" className="hero-brand-graphic" alt="Studio logo" />
-            <p className="eyebrow" style={{color:"#fff"}}>Design studio - est. 2023</p>
+            <img src="/L1.png" className="hero-brand-graphic" alt="Studio logo" />
+            <p className="eyebrow" style={{ color: "#fff" }}>Design studio - est. 2023</p>
           </div>
         </section>
 
         {/* TICKER */}
-        <div className="ticker" aria-hidden="true">
+        <a className="ticker" aria-hidden="true" onClick={() => navigate("/projects")}>
           <div className="ticker-track">
-            {words.map((w,i) => <span key={i}>{w}</span>)}
+            {words.map((w, i) => <span key={i}>{w}</span>)}
           </div>
-        </div>
+        </a>
 
         {/* CONTACT */}
         <section id="contact" className="contact-section" ref={ref}>
@@ -59,7 +60,7 @@ export default function Home() {
             </div>
             <div className="contact-link-item">
               <span className="label">Location</span>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="value">Get Studio Directions →</a>
+              <a href="https://goo.gl/maps/ipTdhyUFJMNCa6p2A" target="_blank" rel="noopener noreferrer" className="value">Get Studio Directions →</a>
             </div>
             <div className="contact-link-item">
               <span className="label">Social</span>
