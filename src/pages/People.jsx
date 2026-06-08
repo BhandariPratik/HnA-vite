@@ -18,8 +18,7 @@ export default function People() {
           </div>
           <div className="founder-copy">
             <h2>Ar. Hasmit Bhandari</h2>
-            {/* <p className="role">Founder &amp; Principal Architect</p> */}
-            <p className="role">Founder &amp; Principal Architec</p>
+            <p className="role">Founder &amp; Principal Architect</p>
             <p>The journey into architecture began with an academic foundation. Buoyed by the encouragement of family and friends, Ar. Hasmit was empowered to pursue his professional ambitions wholeheartedly.</p>
             <p>Following his academic tenure, he gained valuable experience working with several firms within the architecture and design industry. While these roles provided essential insights, Ar. Hasmit maintained a long-term vision of establishing an independent practice to make a distinct mark on the industry.</p>
             <p>To prepare for this chapter, he explored a wide spectrum of cultures and materials through extensive site visits. This broad knowledge base and the perspectives gained became invaluable assets to his practice, informing a design language rooted in material authenticity and conceptual depth.</p>

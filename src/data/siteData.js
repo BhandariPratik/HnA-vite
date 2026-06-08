@@ -321,15 +321,15 @@ const BASE_PROJECTS = [
     category: "architecture",
     slug: "thal-house",
     title: "Thal House",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "Thal-Alibagh, Maharashtra.",
     typology: "Weekend House Design",
     area: " 2000 Sq. Ft. (Built-Up Area)",
     year: "2026",
     lead: "",
     gallery: [{
-      src: "/coming_soon.png",
+      src: "/coming_soon.jpeg",
       alt: "Thal House"
     }],
     narrative: [""]
@@ -338,15 +338,15 @@ const BASE_PROJECTS = [
     category: "architecture",
     slug: "karjat-house",
     title: "Karjat House",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "Jambhivali-Karjat, Maharashtra.",
     typology: " Weekend House Design",
     area: "1400 Sq. Ft. (Built-Up Area)",
     year: "NA",
     lead: "",
     gallery: [{
-      src: "/coming_soon.png",
+      src: "/coming_soon.jpeg",
       alt: "Karjat House"
     }],
     narrative: [""]
@@ -446,8 +446,8 @@ const BASE_PROJECTS = [
     category: "interior",
     slug: "parekh-house",
     title: "Parekh House",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "Fortune Garden, Moti Daman.",
     typology: "Bungalow Interior",
     area: "2700 Sq. Ft. (Carpet Area)",
@@ -455,7 +455,7 @@ const BASE_PROJECTS = [
     lead: "",
     gallery: [
       {
-        src: "/coming_soon.png",
+        src: "/coming_soon.jpeg",
         alt: "Parekh House exterior"
       },
 
@@ -586,8 +586,8 @@ const BASE_PROJECTS = [
     category: "interior",
     slug: "podcast-studio",
     title: "Podcast Studio",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "Mumbai, Studio.",
     typology: "Media & Broadcast Interior ",
     area: "160 Sq. Ft. (Carpet Area)",
@@ -595,7 +595,7 @@ const BASE_PROJECTS = [
     lead: "This podcast studio in Mumbai is conceived as a warm, immersive environment where content creation meets comfort-driven design.",
     gallery: [
       {
-        src: "/coming_soon.png",
+        src: "/coming_soon.jpeg",
         alt: "Podcast Studio exterior"
       }
     ],
@@ -647,8 +647,8 @@ const BASE_PROJECTS = [
     category: "interior",
     slug: "am_30",
     title: "AM-30",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "Solsumba, UBR.",
     typology: "Bungalow Interior ",
     area: "--  Sq. Ft. (Carpet Area)",
@@ -656,7 +656,7 @@ const BASE_PROJECTS = [
     lead: "",
     gallery: [
       {
-        src: "/coming_soon.png",
+        src: "/coming_soon.jpeg",
         alt: "AM-30 exterior"
       }
     ],
@@ -668,8 +668,8 @@ const BASE_PROJECTS = [
     category: "landscape",
     slug: "coptec",
     title: "Coptec",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "GIDC Umbergaon, Gujarat.",
     typology: "Industrial Landscape",
     area: "NA",
@@ -677,7 +677,7 @@ const BASE_PROJECTS = [
     lead: "",
     gallery: [
       {
-        src: "/coming_soon.png",
+        src: "/coming_soon.jpeg",
         alt: "Coptec exterior"
       }
     ],
@@ -687,8 +687,8 @@ const BASE_PROJECTS = [
     category: "landscape",
     slug: "parikh-house",
     title: "Parikh House",
-    // sketchSrc: "/coming_soon.png",
-    colorSrc: "/coming_soon.png",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/coming_soon.jpeg",
     location: "Fortune Garden, Moti Daman.",
     typology: "Bungalow Landscape",
     area: "NA",
@@ -696,7 +696,7 @@ const BASE_PROJECTS = [
     lead: "",
     gallery: [
       {
-        src: "/coming_soon.png",
+        src: "/coming_soon.jpeg",
         alt: "Parikh House"
       }
     ],

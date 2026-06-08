@@ -160,6 +160,19 @@
   }
 }
 
-.ticker{
+.ticker {
   cursor: pointer;
+}
+
+@media (max-width: 1180px) {
+  .hero {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    /* Forces perfect automatic fullscreen sizing limits on all touch devices */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: max(6rem, 12vh) var(--gutter) max(2.5rem, 6vh) var(--gutter) !important;
+    box-sizing: border-box !important;
+  }
 }

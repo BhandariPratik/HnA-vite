@@ -76,6 +76,44 @@ export default function ProjectDetail() {
     }, { idx: 0, d: Infinity }).idx;
   };
 
+  const handleShareProject = async (projectName, projectTypology = "Architecture") => {
+    console.log("Sharing project:", projectName);
+    console.log("navigator.share =", navigator.share);
+    const shareData = {
+      title: `${projectName} | HASMiT & ARCHiTECTS`,
+      text: `Explore ${projectName} — a ${projectTypology.toLowerCase()} project by HASMiT & ARCHiTECTS.`,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert("Project link copied to clipboard!");
+      }
+    } catch (error) {
+      console.log("Share canceled:", error);
+    }
+  };
+
+  // const handleShareProject = async (projectName) => {
+  //   const url = window.location.href;
+
+  //   if (navigator.share) {
+  //     try {
+  //       await navigator.share({
+  //         title: `${projectName} | HASMiT & ARCHiTECTS`,
+  //         url,
+  //       });
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   } else {
+  //     await navigator.clipboard.writeText(url);
+  //     alert("Project link copied to clipboard!");
+  //   }
+  // };
   return (
     <>
       <Navbar />
@@ -96,6 +134,21 @@ export default function ProjectDetail() {
           <div>
             <h1>{project.title}</h1>
             <p className="eyebrow">{project.location}</p>
+            <div className="project-share-container">
+              <button type="button" className="btn-share-project"
+                onClick={() => handleShareProject(project.title, project.typology)}
+              >
+                <svg viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style={{ width: "12px", height: "12px" }}
+                  stroke="currentColor"
+                  strokeWidth="1"
+                >
+                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7a2.5 2.5 0 0 0 0-1.39l7.02-4.11A2.99 2.99 0 1 0 15 5a2.5 2.5 0 0 0 .04.44L8.02 9.56a3 3 0 1 0 0 4.88l7.02 4.12c-.03.14-.04.29-.04.44a3 3 0 1 0 3-2.92z" />
+                </svg>
+                <span>Share Project</span>
+              </button>
+            </div>
           </div>
           <p className="detail-lead">{project.lead}</p>
         </section>

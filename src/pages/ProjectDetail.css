@@ -22,8 +22,9 @@
 }
 
 .detail-hero .eyebrow {
+  margin-top: 5px;
   color: var(--description-tone);
-  font-size: .72rem;
+  font-size: .92rem;
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase
@@ -214,6 +215,37 @@
   pointer-events: none;
   user-select: none
 }
+
+  .project-share-container {
+    margin-top: 1rem;
+    display: inline-flex;
+  }
+
+  .btn-share-project {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    color: #636b75;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    cursor: pointer;
+    padding: 0.2rem 0;
+    transition: color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-share-project i {
+    font-size: 0.8rem;
+  }
+
+  .btn-share-project:hover {
+    color: #d1682c;
+  }
 
 @media(max-width:900px) {
 
