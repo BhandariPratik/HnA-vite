@@ -31,10 +31,10 @@ export default function Home() {
           </div>
           <DotField dotRadius={2} dotSpacing={14} bulgeStrength={67} />
           
-          {/* <div className="dot-content">
+          <div className="dot-content">
             <p className="studio-description">Discover our studio!</p>
             <p className="nav-instruction">Tap this navigation Dot to open the Menu and explore more.</p>
-          </div> */}
+          </div>
           <div className="hero-content">
             <img src="/white-logo.png" className="hero-brand-graphic" alt="Studio logo" />
             <p className="eyebrow" style={{ color: "#fff" }}>Design studio - est. 2023</p>
