@@ -170,8 +170,8 @@
     min-height: 100dvh !important;
     /* Forces perfect automatic fullscreen sizing limits on all touch devices */
     display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
+    flex-direction: row !important;
+    justify-content: left !important;
     padding: max(6rem, 12vh) var(--gutter) max(2.5rem, 6vh) var(--gutter) !important;
     box-sizing: border-box !important;
   }

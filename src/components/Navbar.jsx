@@ -68,20 +68,21 @@ export default function Navbar({ transparent = false }) {
         tabIndex={0}
         onKeyDown={(e) => e.key === "Enter" && goHome()}
       >
-        HASMiT &amp; ARCHiTECTS
+        {/* HASMiT &amp; ARCHiTECTS */}
+        <img
+          src="/text-logo-orange.svg"
+          alt="Hasmit & Architects"
+          className="logo-image"
+        />
       </span>
 
-      {/* <button
-        className="menu-toggle"
-        type="button"
-        aria-label="Toggle navigation"
-        aria-expanded={open}
-        onClick={() => setOpen(o => !o)}
-      >
-        <span className="hamburger-box">
-          <span className="hamburger-inner" />
-        </span>
-      </button> */}
+
+      <img
+        src="/primary-logo-orange.svg"
+        alt="Hasmit & Architects"
+        className="logo-image-mobile"
+      />
+
       <button
         className="menu-toggle"
         type="button"
@@ -90,10 +91,12 @@ export default function Navbar({ transparent = false }) {
         onClick={() => setOpen(o => !o)}
       >
         <span className="hamburger-box">
-          <span className="hamburger-dot" />   {/* dot only */}
-          <span className="hamburger-line hamburger-line--1" />  {/* X line 1 */}
-          <span className="hamburger-line hamburger-line--2" />  {/* X line 2 */}
+
+          <span className="hamburger-dot" />
+          <span className="hamburger-line hamburger-line--1" />
+          <span className="hamburger-line hamburger-line--2" />
         </span>
+
       </button>
       <div className="nav-links-wrapper">
         <div className="mobile-menu-header" />
@@ -117,7 +120,7 @@ export default function Navbar({ transparent = false }) {
             Let's Talk
           </a>
 
-          <div className="mobile-socials">
+          {/* <div className="mobile-socials">
             {SOCIAL_LINKS.map((s) => (
               <a
                 key={s.label}
@@ -131,7 +134,7 @@ export default function Navbar({ transparent = false }) {
                 </svg>
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
