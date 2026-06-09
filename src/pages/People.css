@@ -215,8 +215,9 @@
     text-align: center;
   }
 
-  .person-image img,
-  .founder-image img{
+  .person-card,
+  .person-image ,
+  .founder-image {
     border-radius: 15px;
   }
 }

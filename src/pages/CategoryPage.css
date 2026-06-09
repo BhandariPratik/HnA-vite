@@ -67,7 +67,9 @@
         grid-template-columns: 1fr;
         row-gap: 2.8rem;
     }
+}
 
+@media (max-width: 1024px) {
     .project-slide {
         border-radius: 15px;
     }
@@ -76,5 +78,3 @@
         border-radius: 15px;
     }
 }
-
-@media screen {}

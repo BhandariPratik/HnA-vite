@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS, SOCIAL_LINKS } from "../data/siteData";
+import { useMenu } from "../context/menuContext";
 
 export default function Navbar({ transparent = false }) {
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { isMenuOpen, setIsMenuOpen, setShowHint } = useMenu();
+
 
   const nav = useNavigate();
   const location = useLocation();
@@ -21,7 +24,7 @@ export default function Navbar({ transparent = false }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+      if (window.scrollY > lastScrollY && window.scrollY > 10) {
         setShowNavbar(false); // hide while scrolling down
       } else {
         setShowNavbar(true); // show while scrolling up
@@ -40,6 +43,7 @@ export default function Navbar({ transparent = false }) {
   const handleLetsTalk = (e) => {
     e.preventDefault();
     close();
+    setIsMenuOpen(false);
 
     const scrollToContact = () => {
       const el = document.getElementById("contact");
@@ -54,6 +58,12 @@ export default function Navbar({ transparent = false }) {
     }
   };
 
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setShowHint(false);
+    setOpen(o => !o)
+  };
+
   return (
     <header
       className={`nav ${open ? "menu-is-open" : ""} ${showNavbar ? "nav-show" : "nav-hide"
@@ -61,6 +71,8 @@ export default function Navbar({ transparent = false }) {
       style={{ color }}
       aria-label="Primary navigation"
     >
+
+      {/* {!isMenuOpen ? */}
       <span
         className="logo"
         onClick={goHome}
@@ -77,37 +89,42 @@ export default function Navbar({ transparent = false }) {
       </span>
 
 
-      <img
-        src="/primary-logo-orange.svg"
-        alt="Hasmit & Architects"
-        className="logo-image-mobile"
-      />
+
 
       <button
         className="menu-toggle"
         type="button"
         aria-label="Toggle navigation"
         aria-expanded={open}
-        onClick={() => setOpen(o => !o)}
+        onClick={handleMenuClick}
       >
         <span className="hamburger-box">
-
           <span className="hamburger-dot" />
           <span className="hamburger-line hamburger-line--1" />
           <span className="hamburger-line hamburger-line--2" />
         </span>
-
       </button>
-      <div className="nav-links-wrapper">
-        <div className="mobile-menu-header" />
 
+      <div className="nav-links-wrapper">
+        <div className="mobile-menu-header"
+        >
+          <img
+            src="/primary-logo-orange.svg"
+            alt="Hasmit & Architects"
+            className="nav-logo"
+            onClick={goHome}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && goHome()}
+          />
+        </div>
         <ul className="nav-links">
           {NAV_LINKS.map((l) => (
             <li key={l.to}>
               <NavLink
                 to={l.to}
                 className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={close}
+                onClick={() => { close(), setIsMenuOpen(false) }}
               >
                 {l.label}
               </NavLink>
@@ -120,21 +137,7 @@ export default function Navbar({ transparent = false }) {
             Let's Talk
           </a>
 
-          {/* <div className="mobile-socials">
-            {SOCIAL_LINKS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d={s.path} />
-                </svg>
-              </a>
-            ))}
-          </div> */}
+
         </div>
       </div>
 

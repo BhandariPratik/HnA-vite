@@ -5,11 +5,13 @@ import DotField from "../components/DotField";
 import { useReveal } from "../hooks/useReveal";
 import { HERO_SLIDES, TICKER_WORDS, SOCIAL_LINKS } from "../data/siteData";
 import "./Home.css";
+import { useMenu } from "../context/menuContext";
 
 export default function Home() {
   const [active, setActive] = useState(0);
   const ref = useReveal();
   const navigate = useNavigate();
+  const { showHint, isMenuOpen } = useMenu();
 
   useEffect(() => {
     const id = setInterval(() => setActive(a => (a + 1) % HERO_SLIDES.length), 3000);
@@ -21,7 +23,11 @@ export default function Home() {
   return (
     <>
       <Navbar transparent />
-      <main>
+      {
+        showHint &&
+        <div className="menu-shadow-overlay" />
+      }
+      <main className={isMenuOpen ? "main" : ""}>
         {/* HERO */}
         <section className="hero">
           <div className="hero-media" aria-hidden="true">
@@ -30,11 +36,15 @@ export default function Home() {
             ))}
           </div>
           <DotField dotRadius={2} dotSpacing={14} bulgeStrength={67} />
-          
-          <div className="dot-content">
-            <p className="studio-description">Discover our studio!</p>
-            <p className="nav-instruction">Tap this navigation Dot to open the Menu and explore more.</p>
-          </div>
+          {
+            showHint &&
+            (
+              <div className="dot-content">
+                <p className="studio-description">Discover our studio!</p>
+                <p className="nav-instruction">Tap this navigation Dot to open the Menu and explore more.</p>
+              </div>
+            )
+          }
           <div className="hero-content">
             <img src="/white-logo.png" className="hero-brand-graphic" alt="Studio logo" />
             <p className="eyebrow" style={{ color: "#fff" }}>Design studio - est. 2023</p>
