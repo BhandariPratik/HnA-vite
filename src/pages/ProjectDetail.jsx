@@ -8,7 +8,16 @@ export default function ProjectDetail() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = ALL_PROJECTS.find(p => p.slug === slug);
-  const galleryRef = useRef(null);
+
+  // ── Carousel state ──
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const autoSlideRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const isSwiping = useRef(false);
+  const tapPrevented = useRef(false);
+
+  // ── Lightbox state ──
   const [lightbox, setLightbox] = useState({ open: false, idx: 0, visible: false });
 
   useEffect(() => {
@@ -18,73 +27,90 @@ export default function ProjectDetail() {
   if (!project) return null;
 
   const { gallery } = project;
+  const total = gallery.length;
 
-  const goTo = idx => {
-    const norm = (idx + gallery.length) % gallery.length;
-    const g = galleryRef.current;
-    if (g) g.scrollTo({ left: g.children[norm].offsetLeft, behavior: "smooth" });
+  // ── Auto-slide ──
+  const startAutoCycle = useCallback(() => {
+    stopAutoCycle();
+    autoSlideRef.current = setInterval(() => {
+      setCurrentIndex(i => (i + 1) % total);
+    }, 3000);
+  }, [total]);
+
+  const stopAutoCycle = () => {
+    if (autoSlideRef.current) clearInterval(autoSlideRef.current);
   };
 
-  const openLightbox = idx => {
+  useEffect(() => {
+    startAutoCycle();
+    return stopAutoCycle;
+  }, [startAutoCycle]);
+
+  const goTo = (idx) => {
+    setCurrentIndex((idx + total) % total);
+  };
+
+  const nextSlide = () => { stopAutoCycle(); goTo(currentIndex + 1); startAutoCycle(); };
+  const prevSlide = () => { stopAutoCycle(); goTo(currentIndex - 1); startAutoCycle(); };
+
+  // ── Touch swipe ──
+  const onTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+    isSwiping.current = true;
+    stopAutoCycle();
+  };
+
+  const onTouchMove = (e) => {
+    if (!isSwiping.current) return;
+    touchEndX.current = e.changedTouches[0].screenX;
+  };
+
+  const onTouchEnd = () => {
+    if (!isSwiping.current) return;
+    isSwiping.current = false;
+    const dist = touchEndX.current - touchStartX.current;
+    if (dist < -50) goTo(currentIndex + 1);
+    else if (dist > 50) goTo(currentIndex - 1);
+    startAutoCycle();
+  };
+
+  // ── Lightbox ──
+  const openLightbox = (idx) => {
+    stopAutoCycle();
     setLightbox({ open: true, idx, visible: false });
     setTimeout(() => setLightbox(l => ({ ...l, visible: true })), 10);
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightbox(l => ({ ...l, visible: false }));
-    setTimeout(() => setLightbox({ open: false, idx: 0, visible: false }), 250);
+    setTimeout(() => {
+      setLightbox({ open: false, idx: 0, visible: false });
+      document.body.style.overflow = "";
+      startAutoCycle();
+    }, 250);
   };
 
-  const lbNext = e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx + 1) % gallery.length })); };
-  const lbPrev = e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx - 1 + gallery.length) % gallery.length })); };
+  const lbNext = (e) => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx + 1) % total })); };
+  const lbPrev = (e) => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total })); };
 
   useEffect(() => {
-    const onKey = e => {
+    const onKey = (e) => {
       if (!lightbox.open) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") setLightbox(l => ({ ...l, idx: (l.idx + 1) % gallery.length }));
-      if (e.key === "ArrowLeft") setLightbox(l => ({ ...l, idx: (l.idx - 1 + gallery.length) % gallery.length }));
+      if (e.key === "ArrowRight") setLightbox(l => ({ ...l, idx: (l.idx + 1) % total }));
+      if (e.key === "ArrowLeft") setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total }));
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [lightbox.open, gallery.length]);
-
-  const handleGalleryClick = e => {
-    if (Date.now() - pressTime.current > 250) return;
-    const img = e.target.closest(".gallery-image img");
-    if (!img) return;
-    const g = galleryRef.current;
-    const bounds = g.getBoundingClientRect();
-    const cx = e.clientX - bounds.left;
-    const zone = bounds.width * 0.5;
-    const left = (bounds.width - zone) / 2;
-    const right = left + zone;
-    const idx = Array.from(g.querySelectorAll(".gallery-image img")).indexOf(img);
-    if (cx >= left && cx <= right) { if (idx !== -1) openLightbox(idx); }
-    else if (cx < left) { const cur = getCurrentIdx(); goTo(cur - 1); }
-    else { const cur = getCurrentIdx(); goTo(cur + 1); }
-  };
-
-  const pressTime = useRef(0);
-  const getCurrentIdx = () => {
-    const g = galleryRef.current;
-    if (!g) return 0;
-    const items = Array.from(g.querySelectorAll(".gallery-image"));
-    return items.reduce((acc, el, i) => {
-      const d = Math.abs(el.offsetLeft - g.scrollLeft);
-      return d < acc.d ? { idx: i, d } : acc;
-    }, { idx: 0, d: Infinity }).idx;
-  };
+  }, [lightbox.open, total]);
 
   const handleShareProject = async (projectName, projectTypology = "Architecture") => {
-    console.log("Sharing project:", projectName);
-    console.log("navigator.share =", navigator.share);
     const shareData = {
       title: `${projectName} | HASMiT & ARCHiTECTS`,
       text: `Explore ${projectName} — a ${projectTypology.toLowerCase()} project by HASMiT & ARCHiTECTS.`,
       url: window.location.href,
     };
-
     try {
       if (navigator.share) {
         await navigator.share(shareData);
@@ -97,23 +123,6 @@ export default function ProjectDetail() {
     }
   };
 
-  // const handleShareProject = async (projectName) => {
-  //   const url = window.location.href;
-
-  //   if (navigator.share) {
-  //     try {
-  //       await navigator.share({
-  //         title: `${projectName} | HASMiT & ARCHiTECTS`,
-  //         url,
-  //       });
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     await navigator.clipboard.writeText(url);
-  //     alert("Project link copied to clipboard!");
-  //   }
-  // };
   return (
     <>
       <Navbar />
@@ -122,7 +131,6 @@ export default function ProjectDetail() {
           <Link to="/projects" className="back-link">Projects</Link>
           <span className="separator">&gt;</span>
           <Link to={`/projects/${project.category}`} className="back-link">
-
             {project.category === "master-planning" ? "Master Planning" :
               project.category === "furniture" ? "Furniture Design" :
                 project.category === "landscape" ? "Landscape Design" :
@@ -153,18 +161,71 @@ export default function ProjectDetail() {
           <p className="detail-lead">{project.lead}</p>
         </section>
 
+        {/* ── CAROUSEL GALLERY ── */}
         <section
-          className="project-gallery"
-          ref={galleryRef}
+          className="project-gallery-carousel"
           aria-label="Project image gallery"
-          onMouseDown={() => pressTime.current = Date.now()}
-          onMouseUp={handleGalleryClick}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          {gallery.map((img, i) => (
-            <figure key={i} className="gallery-image">
-              <img src={img.src} alt={img.alt} draggable="false" />
-            </figure>
-          ))}
+          {/* Prev / Next arrows */}
+          <button
+            type="button"
+            className="carousel-nav-btn btn-prev"
+            aria-label="Previous slide"
+            onClick={prevSlide}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className="carousel-nav-btn btn-next"
+            aria-label="Next slide"
+            onClick={nextSlide}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+
+          {/* Slider track */}
+          <div
+            className="gallery-slider-track"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {gallery.map((img, i) => (
+              <div key={i} className="gallery-carousel-item">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  draggable="false"
+                  onTouchStart={() => { tapPrevented.current = false; }}
+                  onTouchMove={() => { tapPrevented.current = true; }}
+                  onClick={() => {
+                    if (tapPrevented.current) return;
+                    setCurrentIndex(i);
+                    openLightbox(i);
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Dots */}
+          <div className="carousel-dots">
+            {gallery.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`carousel-dot${i === currentIndex ? " is-active" : ""}`}
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => { stopAutoCycle(); goTo(i); startAutoCycle(); }}
+              />
+            ))}
+          </div>
         </section>
 
         <section className="detail-grid">
@@ -179,7 +240,7 @@ export default function ProjectDetail() {
         </section>
       </main>
 
-      {/* LIGHTBOX */}
+      {/* ── LIGHTBOX ── */}
       {lightbox.open && (
         <div
           className="lightbox"
