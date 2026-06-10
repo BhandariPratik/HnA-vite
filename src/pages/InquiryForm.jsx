@@ -22,7 +22,7 @@ const schema = {
   },
   location: (v) => (!v?.trim() ? "Site address is required" : null),
   scope: (v) => (!v?.length ? "Select at least one scope of work" : null),
-  projectType: (v) => (!v?.length ? "Select at least one project type" : null),
+  projectType: (v) => (!v?.length ? "Select a project type" : null),
   service: (v) => (!v?.trim() ? "Select a service requirement" : null),
 };
 
@@ -53,13 +53,13 @@ const EMPTY_FORM = {
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function InquiryForm() {
   const [scope, setScope] = useState([]);
-  const [projectType, setProjectType] = useState([]);
+  const [projectType, setProjectType] = useState("");
   const [service, setService] = useState("");
   const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  console.log("error-------->",errors)
+  console.log("error-------->", errors)
 
   const set = (k) => (e) => {
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -74,7 +74,7 @@ export default function InquiryForm() {
 
   const reset = () => {
     setForm(EMPTY_FORM);
-    setScope([]); setProjectType([]); setService("");
+    setScope([]); setProjectType(""); setService("");
     setErrors({}); setSubmitted(false);
   };
 
@@ -102,7 +102,7 @@ export default function InquiryForm() {
         body: JSON.stringify({
           ...form,
           scope: [...scope, form.scopeOther].filter(Boolean),
-          projectType: [...projectType, form.projectTypeOther].filter(Boolean),
+          projectType: projectType,
           service,
         }),
       });
@@ -125,7 +125,7 @@ export default function InquiryForm() {
             Inquiry Sent!
           </h2>
           <p style={{ color: "var(--ink)", fontSize: "small", lineHeight: 1.8, marginBottom: "2rem" }}>
-            Thank you for approaching H&amp;A. We will review your project vision and reach out to you at the earliest.
+            Thank you for approaching Hasmit and Architects. We will reach out to you at the earliest.
           </p>
           <button className="btn-submit-action" onClick={reset}>
             <span>Submit Another Inquiry</span>
@@ -239,7 +239,7 @@ export default function InquiryForm() {
           <div className="chips-matrix">
             {TYPES.map((t) => (
               <label key={t} className="chip-item">
-                <input type="checkbox" checked={projectType.includes(t)} onChange={() => toggle(projectType, setProjectType, t, "projectType")} />
+                <input type="radio" name="projectType" checked={projectType === t} onChange={() => { setProjectType(t), setErrors((err) => ({ ...err, projectType: null })) }} />
                 <span className="chip-surface">{t}</span>
               </label>
             ))}
