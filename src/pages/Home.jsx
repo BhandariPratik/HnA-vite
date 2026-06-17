@@ -11,7 +11,7 @@ export default function Home() {
   const [active, setActive] = useState(0);
   const ref = useReveal();
   const navigate = useNavigate();
-  const { showHint, isMenuOpen } = useMenu();
+  const { showHint, isMenuOpen,setShowHint } = useMenu();
 
   useEffect(() => {
     const id = setInterval(() => setActive(a => (a + 1) % HERO_SLIDES.length), 3000);
@@ -42,6 +42,10 @@ export default function Home() {
               <div className="dot-content">
                 <p className="studio-description">Discover our studio!</p>
                 <p className="nav-instruction">Tap this navigation Dot to open the Menu and explore more.</p>
+
+                <p className="nav-cta-home" onClick={() => setShowHint(false)}>
+                  GOT IT.
+                </p>
               </div>
             )
           }

@@ -7,7 +7,7 @@ export default function Navbar({ transparent = false }) {
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const { isMenuOpen, setIsMenuOpen, setShowHint } = useMenu();
+  const { showHint, isMenuOpen, setIsMenuOpen, setShowHint } = useMenu();
 
 
   const nav = useNavigate();
@@ -61,14 +61,14 @@ export default function Navbar({ transparent = false }) {
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
     setShowHint(false);
-    setOpen(o => !o)
+    // setOpen(o => !o)
   };
 
   return (
     <header
-      className={`nav ${open ? "menu-is-open" : ""} ${showNavbar ? "nav-show" : "nav-hide"
+      className={`nav ${open || isMenuOpen ? "menu-is-open" : ""} ${showNavbar ? "nav-show" : "nav-hide"
         }`}
-      style={{ color }}
+      style={{ color, backgroundColor: (location.pathname !== "/") && "#ffffff" }}
       aria-label="Primary navigation"
     >
 
@@ -99,7 +99,8 @@ export default function Navbar({ transparent = false }) {
         onClick={handleMenuClick}
       >
         <span className="hamburger-box">
-          <span className="hamburger-dot" />
+          {/* <span className="hamburger-dot" /> */}
+          <span className={`hamburger-dot ${!showHint ? "pulse-disabled" : ""}`} />
           <span className="hamburger-line hamburger-line--1" />
           <span className="hamburger-line hamburger-line--2" />
         </span>
@@ -164,6 +165,7 @@ export default function Navbar({ transparent = false }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
+                className={s.label === "Pinterest" ? "social-link pinterest-icon" : ""}
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d={s.path} />
