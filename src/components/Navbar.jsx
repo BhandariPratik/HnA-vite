@@ -4,7 +4,6 @@ import { NAV_LINKS, SOCIAL_LINKS } from "../data/siteData";
 import { useMenu } from "../context/menuContext";
 
 export default function Navbar({ transparent = false }) {
-  const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { showHint, isMenuOpen, setIsMenuOpen, setShowHint } = useMenu();
@@ -13,11 +12,9 @@ export default function Navbar({ transparent = false }) {
   const nav = useNavigate();
   const location = useLocation();
 
-  const close = () => setOpen(false);
-
   const goHome = () => {
     nav("/");
-    close();
+    setIsMenuOpen(false);
   };
 
   const color = transparent ? "#fff" : "var(--ink)";
@@ -41,22 +38,21 @@ export default function Navbar({ transparent = false }) {
   }, [lastScrollY]);
 
   const handleLetsTalk = (e) => {
-    e.preventDefault();
-    close();
-    setIsMenuOpen(false);
+  e.preventDefault();
+  setIsMenuOpen(false);
 
-    const scrollToContact = () => {
-      const el = document.getElementById("contact");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    };
-
-    if (location.pathname === "/") {
-      scrollToContact();
-    } else {
-      nav("/");
-      setTimeout(scrollToContact, 100);
-    }
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  if (location.pathname === "/") {
+    setTimeout(scrollToContact, 80);
+  } else {
+    nav("/");
+    setTimeout(scrollToContact, 100);
+  }
+};
 
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -66,7 +62,7 @@ export default function Navbar({ transparent = false }) {
 
   return (
     <header
-      className={`nav ${open || isMenuOpen ? "menu-is-open" : ""} ${showNavbar ? "nav-show" : "nav-hide"
+      className={`nav ${ isMenuOpen ? "menu-is-open" : ""} ${showNavbar ? "nav-show" : "nav-hide"
         }`}
       style={{ color, backgroundColor: (location.pathname !== "/") && "#ffffff" }}
       aria-label="Primary navigation"
@@ -95,7 +91,7 @@ export default function Navbar({ transparent = false }) {
         className="menu-toggle"
         type="button"
         aria-label="Toggle navigation"
-        aria-expanded={open}
+        aria-expanded={isMenuOpen}
         onClick={handleMenuClick}
       >
         <span className="hamburger-box">
@@ -125,7 +121,7 @@ export default function Navbar({ transparent = false }) {
               <NavLink
                 to={l.to}
                 className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={() => { close(), setIsMenuOpen(false) }}
+                onClick={() => {  setIsMenuOpen(false) }}
               >
                 {l.label}
               </NavLink>
