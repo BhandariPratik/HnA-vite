@@ -37,8 +37,15 @@ export default function ProjectDetail() {
     }, 3000);
   }, [total]);
 
+  // const stopAutoCycle = () => {
+  //   if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+  // };
+
   const stopAutoCycle = () => {
-    if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+      autoSlideRef.current = null;
+    }
   };
 
   useEffect(() => {
@@ -168,6 +175,8 @@ export default function ProjectDetail() {
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
+          onMouseEnter={stopAutoCycle}
+          onMouseLeave={startAutoCycle}
         >
           {/* Prev / Next arrows */}
           <button
