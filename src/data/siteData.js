@@ -165,10 +165,10 @@ const BASE_PROJECTS = [
         src: "/projects/artitectural_design/Pratichhaya-5.jpg",
         alt: "Pratichhaya courtyard"
       },
-      {
-        src: "/projects/artitectural_design/Pratichhaya-6.jpg",
-        alt: "Pratichhaya courtyard"
-      }
+      // {
+      //   src: "/projects/artitectural_design/Pratichhaya-6.jpg",
+      //   alt: "Pratichhaya courtyard"
+      // }
     ],
     narrative: ["The primary design intent was to re-envision the bungalow’s contextual identity through a synthesized architectural intervention involving both the facade and landscape. Since the site is bordered by a farm to the northwest and remains open at the southeast corner, the orientation necessitated a performative intervention to curate direct southern light, ensuring the bungalow functions in harmony with its surroundings while staying deeply rooted in its local context.",
       "The building's character emerged from the use of dramatic, double-height vertical concrete fins that filter southern glare while inviting soft, indirect daylight into the living volumes. I envisioned the extended linear veranda as a deliberate spatial buffer, designed to facilitate a smooth, unhindered sensory connection with the surrounding plantation while simultaneously functioning as an essential shadow-maker for these same volumes against the direct southern sun.",
@@ -386,10 +386,11 @@ const BASE_PROJECTS = [
       src: "/projects/artitectural_design/Karjat_5.jpg",
       alt: "Karjat House"
     },
-    {
-      src: "/projects/artitectural_design/Karjat_6.jpg",
-      alt: "Karjat House"
-    }]
+    // {
+    //   src: "/projects/artitectural_design/Karjat_6.jpg",
+    //   alt: "Karjat House"
+    // }
+  ]
     ,
     narrative: ["This architectural intervention deliberately expands its structural apertures to forge an unhindered dialogue with the surrounding landscape.",
       "Located within the serene topography of Jambhivali-Karjat, this contemporary farmhouse design manifests as a thoughtful dialogue between linear, layered geometry and the majestic front vista of the Sahyadri mountains rising directly in front of the structure. The architectural silhouette compositionally balances asymmetrical gabled roofs with clean horizontal planes, allowing for sweeping expanses of glass that dissolve the threshold between interior comfort and the rugged outdoors. The materiality marries the raw tactile quality of textured stone cladding with smooth, crisp plaster finishes, evoking an earthy yet sophisticated aesthetic that honors its natural context.",
@@ -430,14 +431,14 @@ const BASE_PROJECTS = [
         src: "/projects/interior/Ciana-5.jpg",
         alt: "Ciana living room"
       },
-      {
-        src: "/projects/interior/Ciana-6.jpg",
-        alt: "Ciana bedroom"
-      },
-      {
-        src: "/projects/interior/Ciana-7.jpg",
-        alt: "Ciana bedroom"
-      }
+      // {
+      //   src: "/projects/interior/Ciana-6.jpg",
+      //   alt: "Ciana bedroom"
+      // },
+      // {
+      //   src: "/projects/interior/Ciana-7.jpg",
+      //   alt: "Ciana bedroom"
+      // }
     ],
     narrative: ["By creating a seamless open-concept environment, the original layout was reimagined by connecting the kitchen to the living area.",
       "The kitchen is a standout feature, with deep teal cabinets adorned with wicker-paneled shutters, adding an intriguing textural element.The living space is elevated by an eclectic mix of traditional and modern furniture, abstract art, and lush greenery, creating a cozy yet sophisticated ambiance.",
@@ -476,10 +477,10 @@ const BASE_PROJECTS = [
         src: "/projects/interior/khot_house_5.png",
         alt: "Khot House living room"
       },
-      {
-        src: "/projects/interior/khot_house_6.png",
-        alt: "Khot House bedroom"
-      }
+      // {
+      //   src: "/projects/interior/khot_house_6.png",
+      //   alt: "Khot House bedroom"
+      // }
     ],
     narrative: [
       "By carefully removing internal walls, we merged the kitchen, dining, and living spaces into a harmonious expanse, creating an inviting environment that radiates warmth and togetherness. This thoughtful layout is not just functional but also instills a sense of grandeur in everyday living.",
@@ -520,27 +521,27 @@ const BASE_PROJECTS = [
         src: "/projects/interior/ph_5.jpg",
         alt: "Parekh House exterior"
       },
-      {
-        src: "/projects/interior/ph_6.jpg",
-        alt: "Parekh House exterior"
-      },
+      // {
+      //   src: "/projects/interior/ph_6.jpg",
+      //   alt: "Parekh House exterior"
+      // },
 
-      {
-        src: "/projects/interior/ph_7.jpg",
-        alt: "Parekh House exterior"
-      },
-      {
-        src: "/projects/interior/ph_8.jpg",
-        alt: "Parekh House exterior"
-      },
-      {
-        src: "/projects/interior/ph_9.jpg",
-        alt: "Parekh House exterior"
-      },
-      {
-        src: "/projects/interior/ph_10.jpg",
-        alt: "Parekh House exterior"
-      },
+      // {
+      //   src: "/projects/interior/ph_7.jpg",
+      //   alt: "Parekh House exterior"
+      // },
+      // {
+      //   src: "/projects/interior/ph_8.jpg",
+      //   alt: "Parekh House exterior"
+      // },
+      // {
+      //   src: "/projects/interior/ph_9.jpg",
+      //   alt: "Parekh House exterior"
+      // },
+      // {
+      //   src: "/projects/interior/ph_10.jpg",
+      //   alt: "Parekh House exterior"
+      // },
     ],
     narrative: ["In favor of curated simplicity, prioritizing a sleek, cozy, and inviting contemporary aesthetic.",
       "The spatial planning utilizes open transitions and soft architectural framing, where gentle wooden arches and fluted partitions delineate distinct functional zones without compromising the overall sense of fluid movement. High-contrast elements meet muted backdrops, balancing bold statement features with calming neutral surfaces to create a serene domestic landscape.",
@@ -580,14 +581,14 @@ const BASE_PROJECTS = [
         src: "/projects/interior/CCT_CAFE_5.png",
         alt: "CCT CAFE living room"
       },
-      {
-        src: "/projects/interior/CCT_CAFE_6.png",
-        alt: "CCT CAFE bedroom"
-      },
-      {
-        src: "/projects/interior/CCT_CAFE_7.png",
-        alt: "CCT CAFE bedroom"
-      }
+      // {
+      //   src: "/projects/interior/CCT_CAFE_6.png",
+      //   alt: "CCT CAFE bedroom"
+      // },
+      // {
+      //   src: "/projects/interior/CCT_CAFE_7.png",
+      //   alt: "CCT CAFE bedroom"
+      // }
     ],
     narrative: [
       "Deriving from indigenous materials and artisanal expertise, our vision revolves around a commitment to vernacular aesthetics.",
@@ -628,10 +629,10 @@ const BASE_PROJECTS = [
         src: "/projects/interior/Elysian05.jpg",
         alt: "Elysian Beauty living room"
       },
-      {
-        src: "/projects/interior/Elysian06.jpg",
-        alt: "Elysian Beauty bedroom"
-      }
+      // {
+      //   src: "/projects/interior/Elysian06.jpg",
+      //   alt: "Elysian Beauty bedroom"
+      // }
     ],
     narrative: [
       "They aimed to achieve this within a 10 x 20 feet container module as the foundational structure, designed for easy transportation, rapid deployment, and spatial optimisation. The client specified a sleek, minimal aesthetic, based in a dark and light grey colour palette, to convey modern sophistication and strengthen the brand identity.",
@@ -778,10 +779,10 @@ const BASE_PROJECTS = [
         src: "/projects/interior/am30_5.jpg",
         alt: "AM-30 exterior"
       },
-      {
-        src: "/projects/interior/am30_6.jpg",
-        alt: "AM-30 exterior"
-      },
+      // {
+      //   src: "/projects/interior/am30_6.jpg",
+      //   alt: "AM-30 exterior"
+      // },
     ],
     narrative: ["In the primary living zone, we established a strong visual hierarchy using a striking bookmatched marble datum to anchor the space, juxtaposing the plush maroon upholstery against crisp, rectilinear wall molding. The adjacent staircase acts as a transitional threshold; the floating timber treads introduce an organic tectonic element against the monolithic white masonry, emphasizing the vertical spatial flow.",
       "For the open-plan kitchen, we prioritized programmatic efficiency with sleek, high-gloss cabinetry. However, the adjacent dining enclave serves as the cultural heart of the home. By integrating a bespoke Pichwai-style mural, we introduced a vibrant, heritage-driven focal point that engages in a necessary dialogue with the room's modernism.",
@@ -819,22 +820,23 @@ const BASE_PROJECTS = [
       }, {
         src: "/projects/landscape/coptec_5.jpg",
         alt: "Coptec exterior"
-      }, {
-        src: "/projects/landscape/coptec_6.jpg",
-        alt: "Coptec exterior"
-      }, {
-        src: "/projects/landscape/coptec_7.jpg",
-        alt: "Coptec exterior"
-      }, {
-        src: "/projects/landscape/coptec_8.jpg",
-        alt: "Coptec exterior"
-      }, {
-        src: "/projects/landscape/coptec_9.jpg",
-        alt: "Coptec exterior"
-      }, {
-        src: "/projects/landscape/coptec_10.jpg",
-        alt: "Coptec exterior"
       },
+      //  {
+      //   src: "/projects/landscape/coptec_6.jpg",
+      //   alt: "Coptec exterior"
+      // }, {
+      //   src: "/projects/landscape/coptec_7.jpg",
+      //   alt: "Coptec exterior"
+      // }, {
+      //   src: "/projects/landscape/coptec_8.jpg",
+      //   alt: "Coptec exterior"
+      // }, {
+      //   src: "/projects/landscape/coptec_9.jpg",
+      //   alt: "Coptec exterior"
+      // }, {
+      //   src: "/projects/landscape/coptec_10.jpg",
+      //   alt: "Coptec exterior"
+      // },
 
     ],
     narrative: ["By treating the entry experience and primary circulation routes as a continuous canvas, we curate a sequence of structural forms, textures, and shifting colors that transforms utilitarian industrial spaces into an engaging, design-driven corporate landscape.",
@@ -876,10 +878,10 @@ const BASE_PROJECTS = [
         src: "/projects/landscape/FG-05.jpg",
         alt: "Parikh House"
       },
-       {
-        src: "/projects/landscape/FG-06.jpg",
-        alt: "Parikh House"
-      },
+      //  {
+      //   src: "/projects/landscape/FG-06.jpg",
+      //   alt: "Parikh House"
+      // },
 
     ],
     narrative: ["The spatial narrative relies on a rhythmic interplay of vertical and horizontal elements, utilizing structured stone-clad boundary walls and MS box pipe screening to introduce a refined material palette. Monolithic, deep-toned earthenware vessels provide anchoring focal points along the perimeter, balancing the structural lines of the architecture.",
