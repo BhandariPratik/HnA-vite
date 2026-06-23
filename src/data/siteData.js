@@ -322,34 +322,79 @@ const BASE_PROJECTS = [
     slug: "thal-house",
     title: "Thal House",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/artitectural_design/thal_01.jpg",
     location: "Thal-Alibagh, Maharashtra.",
     typology: "Weekend House Design",
     area: " 2000 Sq. Ft. (Built-Up Area)",
     year: "2026",
-    lead: "",
+    lead: "Sited along the Konkan coast, this coastal retreat serves as a profound architectural dialogue between regional heritage and modern tropical luxury.",
     gallery: [{
-      src: "/coming_soon.jpeg",
+      src: "/projects/artitectural_design/thal_01.jpg",
       alt: "Thal House"
-    }],
-    narrative: [""]
+    },
+    {
+      src: "/projects/artitectural_design/thal_02.jpg",
+      alt: "Thal House"
+    },
+    {
+      src: "/projects/artitectural_design/thal_03.jpg",
+      alt: "Thal House"
+    },
+    {
+      src: "/projects/artitectural_design/thal_04.jpg",
+      alt: "Thal House"
+    },
+    {
+      src: "/projects/artitectural_design/thal_05.jpg",
+      alt: "Thal House"
+    },
+
+    ],
+    narrative: ["It stands as a tranquil sanctuary where the boundaries between built form and the surrounding coconut groves beautifully dissolve.",
+      "This tropical weekend house in Alibaug Thal harmonizes vernacular wisdom with contemporary refinement, organized thoughtfully within a clean grid layout. The spatial layout deliberately balances the private and social zones around a defining, open to sky central courtyard, which acts as the atmospheric core of the residence, drawing in microclimates, shifting light, and gentle coastal breezes.",
+      "Its low slung architectural silhouette honors the landscape through an honest palette of exposed brickwork, textured plaster, and massive timber joinery, all crowned by an elegantly proportioned, pitched terracotta tile roof with intricate fascia detailing. Tactile warmth defines the threshold where artisanal stone paving gives way to handcrafted wooden doors, establishing a sensory connection with nature. By striking a balance between structured geometry and organic landscape integration, the design creates an indelible sense of place, offering a coherent architectural identity where interior volumes effortlessly transition into the vibrant tropical landscape."
+    ]
   },
   {
     category: "architecture",
     slug: "karjat-house",
     title: "Karjat House",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/artitectural_design/Karjat_1.jpg",
     location: "Jambhivali-Karjat, Maharashtra.",
     typology: " Weekend House Design",
     area: "1400 Sq. Ft. (Built-Up Area)",
     year: "NA",
-    lead: "",
+    lead: "Designed as a pavilion of sophisticated countryside living.",
     gallery: [{
-      src: "/coming_soon.jpeg",
+      src: "/projects/artitectural_design/Karjat_1.jpg",
       alt: "Karjat House"
-    }],
-    narrative: [""]
+    },
+    {
+      src: "/projects/artitectural_design/Karjat_2.jpg",
+      alt: "Karjat House"
+    },
+    {
+      src: "/projects/artitectural_design/Karjat_3.jpg",
+      alt: "Karjat House"
+    },
+    {
+      src: "/projects/artitectural_design/Karjat_4.jpg",
+      alt: "Karjat House"
+    },
+    {
+      src: "/projects/artitectural_design/Karjat_5.jpg",
+      alt: "Karjat House"
+    },
+    {
+      src: "/projects/artitectural_design/Karjat_6.jpg",
+      alt: "Karjat House"
+    }]
+    ,
+    narrative: ["This architectural intervention deliberately expands its structural apertures to forge an unhindered dialogue with the surrounding landscape.",
+      "Located within the serene topography of Jambhivali-Karjat, this contemporary farmhouse design manifests as a thoughtful dialogue between linear, layered geometry and the majestic front vista of the Sahyadri mountains rising directly in front of the structure. The architectural silhouette compositionally balances asymmetrical gabled roofs with clean horizontal planes, allowing for sweeping expanses of glass that dissolve the threshold between interior comfort and the rugged outdoors. The materiality marries the raw tactile quality of textured stone cladding with smooth, crisp plaster finishes, evoking an earthy yet sophisticated aesthetic that honors its natural context.",
+      "The spatial layout prioritizes an immersive, unobstructed connection to the outdoor landscape unfolding ahead through strategically amplified apertures. In the living room, a deeply recessed window seating alcove acts as a contemplative portal framing the sweeping mountainous scenery, while the master suite utilizes an expansive L-shaped corner window to break down structural boundaries and capture panoramic vistas of the peaks. This deliberate emphasis on maximizing visual permeability defines the home not merely as a shelter, but as a design-driven lens through which the beauty of Maharashtra is continuously celebrated."
+    ]
   },
 
   // interior design
@@ -447,20 +492,61 @@ const BASE_PROJECTS = [
     slug: "parekh-house",
     title: "Parekh House",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/interior/ph_1.jpg",
     location: "Fortune Garden, Moti Daman.",
     typology: "Bungalow Interior",
     area: "2700 Sq. Ft. (Carpet Area)",
     year: "2025",
-    lead: "",
+    lead: "Derived from a refined brief, the design language consciously moves away from a maximalist approach.",
     gallery: [
       {
-        src: "/coming_soon.jpeg",
+        src: "/projects/interior/ph_1.jpg",
         alt: "Parekh House exterior"
       },
 
+      {
+        src: "/projects/interior/ph_2.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_3.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_4.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_5.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_6.jpg",
+        alt: "Parekh House exterior"
+      },
+
+      {
+        src: "/projects/interior/ph_7.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_8.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_9.jpg",
+        alt: "Parekh House exterior"
+      },
+      {
+        src: "/projects/interior/ph_10.jpg",
+        alt: "Parekh House exterior"
+      },
     ],
-    narrative: ["",]
+    narrative: ["In favor of curated simplicity, prioritizing a sleek, cozy, and inviting contemporary aesthetic.",
+      "The spatial planning utilizes open transitions and soft architectural framing, where gentle wooden arches and fluted partitions delineate distinct functional zones without compromising the overall sense of fluid movement. High-contrast elements meet muted backdrops, balancing bold statement features with calming neutral surfaces to create a serene domestic landscape.",
+      "Materiality plays a central role in establishing the identity of each room through a tactile counterplay of textures. Highly figured, dramatic marble claddings with striking veining patterns provide organic focal points in the social areas, while deep terracotta-toned stone and intricate floral mosaic backdrops introduce warmth and artistic depth to the private quarters. These solid structural surfaces are softened by supple upholstery fabrics, heavy woven throws, and rich timber fluting that together generate layers of sensory comfort. Underfoot, the brilliant polished finish of white marble with subtle grey marbling contrasts with matte tiles and patterned terrazzo, creating a diverse palette of reflections and grounding textures.",
+      "The silhouette of the furniture and custom cabinetry emphasizes clean, geometric lines balanced by smooth, rounded corners. Curved headboards, spherical pendant lights, and arched wardrobe details introduce a gentle rhythm that offsets the crisp, linear geometry of the built-in storage. Proportions are carefully calculated to ensure large-scale elements like full-height wardrobes and expansive media walls feel integrated rather than imposing, maintaining a light and breathable atmosphere. Metallic accents in brushed brass and rose gold provide subtle highlights against the earth-toned palettes, catching the light and adding a layer of sophistication. Through this thoughtful synthesis of form, color, and texture, the interior achieves an enduring aesthetic balance, offering a modern sanctuary that feels deeply personalized, cohesive, and refined."
+    ]
   },
   {
     category: "interior",
@@ -587,17 +673,34 @@ const BASE_PROJECTS = [
     slug: "podcast-studio",
     title: "Podcast Studio",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/interior/pstudio_1.jpg",
     location: "Mumbai, Studio.",
     typology: "Media & Broadcast Interior ",
     area: "160 Sq. Ft. (Carpet Area)",
-    year: "NA",
+    year: "2025",
     lead: "This podcast studio in Mumbai is conceived as a warm, immersive environment where content creation meets comfort-driven design.",
     gallery: [
       {
-        src: "/coming_soon.jpeg",
+        src: "/projects/interior/pstudio_1.jpg",
         alt: "Podcast Studio exterior"
-      }
+      },
+      {
+        src: "/projects/interior/pstudio_2.jpg",
+        alt: "Podcast Studio exterior"
+      },
+      {
+        src: "/projects/interior/pstudio_3.jpg",
+        alt: "Podcast Studio exterior"
+      },
+      {
+        src: "/projects/interior/pstudio_4.jpg",
+        alt: "Podcast Studio exterior"
+      },
+      {
+        src: "/projects/interior/pstudio_5.jpg",
+        alt: "Podcast Studio exterior"
+      },
+
     ],
     narrative: [
       "The spatial narrative is anchored by a rustic warm exposed brick cladding backdrop, complemented by a marble-finished vertical panel with integrated cove lighting that adds depth and a sense of warmth while introducing a refined contrast. Materiality is thoughtfully layered, with soft upholstered seating in neutral tones balancing the overall palette, while adjacent surfaces finished in lime wash paint add a subtle, textured depth to the envelope. The polished concrete flooring grounds the space with a seamless, industrial finish, enhancing durability while maintaining a contemporary aesthetic.",
@@ -648,19 +751,43 @@ const BASE_PROJECTS = [
     slug: "am_30",
     title: "AM-30",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/interior/am30_1.jpg",
     location: "Solsumba, UBR.",
     typology: "Bungalow Interior ",
-    area: "--  Sq. Ft. (Carpet Area)",
+    area: "1321  Sq. Ft. (Carpet Area)",
     year: "2026",
-    lead: "",
+    lead: "In this project, our primary design intent was to mediate between contemporary austerity and rich, cultural warmth.",
     gallery: [
       {
-        src: "/coming_soon.jpeg",
+        src: "/projects/interior/am30_1.jpg",
         alt: "AM-30 exterior"
-      }
+      },
+      {
+        src: "/projects/interior/am30_2.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_3.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_4.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_5.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_6.jpg",
+        alt: "AM-30 exterior"
+      },
     ],
-    narrative: [""]
+    narrative: ["In the primary living zone, we established a strong visual hierarchy using a striking bookmatched marble datum to anchor the space, juxtaposing the plush maroon upholstery against crisp, rectilinear wall molding. The adjacent staircase acts as a transitional threshold; the floating timber treads introduce an organic tectonic element against the monolithic white masonry, emphasizing the vertical spatial flow.",
+      "For the open-plan kitchen, we prioritized programmatic efficiency with sleek, high-gloss cabinetry. However, the adjacent dining enclave serves as the cultural heart of the home. By integrating a bespoke Pichwai-style mural, we introduced a vibrant, heritage-driven focal point that engages in a necessary dialogue with the room's modernism.",
+      "The private quarters were conceived as a phenomenological retreat. We utilized an atmospheric mountain mural and warm timber framing around backlit arched mirrors to visually dematerialize the room's boundaries, while a built-in window seat maximizes the programmatic footprint. Finally, the bathroom is a study in bold materiality. We deliberately contrasted the heavy, organic veining of the grey marble with the rhythmic verticality of emerald Kitkat tiles, crafting a refined sanctuary that elevates the everyday ritual.",
+
+    ]
   },
 
   //landscape
@@ -669,38 +796,95 @@ const BASE_PROJECTS = [
     slug: "coptec",
     title: "Coptec",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/landscape/coptec_1.jpg",
     location: "GIDC Umbergaon, Gujarat.",
     typology: "Industrial Landscape",
-    area: "NA",
+    area: "16110 Sq. Ft.",
     year: "2026",
-    lead: "",
+    lead: "The concept for this project seamlessly fuses industrial architecture with a vibrant botanical identity.",
     gallery: [
       {
-        src: "/coming_soon.jpeg",
+        src: "/projects/landscape/coptec_1.jpg",
         alt: "Coptec exterior"
-      }
+      },
+      {
+        src: "/projects/landscape/coptec_2.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_3.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_4.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_5.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_6.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_7.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_8.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_9.jpg",
+        alt: "Coptec exterior"
+      }, {
+        src: "/projects/landscape/coptec_10.jpg",
+        alt: "Coptec exterior"
+      },
+
     ],
-    narrative: [""]
+    narrative: ["By treating the entry experience and primary circulation routes as a continuous canvas, we curate a sequence of structural forms, textures, and shifting colors that transforms utilitarian industrial spaces into an engaging, design-driven corporate landscape.",
+      "At the threshold, the entrance gateway projects a commanding architectural presence where hardscape engineering integrates with a structured softscape palette. The sleek horizontal canopy balances against dark pillars, its core lightened by rhythmically spaced pergola slats. This geometry is grounded by a textured stone pylon for corporate branding. To soften this perimeter, integrated side planters utilize dense massings of Justicia gendarussa, offering an organic texture against the wall, all framed within a minimalist grey mesh fence.",
+      "Transitioning inward, the i.nternal road corridor landscape evolves into a highly structured, linear softscape tapestry that runs parallel to the concrete driveway. Bound by an angled, modular concrete curb (Kerb stone), this multi-layered perimeter planting acts as a vibrant circulation spine. A front border of dense, tightly clipped Excoecaria cochinchinensis establishes a bold, copper-leaved horizon line. Directly behind, a contrasting mid-layer band of golden Duranta erecta injects a luminous chartreuse punch, creating a stark visual transition against the highly textured, boldly veined foliage of Codiaeum variegatum 'Petra Croton'. Upright, variegated Ficus benjamina trees punctuate this horizontal mass at calculated intervals, drawing the eye upward against the textured grey compound wall.",
+      "This spatial narrative culminates at the central branding hub, designed as an immersive selfie point where corporate identity integrates with a theatrical tropical microclimate. The dimensional 'COPTEC' typography, executed in a brushed copper finish to reflect the company's copper industry identity, rests upon a dense, sloping carpet of Sphagneticola trilobata (Singapore Daisy), whose delicate yellow blossoms trace the concrete margin. Rising behind the signage, the vertical structure of Heliconia (False Bird of Paradise) stems punctuated by striking orange blooms forms a vivid living canvas against the raw concrete backdrop. This lush verticality is balanced by the broad, sculptural shields of Alocasia macrorrhizos (Giant Taro) and the radiating fronds of Cycas revoluta (Sago Palm), while sharp accents of deep purple Tradescantia spathacea (Oyster Plant) enrich the foreground margins.",
+      "Finally, intermediate spaces between the building's columns utilize a minimalist, repeating planter arrangement. Rectangular, raw-finished concrete troughs are populated with the vertical spears of Sansevieria trifasciata (Snake Plant), mirroring the building's structural lines. Adjacent to this rhythm, a spherical white ceramic pot anchors the corner, holding a lush Dypsis lutescens (Areca Palm) whose feathery fronds cast soft shadows, reinforcing a clean, contemporary aesthetic."
+    ]
   },
   {
     category: "landscape",
     slug: "parikh-house",
     title: "Parikh House",
     // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/landscape/FG-01.jpg",
     location: "Fortune Garden, Moti Daman.",
     typology: "Bungalow Landscape",
-    area: "NA",
+    area: "1183 Sq. Ft.",
     year: "2025",
-    lead: "",
+    lead: "Conceived for the Parikh Family's residential plot in Daman, this landscape design thoughtfully unifies contemporary geometry with lush tropical textures to curate an elegant, site-responsive sanctuary.",
     gallery: [
       {
-        src: "/coming_soon.jpeg",
+        src: "/projects/landscape/FG-01.jpg",
         alt: "Parikh House"
-      }
+      },
+       {
+        src: "/projects/landscape/FG-02.jpg",
+        alt: "Parikh House"
+      },
+       {
+        src: "/projects/landscape/FG-03.jpg",
+        alt: "Parikh House"
+      },
+       {
+        src: "/projects/landscape/FG-04.jpg",
+        alt: "Parikh House"
+      },
+       {
+        src: "/projects/landscape/FG-05.jpg",
+        alt: "Parikh House"
+      },
+       {
+        src: "/projects/landscape/FG-06.jpg",
+        alt: "Parikh House"
+      },
+
     ],
-    narrative: [""]
+    narrative: ["The spatial narrative relies on a rhythmic interplay of vertical and horizontal elements, utilizing structured stone-clad boundary walls and MS box pipe screening to introduce a refined material palette. Monolithic, deep-toned earthenware vessels provide anchoring focal points along the perimeter, balancing the structural lines of the architecture.",
+      "A cross-checked pattern design in rough finished kota stone and grass alongside large-format paved ground planes contrast beautifully against the lush, organic silhouettes of broad-leaved Heliconias and structural palms, cultivating a deep sensory harmony between building and nature. Linear planter beds and clean step-stone pathways smoothly orchestrate a serene transition through the outdoor zones. Ultimately, this composition celebrates a curated indoor-outdoor dialogue where balanced proportions and contemporary material aesthetics elevate the identity of modern coastal living."
+    ]
   },
   {
     category: "landscape",
@@ -739,7 +923,7 @@ const BASE_PROJECTS = [
     location: "Dehari-Govada, Gujarat.",
     typology: "Coastal Landscape",
     area: "NA",
-    year: "NA",
+    year: "2023",
     lead: "The coastal defence infrastructure at Dehari-Gowada Beach redefines the boundary between land and sea, establishing a robust yet articulated presence.",
     gallery: [
       {
@@ -758,6 +942,28 @@ const BASE_PROJECTS = [
     narrative: [
       "The primary element, a massive concrete bulkhead, functions as a defensive barrier against tidal forces while anchoring an expansive, elevated walkway designed for civic engagement and pedestrian movement. This linear promenade extends continuously along the coastline, its smooth, sweeping surface providing a clear architectural threshold that separates the shifting sands from the inland landscape.",
       "The intervention features a series of stepped, pyramidal forms that transition gracefully from the upper walkway down to the water, offering a rhythmic, geometric progression that functions both as public seating and an architectural erosion control mechanism. The massive concrete blocks exhibit a powerful, tactile materiality that beautifully resonates with the raw coastal environment. These hard, geometric structures contrast beautifully with the loose geology of the riprap and the soft, organic backdrop of the native pine windbreak, creating a master plan that thoughtfully balances heavy engineering with a sophisticated pedestrian experience."
+    ]
+  },
+  {
+    category: "landscape",
+    slug: "eshaan",
+    title: "Eshaan",
+    // sketchSrc: "/projects/landscape/D-1.jpg",
+    colorSrc: "/projects/landscape/eshaan.jpg",
+    location: "Karjat, Maharashtra.",
+    typology: "Bungalow Landscape",
+    area: "2026",
+    year: "10416 Sq. Ft.",
+    lead: "Situated within the striking landscape of Karjat, this master plan for a property oriented to capture the region’s best mountain panoramas defines a sophisticated agrarian retreat.",
+    gallery: [
+      {
+        src: "/projects/landscape/eshaan.jpg",
+        alt: "Coastal Edge exterior"
+      }
+    ],
+    narrative: [
+      "A contemporary residence’s rectilinear form anchors the composition, its interlocking volume counterposed against the sweeping, radial geometries of the terraced, curvilinear planted parterres that negotiate the site’s topography. Textural stone pavers define the extensive social courtyard, contrasting with the soft, organic forms of the rich floral borders and curated tree selections. Rusticated stone boundary walls trace the perimeter, while distinct functional zones are defined as an experience of sequenced outdoor rooms, including a serene meditation pavilion sequestered within a contemplative planted cluster.",
+      "Efficient water management is poetically integrated through two dual-purpose water channels. Engineered to manage site drainage and runoff from adjacent properties, these streams meander along the perimeter edges, crossed by delicate timber bridges. Their flow is deliberately designed to provide reflective corridors that physically and visually frame the residence, connecting the distant vistas to the heart of the site. Stepping stones and a manicured lawn complete the harmonious spatial narrative. To ensure uninterrupted visual connection to the spectacular Karjat mountainous panorama, all large, mature trees, including productive fruit groves, are positioned at the rear boundary. This deliberate organizational structure reflects a coherent design ideology, from its productive periphery to its social core, maintaining the view as the paramount experience of the site."
     ]
   },
 
@@ -1096,7 +1302,7 @@ export const ALL_PROJECTS = BASE_PROJECTS;
 export const PROJECTS_BY_CATEGORY = {
   architecture: BASE_PROJECTS.slice(0, 9),
   interior: BASE_PROJECTS.slice(9, 18),
-  landscape: BASE_PROJECTS.slice(18, 22),
-  "master-planning": BASE_PROJECTS.slice(22, 25),
-  furniture: BASE_PROJECTS.slice(25, 35)
+  landscape: BASE_PROJECTS.slice(18, 23),
+  "master-planning": BASE_PROJECTS.slice(23, 26),
+  furniture: BASE_PROJECTS.slice(26, 37)
 };
