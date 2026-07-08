@@ -67,7 +67,7 @@ const BASE_PROJECTS = [
     colorSrc: "../../projects/artitectural_design/Villa_bianca_2.jpg?w=900&q=85&auto=format&fit=crop",
     location: "Umbergaon-Dehari, Gujarat.",
     typology: "Bungalow Design",
-    area: "3500 Sq. Ft. (Built-Up Area)",
+    area: "3600 Sq. Ft. (Built-Up Area)",
     year: "2024",
     lead: "Set amidst a lush tropical context near the serene coastline, this 4BHK residence,spanning approximately 3,600 Sq.Ft. of Super built-up area.",
     gallery: [
@@ -287,11 +287,11 @@ const BASE_PROJECTS = [
   {
     category: "architecture",
     slug: "Ambrosia-farmhouse",
-    title: "Ambrosia Farmhouse",
+    title: "Ambrosia",
     // sketchSrc: "/projects/artitectural_design/ambrosia_farmhouse-1.jpg",
     colorSrc: "/projects/artitectural_design/ambrosia_farmhouse-1.jpg",
     location: "Umbergaon-Bhathi, Gujarat.",
-    typology: "Farm House Design",
+    typology: "Farmhouse Design",
     area: "1300 Sq. Ft. (Built-Up Area)",
     year: "2023",
     lead: "In the creation of the Ambrosia farmhouse, situated in Umbergaon, Gujarat, our architectural endeavor spans a built-up area of approximately 1300 square feet.",
@@ -318,6 +318,7 @@ const BASE_PROJECTS = [
     ]
   },
   {
+    partner: "Associated with Atelier9SR, Mumbai",
     category: "architecture",
     slug: "thal-house",
     title: "Thal House",
@@ -356,6 +357,7 @@ const BASE_PROJECTS = [
     ]
   },
   {
+    partner: "Associated with Atelier9SR, Mumbai",
     category: "architecture",
     slug: "karjat-house",
     title: "Karjat House",
@@ -364,8 +366,8 @@ const BASE_PROJECTS = [
     location: "Jambhivali-Karjat, Maharashtra.",
     typology: " Weekend House Design",
     area: "1400 Sq. Ft. (Built-Up Area)",
-    year: "NA",
-    lead: "Designed as a pavilion of sophisticated countryside living.",
+    year: "2026",
+    lead: "Designed as a pavilion of sophisticated countryside living. This architectural intervention deliberately expands its structural apertures to forge an unhindered dialogue with the surrounding landscape.",
     gallery: [{
       src: "/projects/artitectural_design/Karjat_1.jpg",
       alt: "Karjat House"
@@ -390,9 +392,9 @@ const BASE_PROJECTS = [
       src: "/projects/artitectural_design/Karjat_6.jpg",
       alt: "Karjat House"
     }
-  ]
+    ]
     ,
-    narrative: ["This architectural intervention deliberately expands its structural apertures to forge an unhindered dialogue with the surrounding landscape.",
+    narrative: [
       "Located within the serene topography of Jambhivali-Karjat, this contemporary farmhouse design manifests as a thoughtful dialogue between linear, layered geometry and the majestic front vista of the Sahyadri mountains rising directly in front of the structure. The architectural silhouette compositionally balances asymmetrical gabled roofs with clean horizontal planes, allowing for sweeping expanses of glass that dissolve the threshold between interior comfort and the rugged outdoors. The materiality marries the raw tactile quality of textured stone cladding with smooth, crisp plaster finishes, evoking an earthy yet sophisticated aesthetic that honors its natural context.",
       "The spatial layout prioritizes an immersive, unobstructed connection to the outdoor landscape unfolding ahead through strategically amplified apertures. In the living room, a deeply recessed window seating alcove acts as a contemplative portal framing the sweeping mountainous scenery, while the master suite utilizes an expansive L-shaped corner window to break down structural boundaries and capture panoramic vistas of the peaks. This deliberate emphasis on maximizing visual permeability defines the home not merely as a shelter, but as a design-driven lens through which the beauty of Maharashtra is continuously celebrated."
     ]
@@ -401,97 +403,8 @@ const BASE_PROJECTS = [
   // interior design
   {
     category: "interior",
-    slug: "ciana-2601",
-    title: "Ciana 2601",
-    // sketchSrc: "/projects/interior/Ciana-1.jpg",
-    colorSrc: "/projects/interior/Ciana-1.jpg",
-    location: "Ciana-Tower D, Atmosphere,  Mulund-Mumbai.",
-    typology: "Apartment Interior",
-    area: "780 Sq. Ft. (Carpet Area)",
-    year: "2024",
-    lead: "This apartment showcases a chic design that creates a space into a warm and inviting sanctuary.",
-    gallery: [
-      {
-        src: "/projects/interior/Ciana-1.jpg",
-        alt: "Ciana exterior"
-      },
-      {
-        src: "/projects/interior/Ciana-2.jpg",
-        alt: "Ciana facade"
-      },
-      {
-        src: "/projects/interior/Ciana-3.jpg",
-        alt: "Ciana interior"
-      },
-      {
-        src: "/projects/interior/Ciana-4.jpg",
-        alt: "Ciana courtyard"
-      },
-      {
-        src: "/projects/interior/Ciana-5.jpg",
-        alt: "Ciana living room"
-      },
-      {
-        src: "/projects/interior/Ciana-6.jpg",
-        alt: "Ciana bedroom"
-      },
-      {
-        src: "/projects/interior/Ciana-7.jpg",
-        alt: "Ciana bedroom"
-      }
-    ],
-    narrative: ["By creating a seamless open-concept environment, the original layout was reimagined by connecting the kitchen to the living area.",
-      "The kitchen is a standout feature, with deep teal cabinets adorned with wicker-paneled shutters, adding an intriguing textural element.The living space is elevated by an eclectic mix of traditional and modern furniture, abstract art, and lush greenery, creating a cozy yet sophisticated ambiance.",
-      "Natural materials, vibrant accents, strategic lighting, curved lines, and neutral walls blend together to create a unique visual narrative that enhances the space's functionality and aesthetic appeal."
-    ]
-  },
-  {
-    category: "interior",
-    slug: "khot-house",
-    title: "Khot House",
-    // sketchSrc: "/projects/interior/khot_house_1.png",
-    colorSrc: "/projects/interior/khot_house_1.png",
-    location: "Toke-Beach (Tokepada), Gholwad, Maharashtra.",
-    typology: "Interior Architectural Design",
-    area: "2500 Sq. Ft. (Built-Up Area)",
-    year: "2025",
-    lead: "In this elegantly reimagined interior space, we captured the essence of openness and refined sophistication.",
-    gallery: [
-      {
-        src: "/projects/interior/khot_house_1.png",
-        alt: "Khot House exterior"
-      },
-      {
-        src: "/projects/interior/khot_house_2.png",
-        alt: "Khot House facade"
-      },
-      {
-        src: "/projects/interior/khot_house_3.png",
-        alt: "Khot House interior"
-      },
-      {
-        src: "/projects/interior/khot_house_4.png",
-        alt: "Khot House courtyard"
-      },
-      {
-        src: "/projects/interior/khot_house_5.png",
-        alt: "Khot House living room"
-      },
-      {
-        src: "/projects/interior/khot_house_6.png",
-        alt: "Khot House bedroom"
-      }
-    ],
-    narrative: [
-      "By carefully removing internal walls, we merged the kitchen, dining, and living spaces into a harmonious expanse, creating an inviting environment that radiates warmth and togetherness. This thoughtful layout is not just functional but also instills a sense of grandeur in everyday living.",
-      "A touch of the tropics graces the interiors with a stunning tropical-themed wallpaper, infusing the space with refreshing vibrance and an organic charm. The soothing green upholstery of the sofas complements this natural theme, grounding the room with its earthy tone.",
-      "The semi-double-height ceiling elevates the spatial experience, while wooden panels and modern light fixtures add subtle elegance. Thoughtful design choices unify the space, balancing functionality and style. This renovation redefines how interiors connect people with comfort, sophistication, and timeless charm."
-    ]
-  },
-  {
-    category: "interior",
-    slug: "parekh-house",
-    title: "Parekh House",
+    slug: "parikh-house",
+    title: "Parikh House",
     // sketchSrc: "/coming_soon.jpeg",
     colorSrc: "/projects/interior/ph_1.jpg",
     location: "Fortune Garden, Moti Daman.",
@@ -548,6 +461,134 @@ const BASE_PROJECTS = [
       "Materiality plays a central role in establishing the identity of each room through a tactile counterplay of textures. Highly figured, dramatic marble claddings with striking veining patterns provide organic focal points in the social areas, while deep terracotta-toned stone and intricate floral mosaic backdrops introduce warmth and artistic depth to the private quarters. These solid structural surfaces are softened by supple upholstery fabrics, heavy woven throws, and rich timber fluting that together generate layers of sensory comfort. Underfoot, the brilliant polished finish of white marble with subtle grey marbling contrasts with matte tiles and patterned terrazzo, creating a diverse palette of reflections and grounding textures.",
       "The silhouette of the furniture and custom cabinetry emphasizes clean, geometric lines balanced by smooth, rounded corners. Curved headboards, spherical pendant lights, and arched wardrobe details introduce a gentle rhythm that offsets the crisp, linear geometry of the built-in storage. Proportions are carefully calculated to ensure large-scale elements like full-height wardrobes and expansive media walls feel integrated rather than imposing, maintaining a light and breathable atmosphere. Metallic accents in brushed brass and rose gold provide subtle highlights against the earth-toned palettes, catching the light and adding a layer of sophistication. Through this thoughtful synthesis of form, color, and texture, the interior achieves an enduring aesthetic balance, offering a modern sanctuary that feels deeply personalized, cohesive, and refined."
     ]
+  },
+  {
+    category: "interior",
+    slug: "ciana-2601",
+    title: "Ciana 2601",
+    // sketchSrc: "/projects/interior/Ciana-1.jpg",
+    colorSrc: "/projects/interior/Ciana-1.jpg",
+    location: "Ciana-Tower D, Atmosphere,  Mulund-Mumbai.",
+    typology: "Apartment Interior",
+    area: "780 Sq. Ft. (Carpet Area)",
+    year: "2024",
+    lead: "This apartment showcases a chic design that creates a space into a warm and inviting sanctuary.",
+    gallery: [
+      {
+        src: "/projects/interior/Ciana-1.jpg",
+        alt: "Ciana exterior"
+      },
+      {
+        src: "/projects/interior/Ciana-2.jpg",
+        alt: "Ciana facade"
+      },
+      {
+        src: "/projects/interior/Ciana-3.jpg",
+        alt: "Ciana interior"
+      },
+      {
+        src: "/projects/interior/Ciana-4.jpg",
+        alt: "Ciana courtyard"
+      },
+      {
+        src: "/projects/interior/Ciana-5.jpg",
+        alt: "Ciana living room"
+      },
+      {
+        src: "/projects/interior/Ciana-6.jpg",
+        alt: "Ciana bedroom"
+      },
+      {
+        src: "/projects/interior/Ciana-7.jpg",
+        alt: "Ciana bedroom"
+      }
+    ],
+    narrative: ["By creating a seamless open-concept environment, the original layout was reimagined by connecting the kitchen to the living area.",
+      "The kitchen is a standout feature, with deep teal cabinets adorned with wicker-paneled shutters, adding an intriguing textural element.The living space is elevated by an eclectic mix of traditional and modern furniture, abstract art, and lush greenery, creating a cozy yet sophisticated ambiance.",
+      "Natural materials, vibrant accents, strategic lighting, curved lines, and neutral walls blend together to create a unique visual narrative that enhances the space's functionality and aesthetic appeal."
+    ]
+  },
+  {
+    category: "interior",
+    slug: "am_30",
+    title: "AM-30",
+    // sketchSrc: "/coming_soon.jpeg",
+    colorSrc: "/projects/interior/am30_1.jpg",
+    location: "Solsumba, UBR.",
+    typology: "Bungalow Interior ",
+    area: "1321  Sq. Ft. (Carpet Area)",
+    year: "2026",
+    lead: "In this project, our primary design intent was to mediate between contemporary austerity and rich, cultural warmth.",
+    gallery: [
+      {
+        src: "/projects/interior/am30_1.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_2.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_3.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_4.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_5.jpg",
+        alt: "AM-30 exterior"
+      },
+      {
+        src: "/projects/interior/am30_6.jpg",
+        alt: "AM-30 exterior"
+      },
+    ],
+    narrative: ["In the primary living zone, we established a strong visual hierarchy using a striking bookmatched marble datum to anchor the space, juxtaposing the plush maroon upholstery against crisp, rectilinear wall molding. The adjacent staircase acts as a transitional threshold; the floating timber treads introduce an organic tectonic element against the monolithic white masonry, emphasizing the vertical spatial flow.",
+      "For the open-plan kitchen, we prioritized programmatic efficiency with sleek, high-gloss cabinetry. However, the adjacent dining enclave serves as the cultural heart of the home. By integrating a bespoke Pichwai-style mural, we introduced a vibrant, heritage-driven focal point that engages in a necessary dialogue with the room's modernism.",
+      "The private quarters were conceived as a phenomenological retreat. We utilized an atmospheric mountain mural and warm timber framing around backlit arched mirrors to visually dematerialize the room's boundaries, while a built-in window seat maximizes the programmatic footprint. Finally, the bathroom is a study in bold materiality. We deliberately contrasted the heavy, organic veining of the grey marble with the rhythmic verticality of emerald Kitkat tiles, crafting a refined sanctuary that elevates the everyday ritual.",
+
+    ]
+  },
+  {
+    category: "interior",
+    slug: "solit_office",
+    title: "Solit Office",
+    // sketchSrc: "/projects/interior/solit_office-1.png",
+    colorSrc: "/projects/interior/solit_office-1.png",
+    location: "GIDC, Umbergaon, Gujarat.",
+    typology: "Commercial Interior",
+    area: "600 Sq. Ft. (Carpet Area)",
+    year: "2024",
+    lead: "The Solit Office is a professional environment defined by a sophisticated monochromatic palette that balances technical precision with material depth.",
+    gallery: [
+      {
+        src: "/projects/interior/solit_office-1.png",
+        alt: "Solit Office exterior"
+      },
+      {
+        src: "/projects/interior/solit_office-2.png",
+        alt: "Solit Office exterior"
+      },
+      {
+        src: "/projects/interior/solit_office-3.png",
+        alt: "Solit Office exterior"
+      },
+      {
+        src: "/projects/interior/solit_office-4.png",
+        alt: "Solit Office exterior"
+      },
+      {
+        src: "/projects/interior/solit_office-5.png",
+        alt: "Solit Office exterior"
+      }
+    ],
+    narrative: [
+      "The design centers on a unified corporate identity, establishing a structured workspace that facilitates both singular focus and team synergy.",
+      "In the director’s cabin, a rhythmic hexagonal wall serves as a geometric canvas for copper-finished branding, providing a sophisticated material nod to the company’s specialization in the copper sector. The interplay between a dark wood desk and marble top establishes a refined material dialogue, while ergonomic orange seating offers a sharp accent pop-up against the monochromatic tones. A world map silhouette reflects a global outlook within this meticulously curated interior.",
+      "The staff workspace utilizes a systematic linear layout to foster collaborative efficiency. Workstations are articulated as unified vertical compositions, anchoring light wood cabinetry and fabric pinboards directly to professional gray desks. This deliberate layering of timber against tonal grays ensures a crisp, disciplined aesthetic and a cohesive functional flow for sustained productivity.",
+      "Transitioning the conference room to a warmth-centered theme shifts the spatial energy from rigid focus toward psychological comfort. This prioritization of tactile depth through OSB panels and a sleek oval table creates a calm, presentable sanctuary for high-stakes collaboration, anchored by the firm's core tagline: 'Trust is quality, invest in excellence.'"]
   },
   {
     category: "interior",
@@ -710,86 +751,48 @@ const BASE_PROJECTS = [
   },
   {
     category: "interior",
-    slug: "solit_office",
-    title: "Solit Office",
-    // sketchSrc: "/projects/interior/solit_office-1.png",
-    colorSrc: "/projects/interior/solit_office-1.png",
-    location: "GIDC, Umbergaon, Gujarat.",
-    typology: "Commercial Interior",
-    area: "600 Sq. Ft. (Carpet Area)",
-    year: "2024",
-    lead: "The Solit Office is a professional environment defined by a sophisticated monochromatic palette that balances technical precision with material depth.",
+    slug: "khot-house",
+    title: "Khot House",
+    // sketchSrc: "/projects/interior/khot_house_1.png",
+    colorSrc: "/projects/interior/khot_house_1.png",
+    location: "Toke-Beach (Tokepada), Gholwad, Maharashtra.",
+    typology: "Interior Architectural Design",
+    area: "2500 Sq. Ft. (Built-Up Area)",
+    year: "2025",
+    lead: "In this elegantly reimagined interior space, we captured the essence of openness and refined sophistication.",
     gallery: [
       {
-        src: "/projects/interior/solit_office-1.png",
-        alt: "Solit Office exterior"
+        src: "/projects/interior/khot_house_1.png",
+        alt: "Khot House exterior"
       },
       {
-        src: "/projects/interior/solit_office-2.png",
-        alt: "Solit Office exterior"
+        src: "/projects/interior/khot_house_2.png",
+        alt: "Khot House facade"
       },
       {
-        src: "/projects/interior/solit_office-3.png",
-        alt: "Solit Office exterior"
+        src: "/projects/interior/khot_house_3.png",
+        alt: "Khot House interior"
       },
       {
-        src: "/projects/interior/solit_office-4.png",
-        alt: "Solit Office exterior"
+        src: "/projects/interior/khot_house_4.png",
+        alt: "Khot House courtyard"
       },
       {
-        src: "/projects/interior/solit_office-5.png",
-        alt: "Solit Office exterior"
+        src: "/projects/interior/khot_house_5.png",
+        alt: "Khot House living room"
+      },
+      {
+        src: "/projects/interior/khot_house_6.png",
+        alt: "Khot House bedroom"
       }
     ],
     narrative: [
-      "The design centers on a unified corporate identity, establishing a structured workspace that facilitates both singular focus and team synergy.",
-      "In the director’s cabin, a rhythmic hexagonal wall serves as a geometric canvas for copper-finished branding, providing a sophisticated material nod to the company’s specialization in the copper sector. The interplay between a dark wood desk and marble top establishes a refined material dialogue, while ergonomic orange seating offers a sharp accent pop-up against the monochromatic tones. A world map silhouette reflects a global outlook within this meticulously curated interior.",
-      "The staff workspace utilizes a systematic linear layout to foster collaborative efficiency. Workstations are articulated as unified vertical compositions, anchoring light wood cabinetry and fabric pinboards directly to professional gray desks. This deliberate layering of timber against tonal grays ensures a crisp, disciplined aesthetic and a cohesive functional flow for sustained productivity.",
-      "Transitioning the conference room to a warmth-centered theme shifts the spatial energy from rigid focus toward psychological comfort. This prioritization of tactile depth through OSB panels and a sleek oval table creates a calm, presentable sanctuary for high-stakes collaboration, anchored by the firm's core tagline: 'Trust is quality, invest in excellence.'"]
-  },
-  {
-    category: "interior",
-    slug: "am_30",
-    title: "AM-30",
-    // sketchSrc: "/coming_soon.jpeg",
-    colorSrc: "/projects/interior/am30_1.jpg",
-    location: "Solsumba, UBR.",
-    typology: "Bungalow Interior ",
-    area: "1321  Sq. Ft. (Carpet Area)",
-    year: "2026",
-    lead: "In this project, our primary design intent was to mediate between contemporary austerity and rich, cultural warmth.",
-    gallery: [
-      {
-        src: "/projects/interior/am30_1.jpg",
-        alt: "AM-30 exterior"
-      },
-      {
-        src: "/projects/interior/am30_2.jpg",
-        alt: "AM-30 exterior"
-      },
-      {
-        src: "/projects/interior/am30_3.jpg",
-        alt: "AM-30 exterior"
-      },
-      {
-        src: "/projects/interior/am30_4.jpg",
-        alt: "AM-30 exterior"
-      },
-      {
-        src: "/projects/interior/am30_5.jpg",
-        alt: "AM-30 exterior"
-      },
-      {
-        src: "/projects/interior/am30_6.jpg",
-        alt: "AM-30 exterior"
-      },
-    ],
-    narrative: ["In the primary living zone, we established a strong visual hierarchy using a striking bookmatched marble datum to anchor the space, juxtaposing the plush maroon upholstery against crisp, rectilinear wall molding. The adjacent staircase acts as a transitional threshold; the floating timber treads introduce an organic tectonic element against the monolithic white masonry, emphasizing the vertical spatial flow.",
-      "For the open-plan kitchen, we prioritized programmatic efficiency with sleek, high-gloss cabinetry. However, the adjacent dining enclave serves as the cultural heart of the home. By integrating a bespoke Pichwai-style mural, we introduced a vibrant, heritage-driven focal point that engages in a necessary dialogue with the room's modernism.",
-      "The private quarters were conceived as a phenomenological retreat. We utilized an atmospheric mountain mural and warm timber framing around backlit arched mirrors to visually dematerialize the room's boundaries, while a built-in window seat maximizes the programmatic footprint. Finally, the bathroom is a study in bold materiality. We deliberately contrasted the heavy, organic veining of the grey marble with the rhythmic verticality of emerald Kitkat tiles, crafting a refined sanctuary that elevates the everyday ritual.",
-
+      "By carefully removing internal walls, we merged the kitchen, dining, and living spaces into a harmonious expanse, creating an inviting environment that radiates warmth and togetherness. This thoughtful layout is not just functional but also instills a sense of grandeur in everyday living.",
+      "A touch of the tropics graces the interiors with a stunning tropical-themed wallpaper, infusing the space with refreshing vibrance and an organic charm. The soothing green upholstery of the sofas complements this natural theme, grounding the room with its earthy tone.",
+      "The semi-double-height ceiling elevates the spatial experience, while wooden panels and modern light fixtures add subtle elegance. Thoughtful design choices unify the space, balancing functionality and style. This renovation redefines how interiors connect people with comfort, sophistication, and timeless charm."
     ]
   },
+
 
   //landscape
   {
@@ -821,7 +824,7 @@ const BASE_PROJECTS = [
         src: "/projects/landscape/coptec_5.jpg",
         alt: "Coptec exterior"
       },
-       {
+      {
         src: "/projects/landscape/coptec_6.jpg",
         alt: "Coptec exterior"
       }, {
@@ -862,23 +865,23 @@ const BASE_PROJECTS = [
         src: "/projects/landscape/FG-01.jpg",
         alt: "Parikh House"
       },
-       {
+      {
         src: "/projects/landscape/FG-02.jpg",
         alt: "Parikh House"
       },
-       {
+      {
         src: "/projects/landscape/FG-03.jpg",
         alt: "Parikh House"
       },
-       {
+      {
         src: "/projects/landscape/FG-04.jpg",
         alt: "Parikh House"
       },
-       {
+      {
         src: "/projects/landscape/FG-05.jpg",
         alt: "Parikh House"
       },
-       {
+      {
         src: "/projects/landscape/FG-06.jpg",
         alt: "Parikh House"
       },
@@ -889,6 +892,7 @@ const BASE_PROJECTS = [
     ]
   },
   {
+    partner: "Associated with SS Laxmi Enterprise, UBR",
     category: "landscape",
     slug: "jhaveri-gateway",
     title: "Jhaveri Gateway",
@@ -896,8 +900,8 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/landscape/Jhaveri-1.jpg",
     location: "GIDC, UBR.",
     typology: "Industrial Landscape",
-    area: "NA",
-    year: "NA",
+    area: "N/A",
+    year: "2022",
     lead: "In establishing the entrance sequence for this design proposal tailored for Jhaveri Spices, our architecture seeks to synthesize industrial monumentality with tactile, organic warmth.",
     gallery: [
       {
@@ -924,7 +928,7 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/landscape/D-1.jpg",
     location: "Dehari-Govada, Gujarat.",
     typology: "Coastal Landscape",
-    area: "NA",
+    area: "N/A",
     year: "2023",
     lead: "The coastal defence infrastructure at Dehari-Gowada Beach redefines the boundary between land and sea, establishing a robust yet articulated presence.",
     gallery: [
@@ -1013,8 +1017,8 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/master-planning/Meridian-1.jpg",
     location: "New Zealand.",
     typology: "Housing Architecture",
-    area: " NA",
-    year: "NA",
+    area: "N/A",
+    year: "2025",
     lead: "The strong vertical core anchors the structure, while clean lines and cantilevered balconies with glass railings give the facade a light, modern rhythm.",
     gallery: [
       {
@@ -1048,8 +1052,8 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/master-planning/Vadawali.jpg",
     location: "Alibagh, Maharashtra.",
     typology: "Hospitality Architecture",
-    area: " NA",
-    year: "NA",
+    area: "20457 Sq. Ft.",
+    year: "2025",
     lead: "Anchored within the raw agrarian fabric of Vadawali, Alibag, our vision for the Vadawali Retreat is an architectural synthesis of context and composition.",
     gallery: [
       {
@@ -1065,14 +1069,115 @@ const BASE_PROJECTS = [
   //furniture
   {
     category: "furniture",
+    slug: "volant",
+    title: "Volant",
+    // sketchSrc: "/projects/furniture/Volant-1.jpg",
+    colorSrc: "/projects/furniture/Volant-1.jpg",
+    location: "",
+    typology: "Dining Table",
+    area: "N/A",
+    year: "2025",
+    lead: "The Volant dining table embodies a masterclass in monumental elegance and material harmony, establishing a commanding sculptural presence within the contemporary dining space.",
+    gallery: [
+      {
+        src: "/projects/furniture/Volant-1.jpg",
+        alt: "Volant dining table"
+      },
+      {
+        src: "/projects/furniture/Volant-2.jpg",
+        alt: "Volant dining table"
+      },
+      {
+        src: "/projects/furniture/Volant-3.jpg",
+        alt: "Volant dining table"
+      },
+      {
+        src: "/projects/furniture/Volant-4.jpg",
+        alt: "Volant dining table"
+      }
+
+    ],
+    narrative: [
+      "The design centers around an expansive, boat-shaped top of polished Red Levanto marble, its deep, dramatic crimson hues interlaced with striking white veins that create a dynamic, painterly canvas. This expressive stone surface features gently rounded corners and subtly tapered edges, which soften its immense physical mass. Supporting this luxurious plane is an elongated, capsule-shaped plinth wrapped in a continuous shroud of warm brushed bronze, whose subtly reflective, textured surface catches the ambient light with sophisticated restraint. In a thoughtful display of tectonic layering, an intermediate neck of dark smoked oak separates the marble top from the metallic base, while matching timber accents trim the very bottom, creating a refined sense of visual separation and structural grounding. The resulting piece is a timeless, editorial-worthy architectural statement that beautifully balances the warmth of artisanal metalwork with the raw grandeur of natural stone.",
+    ]
+  },
+  {
+    category: "furniture",
+    slug: "kono",
+    title: "Kono",
+    // sketchSrc: "/projects/furniture/Kono-1.jpg",
+    colorSrc: "/projects/furniture/Kono-1.jpg",
+    location: "",
+    typology: "Dining Table",
+    area: "N/A",
+    year: "2024",
+    lead: "The Kono dining table orchestrates a sublime study in tectonic poise, beautifully balancing organic fluidity with strict geometric precision.",
+    gallery: [
+      {
+        src: "/projects/furniture/Kono-1.jpg",
+        alt: "Kono dining table"
+      },
+      {
+        src: "/projects/furniture/Kono-2.jpg",
+        alt: "Kono dining table"
+      },
+      {
+        src: "/projects/furniture/Kono-3.jpg",
+        alt: "Kono dining table"
+      },
+      {
+        src: "/projects/furniture/Kono-4.jpg",
+        alt: "Kono dining table"
+      }
+
+    ],
+    narrative: [
+      "The design is crowned by an expansive, circular top of exquisite Verde Alpi marble, its deep, verdant surface intricately traced with a complex web of crystalline white veins that evoke the timeless grandeur of alpine landscapes. This polished stone plane features subtly chamfered edges that catch the light, minimizing its visual profile to introduce an unexpected element of grace. In an elegant display of structural transparency, a slender column of brushed bronze elevates the marble, rising seamlessly from a conical plinth of dark smoked oak. The subtle, metallic luster of the bronze neck provides a refined transition between the rich, dark grain of the wooden pedestal and the dramatic intensity of the stone above. This intentional layering transforms Kono from a functional gathering archetype into a commanding, sculptural centerpiece for the curated interior."
+    ]
+  },
+  {
+    category: "furniture",
+    slug: "colonna",
+    title: "Colonna",
+    // sketchSrc: "/projects/furniture/Colonna-1.jpg",
+    colorSrc: "/projects/furniture/Colonna-1.jpg",
+    location: "",
+    typology: "Console Table",
+    area: "N/A",
+    year: "2026",
+    lead: "The Colonna console table is a magnificent orchestration of classical architecture reinterpreted through a contemporary lens of minimalist luxury.",
+    gallery: [
+      {
+        src: "/projects/furniture/Colonna-1.jpg",
+        alt: "Colonna console table"
+      },
+      {
+        src: "/projects/furniture/Colonna-2.jpg",
+        alt: "Colonna console table"
+      },
+      {
+        src: "/projects/furniture/Colonna-3.jpg",
+        alt: "Colonna console table"
+      },
+      {
+        src: "/projects/furniture/Colonna-4.jpg",
+        alt: "Colonna console table"
+      }
+    ],
+    narrative: [
+      "Sculpted entirely from premium, heavily veined white marble, the piece commands space with a rhythmic, colonnade-inspired base composed of multiple parallel cylinders. The outermost pillars are fully grounded, detailed with precise, stepped fluting at their base to anchor the structure with absolute stability, while the inner columns dynamically step upward to create a dramatic, inverted-arch silhouette that feels delightfully suspended in mid-air. Resting atop this powerful rhythmic cadence is a slender, racetrack-shaped marble top with softly rounded profiles that beautifully temper the piece's monumental mass. The continuous flow of natural, dark gray veining across the polished stone surfaces celebrates an absolute truth to materials, transforming a functional hallway archetype into a breathtaking, gallery-worthy installation that bridges historical gravity with avant-garde spatial poetry."
+    ]
+  },
+  {
+    category: "furniture",
     slug: "cantra",
     title: "Cantra",
     // sketchSrc: "/projects/furniture/Cantra-1.jpg",
     colorSrc: "/projects/furniture/Cantra-1.jpg",
     location: "",
     typology: "Office Desk Table",
-    area: " NA",
-    year: "NA",
+    area: "N/A",
+    year: "2025",
     lead: "The Cantra office desk challenges conventional structural typology through an audacious play of gravity and geometric equilibrium.",
     gallery: [
       {
@@ -1110,8 +1215,8 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/furniture/Torus-1.jpg",
     location: "",
     typology: "Center Table",
-    area: " NA",
-    year: "NA",
+    area: "N/A",
+    year: "2025",
     lead: "The Torus center table articulates a sophisticated dialogue of geometric purity and grounded monumentality, anchoring contemporary living spaces with its exceptional sculptural presence.",
     gallery: [
       {
@@ -1133,109 +1238,6 @@ const BASE_PROJECTS = [
       "A subtle, recessed reveal separates the stone matrix from the timber underbelly, giving the heavy slab a deceptive sense of weightlessness. Chamfered detailing along the lower edges of the tabletop mirrors the precise joinery of the base, demonstrating a masterful commitment to material truth and craftsmanship. The result is a balanced, monolithic statement piece that bridges minimalist discipline with rich textural warmth."
     ]
   },
-
-  {
-    category: "furniture",
-    slug: "volant",
-    title: "Volant",
-    // sketchSrc: "/projects/furniture/Volant-1.jpg",
-    colorSrc: "/projects/furniture/Volant-1.jpg",
-    location: "",
-    typology: "Dining Table",
-    area: " NA",
-    year: "NA",
-    lead: "The Volant dining table embodies a masterclass in monumental elegance and material harmony, establishing a commanding sculptural presence within the contemporary dining space.",
-    gallery: [
-      {
-        src: "/projects/furniture/Volant-1.jpg",
-        alt: "Volant dining table"
-      },
-      {
-        src: "/projects/furniture/Volant-2.jpg",
-        alt: "Volant dining table"
-      },
-      {
-        src: "/projects/furniture/Volant-3.jpg",
-        alt: "Volant dining table"
-      },
-      {
-        src: "/projects/furniture/Volant-4.jpg",
-        alt: "Volant dining table"
-      }
-
-    ],
-    narrative: [
-      "The design centers around an expansive, boat-shaped top of polished Red Levanto marble, its deep, dramatic crimson hues interlaced with striking white veins that create a dynamic, painterly canvas. This expressive stone surface features gently rounded corners and subtly tapered edges, which soften its immense physical mass. Supporting this luxurious plane is an elongated, capsule-shaped plinth wrapped in a continuous shroud of warm brushed bronze, whose subtly reflective, textured surface catches the ambient light with sophisticated restraint. In a thoughtful display of tectonic layering, an intermediate neck of dark smoked oak separates the marble top from the metallic base, while matching timber accents trim the very bottom, creating a refined sense of visual separation and structural grounding. The resulting piece is a timeless, editorial-worthy architectural statement that beautifully balances the warmth of artisanal metalwork with the raw grandeur of natural stone.",
-    ]
-  },
-  {
-    category: "furniture",
-    slug: "kono",
-    title: "Kono",
-    // sketchSrc: "/projects/furniture/Kono-1.jpg",
-    colorSrc: "/projects/furniture/Kono-1.jpg",
-    location: "",
-    typology: "Dining Table",
-    area: " NA",
-    year: "NA",
-    lead: "The Kono dining table orchestrates a sublime study in tectonic poise, beautifully balancing organic fluidity with strict geometric precision.",
-    gallery: [
-      {
-        src: "/projects/furniture/Kono-1.jpg",
-        alt: "Kono dining table"
-      },
-      {
-        src: "/projects/furniture/Kono-2.jpg",
-        alt: "Kono dining table"
-      },
-      {
-        src: "/projects/furniture/Kono-3.jpg",
-        alt: "Kono dining table"
-      },
-      {
-        src: "/projects/furniture/Kono-4.jpg",
-        alt: "Kono dining table"
-      }
-
-    ],
-    narrative: [
-      "The design is crowned by an expansive, circular top of exquisite Verde Alpi marble, its deep, verdant surface intricately traced with a complex web of crystalline white veins that evoke the timeless grandeur of alpine landscapes. This polished stone plane features subtly chamfered edges that catch the light, minimizing its visual profile to introduce an unexpected element of grace. In an elegant display of structural transparency, a slender column of brushed bronze elevates the marble, rising seamlessly from a conical plinth of dark smoked oak. The subtle, metallic luster of the bronze neck provides a refined transition between the rich, dark grain of the wooden pedestal and the dramatic intensity of the stone above. This intentional layering transforms Kono from a functional gathering archetype into a commanding, sculptural centerpiece for the curated interior."
-    ]
-  },
-
-  {
-    category: "furniture",
-    slug: "colonna",
-    title: "Colonna",
-    // sketchSrc: "/projects/furniture/Colonna-1.jpg",
-    colorSrc: "/projects/furniture/Colonna-1.jpg",
-    location: "",
-    typology: "Console Table",
-    area: " NA",
-    year: "NA",
-    lead: "The Colonna console table is a magnificent orchestration of classical architecture reinterpreted through a contemporary lens of minimalist luxury.",
-    gallery: [
-      {
-        src: "/projects/furniture/Colonna-1.jpg",
-        alt: "Colonna console table"
-      },
-      {
-        src: "/projects/furniture/Colonna-2.jpg",
-        alt: "Colonna console table"
-      },
-      {
-        src: "/projects/furniture/Colonna-3.jpg",
-        alt: "Colonna console table"
-      },
-      {
-        src: "/projects/furniture/Colonna-4.jpg",
-        alt: "Colonna console table"
-      }
-    ],
-    narrative: [
-      "Sculpted entirely from premium, heavily veined white marble, the piece commands space with a rhythmic, colonnade-inspired base composed of multiple parallel cylinders. The outermost pillars are fully grounded, detailed with precise, stepped fluting at their base to anchor the structure with absolute stability, while the inner columns dynamically step upward to create a dramatic, inverted-arch silhouette that feels delightfully suspended in mid-air. Resting atop this powerful rhythmic cadence is a slender, racetrack-shaped marble top with softly rounded profiles that beautifully temper the piece's monumental mass. The continuous flow of natural, dark gray veining across the polished stone surfaces celebrates an absolute truth to materials, transforming a functional hallway archetype into a breathtaking, gallery-worthy installation that bridges historical gravity with avant-garde spatial poetry."
-    ]
-  },
   {
     category: "furniture",
     slug: "suture",
@@ -1244,8 +1246,8 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/furniture/Suture-1.jpg",
     location: "",
     typology: "Console Table",
-    area: " NA",
-    year: "NA",
+    area: "N/A",
+    year: "2023",
     lead: "The Suture console table stands as a profound exploration of tectonic tension and material contrast, seamlessly merging the raw spontaneity of nature with the precise geometry of contemporary design.",
     gallery: [
       {
@@ -1277,8 +1279,8 @@ const BASE_PROJECTS = [
     colorSrc: "/projects/furniture/Verve-1.jpg",
     location: "",
     typology: "Basin Console",
-    area: " NA",
-    year: "NA",
+    area: "N/A",
+    year: "2025",
     lead: "The Verve wash basin table redefines the boundaries of bathroom typology, presenting an avant-garde composition of bold geometric totems and structural asymmetry. ",
     gallery: [
       {

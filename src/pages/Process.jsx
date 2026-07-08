@@ -15,7 +15,7 @@ export default function Process() {
             <p>{s.body}</p>
           </section>
         ))}
-        <p className="disclaimer"><strong>Disclaimer:</strong> While the methodology outlined above represents our studio's comprehensive design journey, every engagement remains tailored, as specific deliverables and project stages are strictly defined by the individual scope of work and contractual agreements established at the commencement of each project.</p>
+        <p className="disclaimer"><strong>Note:</strong> While the methodology outlined above represents our studio's comprehensive design journey, every engagement remains tailored, as specific deliverables and project stages are strictly defined by the individual scope of work and contractual agreements established at the commencement of each project.</p>
       </main>
     </>
   );

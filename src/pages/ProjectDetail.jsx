@@ -148,6 +148,11 @@ export default function ProjectDetail() {
         <section className="detail-hero">
           <div>
             <h1>{project.title}</h1>
+            {project.partner && (
+              <div>
+                <i className="partner">{project?.partner}</i>
+              </div>
+            )}
             <p className="eyebrow">{project.location}</p>
             <div className="project-share-container">
               <button type="button" className="btn-share-project"
@@ -254,7 +259,7 @@ export default function ProjectDetail() {
         <div
           className="lightbox"
           style={{ opacity: lightbox.visible ? 1 : 0 }}
-          onClick={closeLightbox}
+          // onClick={closeLightbox}
         >
           <button className="lb-close" onClick={e => { e.stopPropagation(); closeLightbox(); }}>&times;</button>
           <button className="lb-prev" onClick={lbPrev}>&lt;</button>

@@ -44,7 +44,7 @@ export default function Home() {
                 <p className="nav-instruction">Tap this navigation Dot to open the Menu and explore more.</p>
 
                 <p className="nav-cta-home" onClick={() => setShowHint(false)}>
-                  GOT IT.
+                  GOT IT
                 </p>
               </div>
             )
