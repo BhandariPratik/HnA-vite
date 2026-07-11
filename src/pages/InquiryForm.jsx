@@ -130,6 +130,10 @@ export default function InquiryForm() {
           <button className="btn-submit-action" onClick={reset}>
             <span>Submit Another Inquiry</span>
           </button>
+
+          <button className="btn-submit-action" onClick={() => window.open("/", "_self")}>
+            <span>Explore our work</span>
+          </button>
         </div>
       </main>
     );
@@ -296,7 +300,13 @@ export default function InquiryForm() {
         <div className="action-submit-row">
           <button type="submit" className="btn-submit-action" disabled={loading}>
             {loading ? (
-              <span>Submitting...</span>
+              <div className="submit-overlay" role="alert" aria-live="assertive">
+                <div className="submit-overlay-card">
+                  <span className="submit-spinner" aria-hidden="true" />
+                  <h2 className="submit-overlay-title">{'Hang tight!'}</h2>
+                  <p className="submit-overlay-text">{"We're finishing up. Please don't refresh or close this page."}</p>
+                </div>
+              </div>
             ) : (
               <>
                 <span>Submit Inquiry</span>

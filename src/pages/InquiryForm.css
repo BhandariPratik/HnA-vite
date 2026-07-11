@@ -83,6 +83,8 @@
   font-weight: 500;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   cursor: pointer;
   transition: background .25s, color .25s, border-color .25s
 }
@@ -157,7 +159,7 @@
   background: transparent;
   color: var(--ink);
   border-radius: var(--radius-soft);
-  padding: .4rem 1.2rem;
+  padding: .55rem 1.4rem;
   font-size: clamp(.72rem, 1vw, .86rem);
   font-family: inherit;
   font-weight: 300;
@@ -183,15 +185,17 @@ textarea.input-control {
 }
 
 .chips-matrix {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .65rem
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: .85rem 1.1rem !important;
+  width: 100%
 }
 
 .chip-item {
   position: relative;
   display: block;
-  cursor: pointer
+  cursor: pointer;
+  width: 100%
 }
 
 .chip-item input {
@@ -202,16 +206,21 @@ textarea.input-control {
 }
 
 .chip-surface {
-  display: inline-block;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100% !important;
   border: 1px solid rgba(16, 16, 15, .12);
   background: transparent;
   color: var(--ink);
-  padding: .5rem 1.2rem;
-  font-size: clamp(.7rem, .9vw, .8rem);
+  padding: .55rem 1.4rem !important;
+  font-size: clamp(.72rem, 1vw, .86rem);
   font-weight: 400;
-  border-radius: 999px;
-  transition: all .2s;
-  user-select: none
+  border-radius: var(--radius-soft);
+  transition: all .2s cubic-bezier(.16, 1, .3, 1);
+  user-select: none;
+  white-space: normal
 }
 
 .chip-item:hover .chip-surface {
@@ -397,9 +406,10 @@ textarea.input-control {
 }
 
 .social-icon-round-link {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
+  text-decoration: none !important;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
@@ -407,6 +417,14 @@ textarea.input-control {
   color: var(--title-tone);
   font-size: .9rem;
   transition: all .3s cubic-bezier(.16, 1, .3, 1)
+}
+
+.social-icon-round-link *,
+.social-icon-round-link:hover,
+.social-icon-round-link:focus,
+.social-icon-round-link:active {
+  text-decoration: none !important;
+  outline: none
 }
 
 .social-icon-round-link:hover {
@@ -420,6 +438,11 @@ textarea.input-control {
   .fields-grid,
   .form-footer-contact-block {
     grid-template-columns: 1fr
+  }
+
+  .chips-matrix {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: .75rem !important
   }
 
   .field-group.full-width {
@@ -451,4 +474,59 @@ textarea.input-control {
 .field-error::before {
   content: "⚠";
   font-size: 0.65rem;
+}
+
+
+.submit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, .35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 1.5rem
+}
+
+.submit-overlay-card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: clamp(2.25rem, 5vw, 3rem) clamp(1.75rem, 5vw, 3rem);
+  max-width: 26rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(16, 16, 15, .18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem
+}
+
+.submit-spinner {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(99, 107, 117, .1) 90deg, #636b75 360deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 7px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 7px));
+  animation: submit-spin .9s linear infinite
+}
+
+@keyframes submit-spin {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.submit-overlay-title {
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  color: var(--title-tone);
+}
+
+.submit-overlay-text {
+  font-size: clamp(.82rem, 1.5vw, .92rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color:  var(--ink);
 }
