@@ -131,7 +131,7 @@ export default function InquiryForm() {
             <span>Submit Another Inquiry</span>
           </button>
 
-          <button className="btn-submit-action" onClick={() => window.open("/", "_self")}>
+          <button className="btn-submit-action ml-3" onClick={() => window.open("/", "_self")}>
             <span>Explore our work</span>
           </button>
         </div>
