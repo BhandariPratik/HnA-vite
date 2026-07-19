@@ -10,7 +10,15 @@ export default function ProjectDetail() {
   const project = ALL_PROJECTS.find(p => p.slug === slug);
 
   // ── Carousel state ──
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Position is tracked as an index into an "extended" array that has a
+  // clone of the last slide glued to the front and a clone of the first
+  // slide glued to the end. That's what lets last→first (and first→last)
+  // keep sliding in the same direction instead of snapping backwards
+  // through every image — the lightbox uses the exact same mechanism below,
+  // so both carousels wrap identically.
+  const [galleryPos, setGalleryPos] = useState(1);
+  const [galleryTransition, setGalleryTransition] = useState(true);
+  const galleryAnimating = useRef(false);
   const autoSlideRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -22,8 +30,11 @@ export default function ProjectDetail() {
   const lbTouchEndX = useRef(0);
   const lbIsSwiping = useRef(false);
 
-  // ── Lightbox state ──
-  const [lightbox, setLightbox] = useState({ open: false, idx: 0, visible: false });
+  // ── Lightbox state (same seamless-wrap technique as the gallery) ──
+  const [lightbox, setLightbox] = useState({ open: false, visible: false });
+  const [lbPos, setLbPos] = useState(1);
+  const [lbTransition, setLbTransition] = useState(true);
+  const lbAnimating = useRef(false);
 
   useEffect(() => {
     if (!project) navigate("/projects");
@@ -33,18 +44,28 @@ export default function ProjectDetail() {
 
   const { gallery } = project;
   const total = gallery.length;
+  const hasMultiple = total > 1;
+
+  // Extended arrays: [clone-of-last, ...real slides, clone-of-first]
+  const extendedGallery = hasMultiple ? [gallery[total - 1], ...gallery, gallery[0]] : gallery;
+  const trackLen = extendedGallery.length;
+
+  const currentIndex = hasMultiple ? ((galleryPos - 1) % total + total) % total : 0;
+  const lbIndex = hasMultiple ? ((lbPos - 1) % total + total) % total : 0;
+  const displayGalleryPos = hasMultiple ? galleryPos : 0;
+  const displayLbPos = hasMultiple ? lbPos : 0;
 
   // ── Auto-slide ──
   const startAutoCycle = useCallback(() => {
     stopAutoCycle();
+    if (!hasMultiple) return;
     autoSlideRef.current = setInterval(() => {
-      setCurrentIndex(i => (i + 1) % total);
+      if (galleryAnimating.current) return;
+      galleryAnimating.current = true;
+      setGalleryTransition(true);
+      setGalleryPos(p => p + 1);
     }, 3000);
   }, [total]);
-
-  // const stopAutoCycle = () => {
-  //   if (autoSlideRef.current) clearInterval(autoSlideRef.current);
-  // };
 
   const stopAutoCycle = () => {
     if (autoSlideRef.current) {
@@ -76,20 +97,54 @@ export default function ProjectDetail() {
     return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
   };
 
-  // Single source of truth for "should autoplay restart right now?" — always
-  // re-checks the actual cursor position instead of trusting that a
-  // mouseenter/mouseleave fired correctly (it often doesn't when the
-  // lightbox overlay appears/disappears on top of a stationary cursor).
   const resumeAutoCycleUnlessHovering = () => {
     if (!isCursorOverGallery()) startAutoCycle();
   };
 
+  // Jump straight to a slide (dots) — still animates, just isn't a wrap move.
   const goTo = (idx) => {
-    setCurrentIndex((idx + total) % total);
+    if (galleryAnimating.current) return;
+    galleryAnimating.current = true;
+    setGalleryTransition(true);
+    setGalleryPos(((idx % total) + total) % total + 1);
   };
 
-  const nextSlide = () => { stopAutoCycle(); goTo(currentIndex + 1); resumeAutoCycleUnlessHovering(); };
-  const prevSlide = () => { stopAutoCycle(); goTo(currentIndex - 1); resumeAutoCycleUnlessHovering(); };
+  const advanceGallery = (dir) => {
+    if (galleryAnimating.current) return;
+    galleryAnimating.current = true;
+    setGalleryTransition(true);
+    setGalleryPos(p => p + dir);
+  };
+
+  const nextSlide = () => { stopAutoCycle(); advanceGallery(1); resumeAutoCycleUnlessHovering(); };
+  const prevSlide = () => { stopAutoCycle(); advanceGallery(-1); resumeAutoCycleUnlessHovering(); };
+
+  // Once the track finishes animating onto a cloned slide, snap instantly
+  // (transition disabled for one frame) to the matching real slide on the
+  // other end. Visually indistinguishable, but it's what makes the wrap
+  // look continuous instead of reversing through the whole gallery.
+  const handleGalleryTransitionEnd = () => {
+    if (!hasMultiple) { galleryAnimating.current = false; return; }
+    if (galleryPos === 0) {
+      setGalleryTransition(false);
+      setGalleryPos(total);
+    } else if (galleryPos === trackLen - 1) {
+      setGalleryTransition(false);
+      setGalleryPos(1);
+    } else {
+      galleryAnimating.current = false;
+    }
+  };
+
+  useEffect(() => {
+    if (!galleryTransition) {
+      const raf = requestAnimationFrame(() => {
+        setGalleryTransition(true);
+        galleryAnimating.current = false;
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [galleryTransition]);
 
   // ── Touch swipe ──
   const onTouchStart = (e) => {
@@ -107,15 +162,18 @@ export default function ProjectDetail() {
     if (!isSwiping.current) return;
     isSwiping.current = false;
     const dist = touchEndX.current - touchStartX.current;
-    if (dist < -50) goTo(currentIndex + 1);
-    else if (dist > 50) goTo(currentIndex - 1);
+    if (dist < -50) advanceGallery(1);
+    else if (dist > 50) advanceGallery(-1);
     resumeAutoCycleUnlessHovering();
   };
 
   // ── Lightbox ──
   const openLightbox = (idx) => {
     stopAutoCycle();
-    setLightbox({ open: true, idx, visible: false });
+    lbAnimating.current = false;
+    setLbTransition(false);
+    setLbPos(((idx % total) + total) % total + 1);
+    setLightbox({ open: true, visible: false });
     setTimeout(() => setLightbox(l => ({ ...l, visible: true })), 10);
     document.body.style.overflow = "hidden";
   };
@@ -123,14 +181,44 @@ export default function ProjectDetail() {
   const closeLightbox = () => {
     setLightbox(l => ({ ...l, visible: false }));
     setTimeout(() => {
-      setLightbox({ open: false, idx: 0, visible: false });
+      setLightbox({ open: false, visible: false });
       document.body.style.overflow = "";
       resumeAutoCycleUnlessHovering();
     }, 250);
   };
 
-  const lbNext = (e) => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx + 1) % total })); };
-  const lbPrev = (e) => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total })); };
+  const advanceLightbox = (dir) => {
+    if (lbAnimating.current) return;
+    lbAnimating.current = true;
+    setLbTransition(true);
+    setLbPos(p => p + dir);
+  };
+
+  const lbNext = (e) => { e.stopPropagation(); advanceLightbox(1); };
+  const lbPrev = (e) => { e.stopPropagation(); advanceLightbox(-1); };
+
+  const handleLbTransitionEnd = () => {
+    if (!hasMultiple) { lbAnimating.current = false; return; }
+    if (lbPos === 0) {
+      setLbTransition(false);
+      setLbPos(total);
+    } else if (lbPos === trackLen - 1) {
+      setLbTransition(false);
+      setLbPos(1);
+    } else {
+      lbAnimating.current = false;
+    }
+  };
+
+  useEffect(() => {
+    if (!lbTransition) {
+      const raf = requestAnimationFrame(() => {
+        setLbTransition(true);
+        lbAnimating.current = false;
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [lbTransition]);
 
   // ── Lightbox touch swipe ──
   const onLbTouchStart = (e) => {
@@ -147,16 +235,16 @@ export default function ProjectDetail() {
     if (!lbIsSwiping.current) return;
     lbIsSwiping.current = false;
     const dist = lbTouchEndX.current - lbTouchStartX.current;
-    if (dist < -50) setLightbox(l => ({ ...l, idx: (l.idx + 1) % total }));
-    else if (dist > 50) setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total }));
+    if (dist < -50) advanceLightbox(1);
+    else if (dist > 50) advanceLightbox(-1);
   };
 
   useEffect(() => {
     const onKey = (e) => {
       if (!lightbox.open) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") setLightbox(l => ({ ...l, idx: (l.idx + 1) % total }));
-      if (e.key === "ArrowLeft") setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total }));
+      if (e.key === "ArrowRight") advanceLightbox(1);
+      if (e.key === "ArrowLeft") advanceLightbox(-1);
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -259,24 +347,31 @@ export default function ProjectDetail() {
           {/* Slider track */}
           <div
             className="gallery-slider-track"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            style={{
+              transform: `translateX(-${displayGalleryPos * 100}%)`,
+              transition: galleryTransition ? undefined : "none",
+            }}
+            onTransitionEnd={handleGalleryTransitionEnd}
           >
-            {gallery.map((img, i) => (
-              <div key={i} className="gallery-carousel-item">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  draggable="false"
-                  onTouchStart={() => { tapPrevented.current = false; }}
-                  onTouchMove={() => { tapPrevented.current = true; }}
-                  onClick={() => {
-                    if (tapPrevented.current) return;
-                    setCurrentIndex(i);
-                    openLightbox(i);
-                  }}
-                />
-              </div>
-            ))}
+            {extendedGallery.map((img, i) => {
+              const realIdx = hasMultiple ? (i - 1 + total) % total : i;
+              return (
+                <div key={i} className="gallery-carousel-item">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    draggable="false"
+                    onTouchStart={() => { tapPrevented.current = false; }}
+                    onTouchMove={() => { tapPrevented.current = true; }}
+                    onClick={() => {
+                      if (tapPrevented.current) return;
+                      goTo(realIdx);
+                      openLightbox(realIdx);
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
 
           {/* Dots */}
@@ -317,14 +412,31 @@ export default function ProjectDetail() {
         >
           <button className="lb-close" onClick={e => { e.stopPropagation(); closeLightbox(); }}>&times;</button>
           <button className="lb-prev" onClick={lbPrev}>&lt;</button>
-          <img
-            className="lb-img"
-            src={gallery[lightbox.idx].src}
-            alt={gallery[lightbox.idx].alt}
+
+          <div
+            className="lb-viewport"
             style={{ transform: lightbox.visible ? "scale(1)" : "scale(0.95)" }}
-            onClick={e => e.stopPropagation()}
-            draggable="false"
-          />
+          >
+            <div
+              className="lb-slider-track"
+              style={{
+                transform: `translateX(-${displayLbPos * 100}%)`,
+                transition: lbTransition ? undefined : "none",
+              }}
+              onTransitionEnd={handleLbTransitionEnd}
+            >
+              {extendedGallery.map((img, i) => (
+                <div key={i} className="lb-slide">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    draggable="false"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
           <button className="lb-next" onClick={lbNext}>&gt;</button>
 
           <div className="lb-dots">
@@ -332,9 +444,15 @@ export default function ProjectDetail() {
               <button
                 key={i}
                 type="button"
-                className={`lb-dot${i === lightbox.idx ? " is-active" : ""}`}
+                className={`lb-dot${i === lbIndex ? " is-active" : ""}`}
                 aria-label={`Go to image ${i + 1}`}
-                onClick={e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: i })); }}
+                onClick={e => {
+                  e.stopPropagation();
+                  if (lbAnimating.current) return;
+                  lbAnimating.current = true;
+                  setLbTransition(true);
+                  setLbPos(((i % total) + total) % total + 1);
+                }}
               />
             ))}
           </div>
