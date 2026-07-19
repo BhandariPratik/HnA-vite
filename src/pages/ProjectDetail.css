@@ -186,7 +186,8 @@
   z-index: 20000;
   place-items: center;
   cursor: pointer;
-  transition: opacity .25s
+  transition: opacity .25s;
+  touch-action: pan-y;
 }
 
 .lb-close {
@@ -238,6 +239,33 @@
   transition: transform .3s cubic-bezier(.16, 1, .3, 1);
   pointer-events: none;
   user-select: none
+}
+
+/* ── LIGHTBOX DOTS ── */
+.lb-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 10;
+}
+
+.lb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.lb-dot.is-active {
+  background: #ffffff;
+  transform: scale(1.3);
 }
 
 /* ── SHARE BUTTON ── */
@@ -296,4 +324,5 @@
   .lb-prev { left: 1rem; }
   .lb-next { right: 1rem; }
   .lb-close { top: 1.5rem; right: 1.5rem; }
+  .lb-dots { bottom: 1rem; }
 }

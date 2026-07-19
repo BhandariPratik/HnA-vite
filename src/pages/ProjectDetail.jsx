@@ -16,6 +16,11 @@ export default function ProjectDetail() {
   const touchEndX = useRef(0);
   const isSwiping = useRef(false);
   const tapPrevented = useRef(false);
+  const galleryRef = useRef(null);
+  const lastMouse = useRef({ x: -1, y: -1 });
+  const lbTouchStartX = useRef(0);
+  const lbTouchEndX = useRef(0);
+  const lbIsSwiping = useRef(false);
 
   // ── Lightbox state ──
   const [lightbox, setLightbox] = useState({ open: false, idx: 0, visible: false });
@@ -53,12 +58,38 @@ export default function ProjectDetail() {
     return stopAutoCycle;
   }, [startAutoCycle]);
 
+  // Track real cursor position so we can tell whether it's still over the
+  // gallery when the lightbox closes (the overlay closing doesn't fire a
+  // fresh mouseenter/mouseleave since the cursor itself never moved).
+  useEffect(() => {
+    const onMouseMove = (e) => {
+      lastMouse.current = { x: e.clientX, y: e.clientY };
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    return () => window.removeEventListener("mousemove", onMouseMove);
+  }, []);
+
+  const isCursorOverGallery = () => {
+    if (!galleryRef.current) return false;
+    const r = galleryRef.current.getBoundingClientRect();
+    const { x, y } = lastMouse.current;
+    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+  };
+
+  // Single source of truth for "should autoplay restart right now?" — always
+  // re-checks the actual cursor position instead of trusting that a
+  // mouseenter/mouseleave fired correctly (it often doesn't when the
+  // lightbox overlay appears/disappears on top of a stationary cursor).
+  const resumeAutoCycleUnlessHovering = () => {
+    if (!isCursorOverGallery()) startAutoCycle();
+  };
+
   const goTo = (idx) => {
     setCurrentIndex((idx + total) % total);
   };
 
-  const nextSlide = () => { stopAutoCycle(); goTo(currentIndex + 1); startAutoCycle(); };
-  const prevSlide = () => { stopAutoCycle(); goTo(currentIndex - 1); startAutoCycle(); };
+  const nextSlide = () => { stopAutoCycle(); goTo(currentIndex + 1); resumeAutoCycleUnlessHovering(); };
+  const prevSlide = () => { stopAutoCycle(); goTo(currentIndex - 1); resumeAutoCycleUnlessHovering(); };
 
   // ── Touch swipe ──
   const onTouchStart = (e) => {
@@ -78,7 +109,7 @@ export default function ProjectDetail() {
     const dist = touchEndX.current - touchStartX.current;
     if (dist < -50) goTo(currentIndex + 1);
     else if (dist > 50) goTo(currentIndex - 1);
-    startAutoCycle();
+    resumeAutoCycleUnlessHovering();
   };
 
   // ── Lightbox ──
@@ -94,12 +125,31 @@ export default function ProjectDetail() {
     setTimeout(() => {
       setLightbox({ open: false, idx: 0, visible: false });
       document.body.style.overflow = "";
-      startAutoCycle();
+      resumeAutoCycleUnlessHovering();
     }, 250);
   };
 
   const lbNext = (e) => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx + 1) % total })); };
   const lbPrev = (e) => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total })); };
+
+  // ── Lightbox touch swipe ──
+  const onLbTouchStart = (e) => {
+    lbTouchStartX.current = e.changedTouches[0].screenX;
+    lbIsSwiping.current = true;
+  };
+
+  const onLbTouchMove = (e) => {
+    if (!lbIsSwiping.current) return;
+    lbTouchEndX.current = e.changedTouches[0].screenX;
+  };
+
+  const onLbTouchEnd = () => {
+    if (!lbIsSwiping.current) return;
+    lbIsSwiping.current = false;
+    const dist = lbTouchEndX.current - lbTouchStartX.current;
+    if (dist < -50) setLightbox(l => ({ ...l, idx: (l.idx + 1) % total }));
+    else if (dist > 50) setLightbox(l => ({ ...l, idx: (l.idx - 1 + total) % total }));
+  };
 
   useEffect(() => {
     const onKey = (e) => {
@@ -175,13 +225,14 @@ export default function ProjectDetail() {
 
         {/* ── CAROUSEL GALLERY ── */}
         <section
+          ref={galleryRef}
           className="project-gallery-carousel"
           aria-label="Project image gallery"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
           onMouseEnter={stopAutoCycle}
-          onMouseLeave={startAutoCycle}
+          onMouseLeave={resumeAutoCycleUnlessHovering}
         >
           {/* Prev / Next arrows */}
           <button
@@ -236,7 +287,7 @@ export default function ProjectDetail() {
                 type="button"
                 className={`carousel-dot${i === currentIndex ? " is-active" : ""}`}
                 aria-label={`Go to slide ${i + 1}`}
-                onClick={() => { stopAutoCycle(); goTo(i); startAutoCycle(); }}
+                onClick={() => { stopAutoCycle(); goTo(i); resumeAutoCycleUnlessHovering(); }}
               />
             ))}
           </div>
@@ -259,7 +310,10 @@ export default function ProjectDetail() {
         <div
           className="lightbox"
           style={{ opacity: lightbox.visible ? 1 : 0 }}
-          // onClick={closeLightbox}
+          onTouchStart={onLbTouchStart}
+          onTouchMove={onLbTouchMove}
+          onTouchEnd={onLbTouchEnd}
+          onClick={closeLightbox}
         >
           <button className="lb-close" onClick={e => { e.stopPropagation(); closeLightbox(); }}>&times;</button>
           <button className="lb-prev" onClick={lbPrev}>&lt;</button>
@@ -272,6 +326,18 @@ export default function ProjectDetail() {
             draggable="false"
           />
           <button className="lb-next" onClick={lbNext}>&gt;</button>
+
+          <div className="lb-dots">
+            {gallery.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`lb-dot${i === lightbox.idx ? " is-active" : ""}`}
+                aria-label={`Go to image ${i + 1}`}
+                onClick={e => { e.stopPropagation(); setLightbox(l => ({ ...l, idx: i })); }}
+              />
+            ))}
+          </div>
         </div>
       )}
     </>

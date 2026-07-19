@@ -654,10 +654,10 @@ const BASE_PROJECTS = [
         src: "/projects/interior/Elysian01.jpg",
         alt: "Elysian Beauty exterior"
       },
-      {
-        src: "/projects/interior/Elysian02.jpg",
-        alt: "Elysian Beauty interior"
-      },
+      // {
+      //   src: "/projects/interior/Elysian02.jpg",
+      //   alt: "Elysian Beauty interior"
+      // },
       {
         src: "/projects/interior/Elysian03.jpg",
         alt: "Elysian Beauty dining area"
@@ -851,7 +851,7 @@ const BASE_PROJECTS = [
   },
   {
     category: "landscape",
-    slug: "parikh-house",
+    slug: "parikh_house",
     title: "Parikh House",
     // sketchSrc: "/coming_soon.jpeg",
     colorSrc: "/projects/landscape/FG-01.jpg",
